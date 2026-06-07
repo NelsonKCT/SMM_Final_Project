@@ -90,6 +90,16 @@ METHODS = {
         "extra": ["--loss_type", "bce", "--cov_lambda", "1.0",
                   "--coral_on", "none"],
     },
+    # Decisive control: gating OFF, prior OFF, CORAL OFF -> bare 5-channel
+    # backbone with plain per-node attention (AMC-style). If this matches full
+    # CS-DFA, none of direction 3's mechanisms contribute and the score is the
+    # backbone alone.
+    "csdfa_nogate": {
+        "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
+        "prefix": "CSDFAnogate",
+        "extra": ["--loss_type", "bce", "--gating", "off",
+                  "--cov_lambda", "0.0", "--coral_on", "none"],
+    },
 }
 
 # Shared hyper-parameters (identical across the PowerShell scripts).

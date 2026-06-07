@@ -133,26 +133,28 @@ class CoverageGatedFusion(torch.nn.Module):
             torch.nn.Linear(hidden_dim // 2, 1, bias=False)
         )
 
-    def forward(self, z_list, coverage_mask, log_prior=None, prior_lambda=0.0):
+    def forward(self, z_list, coverage_mask, log_prior=None, prior_lambda=0.0, gating=True):
         """
         z_list:        list of 5 tensors, each [N, hidden_dim]
         coverage_mask: [N, 5] float in {0,1}; 1 = node participates in channel c
         log_prior:     [5] log(coverage fraction) per channel, or None
         prior_lambda:  scalar weight on the coverage prior
+        gating:        if False, plain per-node attention over ALL channels (no
+                       coverage mask, no prior) -> the AMC-style backbone control.
         Returns fused [N, hidden_dim] and weights [N, 5].
         """
         z_stack = torch.stack(z_list, dim=1)          # [N, 5, H]
         scores = self.attn_proj(z_stack).squeeze(-1)  # [N, 5]
 
-        if log_prior is not None and prior_lambda != 0:
-            scores = scores + prior_lambda * log_prior.unsqueeze(0)  # broadcast [1,5]
-
-        # Gate: a node cannot attend to a channel it does not belong to.
-        neg_inf = torch.finfo(scores.dtype).min
-        scores = scores.masked_fill(coverage_mask < 0.5, neg_inf)
-        # A node covered by zero channels (shouldn't happen, the union of subnets
-        # is the full graph) ends up with all-equal scores -> softmax = uniform,
-        # which is a safe fallback (no NaNs).
+        if gating:
+            if log_prior is not None and prior_lambda != 0:
+                scores = scores + prior_lambda * log_prior.unsqueeze(0)  # broadcast [1,5]
+            # Gate: a node cannot attend to a channel it does not belong to.
+            neg_inf = torch.finfo(scores.dtype).min
+            scores = scores.masked_fill(coverage_mask < 0.5, neg_inf)
+            # A node covered by zero channels (shouldn't happen, the union of subnets
+            # is the full graph) ends up with all-equal scores -> softmax = uniform,
+            # which is a safe fallback (no NaNs).
         weights = torch.softmax(scores, dim=1)         # [N, 5]
 
         z_fused = torch.sum(weights.unsqueeze(-1) * z_stack, dim=1)  # [N, H]
@@ -198,7 +200,7 @@ class GNN_CrossAttention_CSDFA(torch.nn.Module):
         return self.text_projector(text_node_features) * self.cross_attention_to_text(struct_node_features)
 
     def forward(self, text_node_features, struct_node_features, edge_indices, coverage_mask,
-                log_prior=None, prior_lambda=0.0,
+                log_prior=None, prior_lambda=0.0, gating=True,
                 return_text_features=False, return_attention=False, return_channels=False):
         struct_projection = (
             self.struct_projector(struct_node_features)
@@ -220,7 +222,7 @@ class GNN_CrossAttention_CSDFA(torch.nn.Module):
         z_tweetSim = self.gnn_tweetSim(multimodal_node_features, edge_indices['tweetSim'])
         z_list = [z_coRT, z_coURL, z_hashSeq, z_fastRT, z_tweetSim]
 
-        fused, weights = self.fusion(z_list, coverage_mask, log_prior, prior_lambda)
+        fused, weights = self.fusion(z_list, coverage_mask, log_prior, prior_lambda, gating)
 
         out = torch.exp(self.output_fn(self.classifier(fused)))
 
@@ -466,6 +468,11 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
     coral_channel_idx = [SUBNETS.index(c) for c in coral_channel_names]
     print(f"[CORAL] on={coral_on}, weight={coral_weight}, channels={coral_channel_names}")
 
+    # Gating switch. gating=False -> plain per-node attention over all 5 channels
+    # (no coverage mask, no prior): the AMC-style multichannel backbone control.
+    gating = train_hyperparams.get('gating', 'on') == 'on'
+    print(f"[Fusion] coverage gating = {gating}")
+
     for run_id in tqdm(range(hyper_params['num_splits']), 'Splits training'):
         BEST_VAL_METRIC = -np.inf
         best_model_path = interim_data_dir / f'model{run_id}.pth'
@@ -497,7 +504,7 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
                 pred, text_feats, z_list = model(
                     cd['node_features'], cd['struct_node_features'], cd['edge_indices'],
                     cd['coverage_mask'], log_prior=cd['log_prior'], prior_lambda=prior_lambda,
-                    return_text_features=True, return_channels=True
+                    gating=gating, return_text_features=True, return_channels=True
                 )
                 text_features_dict[country] = text_feats[train_mask]
                 for ci in coral_channel_idx:
@@ -529,7 +536,7 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
                 with torch.no_grad():
                     pred = model(node_features, struct_node_features, edge_indices,
                                  coverage_mask, log_prior=target_log_prior,
-                                 prior_lambda=prior_lambda).detach().cpu().numpy().flatten()
+                                 prior_lambda=prior_lambda, gating=gating).detach().cpu().numpy().flatten()
                     val_metrics = eval_pred(numpy_labels, pred > 0.5, datasets['splits'][run_id]['val'])
                     train_logger.val_update(run_id, val_metrics[train_hyperparams["metric_to_optimize"]])
 
@@ -556,7 +563,7 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
         with torch.no_grad():
             pred, final_weights = model(node_features, struct_node_features, edge_indices,
                                         coverage_mask, log_prior=target_log_prior,
-                                        prior_lambda=prior_lambda, return_attention=True)
+                                        prior_lambda=prior_lambda, gating=gating, return_attention=True)
             pred = pred.detach().cpu().numpy().flatten()
             mean_weights = final_weights.mean(dim=0).cpu().numpy()
             print(f"\n[Split {run_id}] Mean channel attention (gated): " +
@@ -667,6 +674,9 @@ if __name__ == '__main__':
     parser.add_argument('-coral_channels', '--coral_channels', type=str, default='coRT,coURL',
                         help='Comma-separated stable channels to align (subset of '
                              'coRT,coURL,hashSeq,fastRT,tweetSim).')
+    parser.add_argument('-gating', '--gating', type=str, default='on', choices=['on', 'off'],
+                        help="Coverage-gated fusion. off = plain per-node attention over all "
+                             "channels (no mask, no prior) = AMC-style backbone control.")
     args = parser.parse_args()
 
     hyper_parameters = {
@@ -684,7 +694,8 @@ if __name__ == '__main__':
         'loss_type': args.loss_type, 'focal_gamma': args.focal_gamma, 'focal_alpha': args.focal_alpha,
         'coverage_prior_lambda': args.cov_lambda,
         'coral_on': args.coral_on, 'coral_weight': args.coral_weight,
-        'coral_channels': [c.strip() for c in args.coral_channels.split(',') if c.strip()]
+        'coral_channels': [c.strip() for c in args.coral_channels.split(',') if c.strip()],
+        'gating': args.gating
     }
     model_hyperparameters = {'gnn_type': args.gnn, 'latent_dim': args.latent, 'dropout': args.dropout}
     main(args.dataset, train_hyperparameters, model_hyperparameters, hyper_parameters, args.device)
