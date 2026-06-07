@@ -63,6 +63,32 @@ METHODS = {
         "prefix": "AMCv2",
         "extra": ["--loss_type", "bce", "--coral_weight", "50.0"],
     },
+    # Direction 3: Channel-Specific DFA. Coverage-gated channel fusion + coverage
+    # prior, BCE loss (DFA inheritance), channel-specific CORAL on coRT/coURL.
+    "csdfa": {
+        "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
+        "prefix": "CSDFA",
+        "extra": ["--loss_type", "bce", "--cov_lambda", "1.0",
+                  "--coral_on", "channel", "--coral_weight", "1.0",
+                  "--coral_channels", "coRT,coURL"],
+    },
+    # Ablation: gating ON but coverage prior OFF (lambda=0) -> isolates the
+    # contribution of the log-coverage prior over pure masked fusion.
+    "csdfa_noprior": {
+        "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
+        "prefix": "CSDFAnoprior",
+        "extra": ["--loss_type", "bce", "--cov_lambda", "0.0",
+                  "--coral_on", "channel", "--coral_weight", "1.0",
+                  "--coral_channels", "coRT,coURL"],
+    },
+    # Ablation: CORAL disabled -> the method's gains should come from the
+    # coverage-gated fusion, not alignment (text-proj CORAL is a known no-op).
+    "csdfa_nocoral": {
+        "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
+        "prefix": "CSDFAnocoral",
+        "extra": ["--loss_type", "bce", "--cov_lambda", "1.0",
+                  "--coral_on", "none"],
+    },
 }
 
 # Shared hyper-parameters (identical across the PowerShell scripts).
