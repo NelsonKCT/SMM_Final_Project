@@ -28,6 +28,7 @@ via base_dir = cwd().parent, i.e. the project root, which must contain
 data/processed/<country>/).
 """
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -120,11 +121,19 @@ def run_country(method_cfg, country, device, src_dir, results_dir):
     print(f"  log: {log_path}")
     print("=" * 60, flush=True)
 
+    # Multi-channel methods (csdfa/amc/dmc) keep all six countries' five subnet
+    # edge_indices resident on the GPU, which fragments memory on smaller cards
+    # (e.g. Colab T4 15GB) -> a single large message-passing alloc then fails
+    # even though most reserved memory is idle. expandable_segments lets PyTorch
+    # reuse that idle reserved pool, which clears the OOM in practice.
+    child_env = {**os.environ}
+    child_env.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+
     # Stream stdout/stderr to console and tee into a UTF-8 log file.
     # buffering=1 -> line-buffered so the log is monitorable in real time.
     with open(log_path, "w", encoding="utf-8", buffering=1) as log_f:
         proc = subprocess.Popen(
-            cmd, cwd=str(src_dir),
+            cmd, cwd=str(src_dir), env=child_env,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
             text=True, encoding="utf-8", errors="replace", bufsize=1,
         )
