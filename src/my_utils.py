@@ -14,7 +14,6 @@ import mlflow
 from collections import Counter
 
 
-from node2vec import Node2Vec
 from torch_geometric.utils import from_networkx
 from torch_geometric.data import HeteroData
 from torch_geometric.transforms.add_positional_encoding import AddRandomWalkPE
@@ -86,6 +85,9 @@ def load_node2vec_embeddings(data_dir, hyper_parameters):
     if (data_dir / f'node2vec_dim{latent_dim}_seed{seed}.npy').exists():
         print('Loading node2vec embed from disk...')
         return np.load(data_dir / f'node2vec_dim{latent_dim}_seed{seed}.npy', allow_pickle=True)
+    # Lazy import: the node2vec package pulls in gensim (numpy<2), which clashes
+    # with numpy 2.x environments (e.g. Colab). Only needed for the Node2Vec path.
+    from node2vec import Node2Vec
     # Precompute probabilities and generate walks - **ON WINDOWS ONLY WORKS WITH workers=1**
     node2vec = Node2Vec(hyper_parameters['graph'], dimensions=hyper_parameters['latent_dim'],
                         walk_length=5, num_walks=10, workers=8, seed=seed)

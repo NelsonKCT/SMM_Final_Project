@@ -1,0 +1,12 @@
+# Dataset (too large for git; lives on Drive / lab machine)
+data/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# Half-baked / interim experiment outputs
+results/zero-shot_TSET_iran.txt

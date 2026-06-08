@@ -383,11 +383,16 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
     num_epochs = train_hyperparams['num_epochs']
     metric_to_optimize = train_hyperparams['metric_to_optimize']
 
-    # MODULE B: Focal Loss replaces BCELoss
+    # MODULE B: Focal Loss replaces BCELoss (toggle via --loss_type for ablation)
+    loss_type = train_hyperparams.get('loss_type', 'focal')
     focal_gamma = train_hyperparams.get('focal_gamma', 2.0)
     focal_alpha = train_hyperparams.get('focal_alpha', 0.75)
-    loss_fn = FocalLoss(gamma=focal_gamma, alpha=focal_alpha)
-    print(f"[MODULE B] Using Focal Loss: gamma={focal_gamma}, alpha={focal_alpha}")
+    if loss_type == 'bce':
+        loss_fn = torch.nn.BCELoss()
+        print("[MODULE B] Using BCELoss (Focal disabled via --loss_type bce)")
+    else:
+        loss_fn = FocalLoss(gamma=focal_gamma, alpha=focal_alpha)
+        print(f"[MODULE B] Using Focal Loss: gamma={focal_gamma}, alpha={focal_alpha}")
 
     coral_weight = train_hyperparams.get('coral_weight', 1.0)
 
@@ -588,6 +593,9 @@ if __name__ == '__main__':
     parser.add_argument('-most_popular', '--most_pop', type=int, default=5)
     parser.add_argument('-under_sampling', '--under', default=None)
     # TSET-specific arguments
+    parser.add_argument('-loss_type', '--loss_type', type=str, default='focal',
+                        choices=['focal', 'bce'],
+                        help='Classification loss: focal (MODULE B) or bce (ablation)')
     parser.add_argument('-focal_gamma', '--focal_gamma', type=float, default=2.0,
                         help='Focal Loss gamma parameter (MODULE B)')
     parser.add_argument('-focal_alpha', '--focal_alpha', type=float, default=0.75,
@@ -610,6 +618,7 @@ if __name__ == '__main__':
         'early_stopping_limit': args.early, 'check_loss_freq': args.check,
         'metric_to_optimize': args.val_metric,
         'input_embed': args.embed_type, 'trace_type': 'all',
+        'loss_type': args.loss_type,
         'focal_gamma': args.focal_gamma, 'focal_alpha': args.focal_alpha,
         'coral_weight': args.coral_weight, 'sotm_threshold': args.sotm_threshold
     }

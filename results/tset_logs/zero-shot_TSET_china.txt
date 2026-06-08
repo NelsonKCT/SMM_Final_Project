@@ -1,0 +1,425 @@
+[ Using Seed : 12121995 ]
+/content/smm/data/processed/china
+Get edge index from graph (23028N 412649E)
+Loading /content/smm/data/processed/china/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/china/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/iran
+Get edge index from graph (14486N 400483E)
+Loading /content/smm/data/processed/iran/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/iran/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/UAE
+Get edge index from graph (9391N 2119429E)
+Loading /content/smm/data/processed/UAE/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/UAE/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/cuba
+Get edge index from graph (20247N 4739499E)
+Loading /content/smm/data/processed/cuba/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/cuba/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/russia
+Get edge index from graph (716N 10631E)
+Loading /content/smm/data/processed/russia/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/russia/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/venezuela
+Get edge index from graph (5021N 56905E)
+Loading /content/smm/data/processed/venezuela/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/venezuela/nodefeatures/all/gnnpositional_degree.pth
+
+[MODULE C] Checking linguistic isolation for target: china
+  [SOTM] MMD(target, iran) = 0.04272
+  [SOTM] MMD(target, UAE) = 0.02235
+  [SOTM] MMD(target, cuba) = 0.01511
+  [SOTM] MMD(target, russia) = 0.01435
+  [SOTM] MMD(target, venezuela) = 0.01946
+  [SOTM] min_target_MMD=0.01435, all_pairs_mean=0.02378 -> Structure-Only=False
+  -> Structure-Only Transfer Mode (SOTM): False
+
+[MODULE B] Using Focal Loss: gamma=2.0, alpha=0.75
+
+Splits training:   0%|          | 0/5 [00:00<?, ?it/s]Epoch 0/1000 train_loss: 0.4310 (task: 0.4310, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 1/1000 train_loss: 0.4390 (task: 0.4390, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 2/1000 train_loss: 0.4116 (task: 0.4116, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 3/1000 train_loss: 0.3686 (task: 0.3685, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 4/1000 train_loss: 0.3519 (task: 0.3519, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 5/1000 train_loss: 0.3247 (task: 0.3247, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 6/1000 train_loss: 0.2635 (task: 0.2633, coral: 0.0000) -- val_f1_macro: 0.0649 [SOTM=False]
+Epoch 7/1000 train_loss: 0.2670 (task: 0.2666, coral: 0.0000) -- val_f1_macro: 0.4389 [SOTM=False]
+Epoch 8/1000 train_loss: 0.2292 (task: 0.2287, coral: 0.0000) -- val_f1_macro: 0.4892 [SOTM=False]
+Epoch 9/1000 train_loss: 0.2364 (task: 0.2357, coral: 0.0000) -- val_f1_macro: 0.4511 [SOTM=False]
+Epoch 10/1000 train_loss: 0.2051 (task: 0.2043, coral: 0.0000) -- val_f1_macro: 0.4057 [SOTM=False]
+Epoch 11/1000 train_loss: 0.2232 (task: 0.2225, coral: 0.0000) -- val_f1_macro: 0.4445 [SOTM=False]
+Epoch 12/1000 train_loss: 0.1984 (task: 0.1976, coral: 0.0000) -- val_f1_macro: 0.4844 [SOTM=False]
+Epoch 13/1000 train_loss: 0.1835 (task: 0.1830, coral: 0.0000) -- val_f1_macro: 0.4847 [SOTM=False]
+Epoch 14/1000 train_loss: 0.1861 (task: 0.1856, coral: 0.0000) -- val_f1_macro: 0.4516 [SOTM=False]
+Epoch 15/1000 train_loss: 0.1640 (task: 0.1636, coral: 0.0000) -- val_f1_macro: 0.4322 [SOTM=False]
+Epoch 16/1000 train_loss: 0.1681 (task: 0.1677, coral: 0.0000) -- val_f1_macro: 0.4483 [SOTM=False]
+Epoch 17/1000 train_loss: 0.1632 (task: 0.1629, coral: 0.0000) -- val_f1_macro: 0.4686 [SOTM=False]
+Epoch 18/1000 train_loss: 0.1352 (task: 0.1347, coral: 0.0000) -- val_f1_macro: 0.4859 [SOTM=False]
+Epoch 19/1000 train_loss: 0.1387 (task: 0.1384, coral: 0.0000) -- val_f1_macro: 0.4705 [SOTM=False]
+Epoch 20/1000 train_loss: 0.1618 (task: 0.1614, coral: 0.0000) -- val_f1_macro: 0.4701 [SOTM=False]
+Epoch 21/1000 train_loss: 0.1527 (task: 0.1522, coral: 0.0000) -- val_f1_macro: 0.4954 [SOTM=False]
+Epoch 22/1000 train_loss: 0.1244 (task: 0.1240, coral: 0.0000) -- val_f1_macro: 0.5500 [SOTM=False]
+Epoch 23/1000 train_loss: 0.1501 (task: 0.1496, coral: 0.0000) -- val_f1_macro: 0.5191 [SOTM=False]
+Epoch 24/1000 train_loss: 0.1119 (task: 0.1113, coral: 0.0000) -- val_f1_macro: 0.4864 [SOTM=False]
+Epoch 25/1000 train_loss: 0.1243 (task: 0.1240, coral: 0.0000) -- val_f1_macro: 0.5331 [SOTM=False]
+Epoch 26/1000 train_loss: 0.1150 (task: 0.1145, coral: 0.0000) -- val_f1_macro: 0.5866 [SOTM=False]
+Epoch 27/1000 train_loss: 0.1221 (task: 0.1215, coral: 0.0000) -- val_f1_macro: 0.5765 [SOTM=False]
+Epoch 28/1000 train_loss: 0.1184 (task: 0.1180, coral: 0.0000) -- val_f1_macro: 0.5907 [SOTM=False]
+Epoch 29/1000 train_loss: 0.1047 (task: 0.1045, coral: 0.0000) -- val_f1_macro: 0.5899 [SOTM=False]
+Epoch 30/1000 train_loss: 0.1005 (task: 0.1001, coral: 0.0000) -- val_f1_macro: 0.5896 [SOTM=False]
+Epoch 31/1000 train_loss: 0.1026 (task: 0.1023, coral: 0.0000) -- val_f1_macro: 0.5856 [SOTM=False]
+Epoch 32/1000 train_loss: 0.0874 (task: 0.0868, coral: 0.0000) -- val_f1_macro: 0.5954 [SOTM=False]
+Epoch 33/1000 train_loss: 0.0888 (task: 0.0885, coral: 0.0000) -- val_f1_macro: 0.5950 [SOTM=False]
+Epoch 34/1000 train_loss: 0.1028 (task: 0.1025, coral: 0.0000) -- val_f1_macro: 0.5953 [SOTM=False]
+Epoch 35/1000 train_loss: 0.0761 (task: 0.0758, coral: 0.0000) -- val_f1_macro: 0.5877 [SOTM=False]
+Epoch 36/1000 train_loss: 0.0853 (task: 0.0850, coral: 0.0000) -- val_f1_macro: 0.5367 [SOTM=False]
+Epoch 37/1000 train_loss: 0.1065 (task: 0.1060, coral: 0.0000) -- val_f1_macro: 0.5422 [SOTM=False]
+Epoch 38/1000 train_loss: 0.0918 (task: 0.0913, coral: 0.0000) -- val_f1_macro: 0.5791 [SOTM=False]
+Epoch 39/1000 train_loss: 0.0737 (task: 0.0733, coral: 0.0000) -- val_f1_macro: 0.5928 [SOTM=False]
+Epoch 40/1000 train_loss: 0.0804 (task: 0.0801, coral: 0.0000) -- val_f1_macro: 0.5912 [SOTM=False]
+Epoch 41/1000 train_loss: 0.0700 (task: 0.0695, coral: 0.0000) -- val_f1_macro: 0.5752 [SOTM=False]
+Epoch 42/1000 train_loss: 0.0979 (task: 0.0974, coral: 0.0000) -- val_f1_macro: 0.5907 [SOTM=False]
+Epoch 43/1000 train_loss: 0.0765 (task: 0.0759, coral: 0.0000) -- val_f1_macro: 0.5888 [SOTM=False]
+Epoch 44/1000 train_loss: 0.0954 (task: 0.0946, coral: 0.0000) -- val_f1_macro: 0.5802 [SOTM=False]
+Epoch 45/1000 train_loss: 0.1064 (task: 0.1061, coral: 0.0000) -- val_f1_macro: 0.5701 [SOTM=False]
+Epoch 46/1000 train_loss: 0.0822 (task: 0.0817, coral: 0.0000) -- val_f1_macro: 0.5587 [SOTM=False]
+Epoch 47/1000 train_loss: 0.0778 (task: 0.0770, coral: 0.0000) -- val_f1_macro: 0.5582 [SOTM=False]
+Epoch 48/1000 train_loss: 0.0769 (task: 0.0764, coral: 0.0000) -- val_f1_macro: 0.5712 [SOTM=False]
+Epoch 49/1000 train_loss: 0.0664 (task: 0.0657, coral: 0.0000) -- val_f1_macro: 0.5804 [SOTM=False]
+Epoch 50/1000 train_loss: 0.0867 (task: 0.0859, coral: 0.0000) -- val_f1_macro: 0.5911 [SOTM=False]
+Epoch 51/1000 train_loss: 0.0616 (task: 0.0605, coral: 0.0000) -- val_f1_macro: 0.5980 [SOTM=False]
+Epoch 52/1000 train_loss: 0.0698 (task: 0.0686, coral: 0.0000) -- val_f1_macro: 0.5959 [SOTM=False]
+Epoch 53/1000 train_loss: 0.0681 (task: 0.0670, coral: 0.0000) -- val_f1_macro: 0.5813 [SOTM=False]
+Epoch 54/1000 train_loss: 0.0704 (task: 0.0696, coral: 0.0000) -- val_f1_macro: 0.5844 [SOTM=False]
+Epoch 55/1000 train_loss: 0.0860 (task: 0.0853, coral: 0.0000) -- val_f1_macro: 0.5873 [SOTM=False]
+Epoch 56/1000 train_loss: 0.0541 (task: 0.0536, coral: 0.0000) -- val_f1_macro: 0.5752 [SOTM=False]
+Epoch 57/1000 train_loss: 0.0698 (task: 0.0691, coral: 0.0000) -- val_f1_macro: 0.5800 [SOTM=False]
+Epoch 58/1000 train_loss: 0.0693 (task: 0.0687, coral: 0.0000) -- val_f1_macro: 0.5745 [SOTM=False]
+Epoch 59/1000 train_loss: 0.0628 (task: 0.0624, coral: 0.0000) -- val_f1_macro: 0.5714 [SOTM=False]
+Epoch 60/1000 train_loss: 0.0486 (task: 0.0478, coral: 0.0000) -- val_f1_macro: 0.5709 [SOTM=False]
+Epoch 61/1000 train_loss: 0.0475 (task: 0.0470, coral: 0.0000) -- val_f1_macro: 0.5757 [SOTM=False]
+Epoch 62/1000 train_loss: 0.0628 (task: 0.0619, coral: 0.0000) -- val_f1_macro: 0.5770 [SOTM=False]
+Epoch 63/1000 train_loss: 0.0474 (task: 0.0463, coral: 0.0000) -- val_f1_macro: 0.5668 [SOTM=False]
+Epoch 64/1000 train_loss: 0.0605 (task: 0.0595, coral: 0.0000) -- val_f1_macro: 0.5772 [SOTM=False]
+Epoch 65/1000 train_loss: 0.0452 (task: 0.0439, coral: 0.0000) -- val_f1_macro: 0.5877 [SOTM=False]
+Epoch 66/1000 train_loss: 0.0438 (task: 0.0432, coral: 0.0000) -- val_f1_macro: 0.5869 [SOTM=False]
+Epoch 67/1000 train_loss: 0.0478 (task: 0.0472, coral: 0.0000) -- val_f1_macro: 0.5890 [SOTM=False]
+Epoch 68/1000 train_loss: 0.0337 (task: 0.0328, coral: 0.0000) -- val_f1_macro: 0.5868 [SOTM=False]
+Epoch 69/1000 train_loss: 0.0426 (task: 0.0417, coral: 0.0000) -- val_f1_macro: 0.5872 [SOTM=False]
+Epoch 70/1000 train_loss: 0.0488 (task: 0.0478, coral: 0.0000) -- val_f1_macro: 0.5849 [SOTM=False]
+Epoch 71/1000 train_loss: 0.0425 (task: 0.0418, coral: 0.0000) -- val_f1_macro: 0.5771 [SOTM=False]
+Epoch 72/1000 train_loss: 0.0572 (task: 0.0566, coral: 0.0000) -- val_f1_macro: 0.5691 [SOTM=False]
+
+Splits training:  20%|██        | 1/5 [01:25<05:42, 85.56s/it]Epoch 0/1000 train_loss: 0.4200 (task: 0.4200, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 1/1000 train_loss: 0.5430 (task: 0.5430, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 2/1000 train_loss: 0.4095 (task: 0.4094, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 3/1000 train_loss: 0.3712 (task: 0.3711, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 4/1000 train_loss: 0.3535 (task: 0.3534, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 5/1000 train_loss: 0.3188 (task: 0.3185, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 6/1000 train_loss: 0.2934 (task: 0.2928, coral: 0.0000) -- val_f1_macro: 0.3402 [SOTM=False]
+Epoch 7/1000 train_loss: 0.2642 (task: 0.2629, coral: 0.0000) -- val_f1_macro: 0.3914 [SOTM=False]
+Epoch 8/1000 train_loss: 0.2274 (task: 0.2261, coral: 0.0000) -- val_f1_macro: 0.3820 [SOTM=False]
+Epoch 9/1000 train_loss: 0.2240 (task: 0.2215, coral: 0.0000) -- val_f1_macro: 0.4754 [SOTM=False]
+Epoch 10/1000 train_loss: 0.2458 (task: 0.2442, coral: 0.0000) -- val_f1_macro: 0.4718 [SOTM=False]
+Epoch 11/1000 train_loss: 0.1871 (task: 0.1857, coral: 0.0000) -- val_f1_macro: 0.3945 [SOTM=False]
+Epoch 12/1000 train_loss: 0.1909 (task: 0.1899, coral: 0.0000) -- val_f1_macro: 0.4077 [SOTM=False]
+Epoch 13/1000 train_loss: 0.1818 (task: 0.1808, coral: 0.0000) -- val_f1_macro: 0.4571 [SOTM=False]
+Epoch 14/1000 train_loss: 0.1861 (task: 0.1855, coral: 0.0000) -- val_f1_macro: 0.4540 [SOTM=False]
+Epoch 15/1000 train_loss: 0.1651 (task: 0.1646, coral: 0.0000) -- val_f1_macro: 0.4146 [SOTM=False]
+Epoch 16/1000 train_loss: 0.1595 (task: 0.1590, coral: 0.0000) -- val_f1_macro: 0.4274 [SOTM=False]
+Epoch 17/1000 train_loss: 0.1713 (task: 0.1707, coral: 0.0000) -- val_f1_macro: 0.4892 [SOTM=False]
+Epoch 18/1000 train_loss: 0.1498 (task: 0.1488, coral: 0.0000) -- val_f1_macro: 0.5052 [SOTM=False]
+Epoch 19/1000 train_loss: 0.1634 (task: 0.1630, coral: 0.0000) -- val_f1_macro: 0.4698 [SOTM=False]
+Epoch 20/1000 train_loss: 0.1832 (task: 0.1828, coral: 0.0000) -- val_f1_macro: 0.4833 [SOTM=False]
+Epoch 21/1000 train_loss: 0.1212 (task: 0.1210, coral: 0.0000) -- val_f1_macro: 0.5131 [SOTM=False]
+Epoch 22/1000 train_loss: 0.1233 (task: 0.1231, coral: 0.0000) -- val_f1_macro: 0.5486 [SOTM=False]
+Epoch 23/1000 train_loss: 0.1345 (task: 0.1342, coral: 0.0000) -- val_f1_macro: 0.5596 [SOTM=False]
+Epoch 24/1000 train_loss: 0.1488 (task: 0.1484, coral: 0.0000) -- val_f1_macro: 0.5689 [SOTM=False]
+Epoch 25/1000 train_loss: 0.1085 (task: 0.1079, coral: 0.0000) -- val_f1_macro: 0.5665 [SOTM=False]
+Epoch 26/1000 train_loss: 0.1058 (task: 0.1051, coral: 0.0000) -- val_f1_macro: 0.5952 [SOTM=False]
+Epoch 27/1000 train_loss: 0.1091 (task: 0.1086, coral: 0.0000) -- val_f1_macro: 0.5948 [SOTM=False]
+Epoch 28/1000 train_loss: 0.0975 (task: 0.0966, coral: 0.0000) -- val_f1_macro: 0.5853 [SOTM=False]
+Epoch 29/1000 train_loss: 0.0902 (task: 0.0892, coral: 0.0000) -- val_f1_macro: 0.5827 [SOTM=False]
+Epoch 30/1000 train_loss: 0.1174 (task: 0.1165, coral: 0.0000) -- val_f1_macro: 0.5890 [SOTM=False]
+Epoch 31/1000 train_loss: 0.1073 (task: 0.1067, coral: 0.0000) -- val_f1_macro: 0.5990 [SOTM=False]
+Epoch 32/1000 train_loss: 0.1020 (task: 0.1015, coral: 0.0000) -- val_f1_macro: 0.6012 [SOTM=False]
+Epoch 33/1000 train_loss: 0.1001 (task: 0.0996, coral: 0.0000) -- val_f1_macro: 0.6005 [SOTM=False]
+Epoch 34/1000 train_loss: 0.0887 (task: 0.0883, coral: 0.0000) -- val_f1_macro: 0.5976 [SOTM=False]
+Epoch 35/1000 train_loss: 0.0949 (task: 0.0945, coral: 0.0000) -- val_f1_macro: 0.5742 [SOTM=False]
+Epoch 36/1000 train_loss: 0.0895 (task: 0.0892, coral: 0.0000) -- val_f1_macro: 0.5067 [SOTM=False]
+Epoch 37/1000 train_loss: 0.1314 (task: 0.1310, coral: 0.0000) -- val_f1_macro: 0.5852 [SOTM=False]
+Epoch 38/1000 train_loss: 0.1294 (task: 0.1291, coral: 0.0000) -- val_f1_macro: 0.5741 [SOTM=False]
+Epoch 39/1000 train_loss: 0.1435 (task: 0.1427, coral: 0.0000) -- val_f1_macro: 0.5851 [SOTM=False]
+Epoch 40/1000 train_loss: 0.0973 (task: 0.0968, coral: 0.0000) -- val_f1_macro: 0.5206 [SOTM=False]
+Epoch 41/1000 train_loss: 0.1282 (task: 0.1276, coral: 0.0000) -- val_f1_macro: 0.5537 [SOTM=False]
+Epoch 42/1000 train_loss: 0.1114 (task: 0.1110, coral: 0.0000) -- val_f1_macro: 0.5923 [SOTM=False]
+Epoch 43/1000 train_loss: 0.0923 (task: 0.0918, coral: 0.0000) -- val_f1_macro: 0.5778 [SOTM=False]
+Epoch 44/1000 train_loss: 0.0984 (task: 0.0976, coral: 0.0000) -- val_f1_macro: 0.5657 [SOTM=False]
+Epoch 45/1000 train_loss: 0.1009 (task: 0.1001, coral: 0.0000) -- val_f1_macro: 0.5774 [SOTM=False]
+Epoch 46/1000 train_loss: 0.0919 (task: 0.0913, coral: 0.0000) -- val_f1_macro: 0.5757 [SOTM=False]
+Epoch 47/1000 train_loss: 0.0759 (task: 0.0751, coral: 0.0000) -- val_f1_macro: 0.5557 [SOTM=False]
+Epoch 48/1000 train_loss: 0.1006 (task: 0.0992, coral: 0.0000) -- val_f1_macro: 0.5349 [SOTM=False]
+Epoch 49/1000 train_loss: 0.0728 (task: 0.0714, coral: 0.0000) -- val_f1_macro: 0.5546 [SOTM=False]
+Epoch 50/1000 train_loss: 0.0630 (task: 0.0612, coral: 0.0000) -- val_f1_macro: 0.5663 [SOTM=False]
+Epoch 51/1000 train_loss: 0.0815 (task: 0.0796, coral: 0.0000) -- val_f1_macro: 0.5798 [SOTM=False]
+Epoch 52/1000 train_loss: 0.0643 (task: 0.0626, coral: 0.0000) -- val_f1_macro: 0.5808 [SOTM=False]
+Epoch 53/1000 train_loss: 0.0727 (task: 0.0699, coral: 0.0000) -- val_f1_macro: 0.5801 [SOTM=False]
+
+Splits training:  40%|████      | 2/5 [02:29<03:38, 72.94s/it]Epoch 0/1000 train_loss: 0.4346 (task: 0.4346, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 1/1000 train_loss: 0.4394 (task: 0.4394, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 2/1000 train_loss: 0.3981 (task: 0.3981, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 3/1000 train_loss: 0.3750 (task: 0.3750, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 4/1000 train_loss: 0.3381 (task: 0.3381, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 5/1000 train_loss: 0.2967 (task: 0.2967, coral: 0.0000) -- val_f1_macro: 0.3879 [SOTM=False]
+Epoch 6/1000 train_loss: 0.2664 (task: 0.2663, coral: 0.0000) -- val_f1_macro: 0.3313 [SOTM=False]
+Epoch 7/1000 train_loss: 0.2279 (task: 0.2275, coral: 0.0000) -- val_f1_macro: 0.3318 [SOTM=False]
+Epoch 8/1000 train_loss: 0.2376 (task: 0.2370, coral: 0.0000) -- val_f1_macro: 0.4550 [SOTM=False]
+Epoch 9/1000 train_loss: 0.2263 (task: 0.2251, coral: 0.0000) -- val_f1_macro: 0.4925 [SOTM=False]
+Epoch 10/1000 train_loss: 0.2208 (task: 0.2198, coral: 0.0000) -- val_f1_macro: 0.4623 [SOTM=False]
+Epoch 11/1000 train_loss: 0.2038 (task: 0.2022, coral: 0.0000) -- val_f1_macro: 0.3982 [SOTM=False]
+Epoch 12/1000 train_loss: 0.1791 (task: 0.1775, coral: 0.0000) -- val_f1_macro: 0.4036 [SOTM=False]
+Epoch 13/1000 train_loss: 0.1894 (task: 0.1882, coral: 0.0000) -- val_f1_macro: 0.4465 [SOTM=False]
+Epoch 14/1000 train_loss: 0.1595 (task: 0.1582, coral: 0.0000) -- val_f1_macro: 0.4825 [SOTM=False]
+Epoch 15/1000 train_loss: 0.1607 (task: 0.1592, coral: 0.0000) -- val_f1_macro: 0.4830 [SOTM=False]
+Epoch 16/1000 train_loss: 0.1653 (task: 0.1638, coral: 0.0000) -- val_f1_macro: 0.4859 [SOTM=False]
+Epoch 17/1000 train_loss: 0.1421 (task: 0.1396, coral: 0.0000) -- val_f1_macro: 0.4826 [SOTM=False]
+Epoch 18/1000 train_loss: 0.1678 (task: 0.1654, coral: 0.0000) -- val_f1_macro: 0.4999 [SOTM=False]
+Epoch 19/1000 train_loss: 0.1346 (task: 0.1333, coral: 0.0000) -- val_f1_macro: 0.5435 [SOTM=False]
+Epoch 20/1000 train_loss: 0.1518 (task: 0.1508, coral: 0.0000) -- val_f1_macro: 0.5356 [SOTM=False]
+Epoch 21/1000 train_loss: 0.1279 (task: 0.1269, coral: 0.0000) -- val_f1_macro: 0.5610 [SOTM=False]
+Epoch 22/1000 train_loss: 0.1075 (task: 0.1069, coral: 0.0000) -- val_f1_macro: 0.5482 [SOTM=False]
+Epoch 23/1000 train_loss: 0.1236 (task: 0.1229, coral: 0.0000) -- val_f1_macro: 0.5729 [SOTM=False]
+Epoch 24/1000 train_loss: 0.1257 (task: 0.1251, coral: 0.0000) -- val_f1_macro: 0.5552 [SOTM=False]
+Epoch 25/1000 train_loss: 0.0950 (task: 0.0945, coral: 0.0000) -- val_f1_macro: 0.5491 [SOTM=False]
+Epoch 26/1000 train_loss: 0.1623 (task: 0.1618, coral: 0.0000) -- val_f1_macro: 0.5832 [SOTM=False]
+Epoch 27/1000 train_loss: 0.1060 (task: 0.1055, coral: 0.0000) -- val_f1_macro: 0.5738 [SOTM=False]
+Epoch 28/1000 train_loss: 0.1510 (task: 0.1504, coral: 0.0000) -- val_f1_macro: 0.5771 [SOTM=False]
+Epoch 29/1000 train_loss: 0.1147 (task: 0.1142, coral: 0.0000) -- val_f1_macro: 0.5454 [SOTM=False]
+Epoch 30/1000 train_loss: 0.1282 (task: 0.1278, coral: 0.0000) -- val_f1_macro: 0.5176 [SOTM=False]
+Epoch 31/1000 train_loss: 0.1529 (task: 0.1526, coral: 0.0000) -- val_f1_macro: 0.5557 [SOTM=False]
+Epoch 32/1000 train_loss: 0.1140 (task: 0.1137, coral: 0.0000) -- val_f1_macro: 0.5942 [SOTM=False]
+Epoch 33/1000 train_loss: 0.1158 (task: 0.1155, coral: 0.0000) -- val_f1_macro: 0.5941 [SOTM=False]
+Epoch 34/1000 train_loss: 0.1093 (task: 0.1090, coral: 0.0000) -- val_f1_macro: 0.5970 [SOTM=False]
+Epoch 35/1000 train_loss: 0.1042 (task: 0.1038, coral: 0.0000) -- val_f1_macro: 0.6054 [SOTM=False]
+Epoch 36/1000 train_loss: 0.0947 (task: 0.0940, coral: 0.0000) -- val_f1_macro: 0.6050 [SOTM=False]
+Epoch 37/1000 train_loss: 0.1005 (task: 0.1000, coral: 0.0000) -- val_f1_macro: 0.5912 [SOTM=False]
+Epoch 38/1000 train_loss: 0.1016 (task: 0.1010, coral: 0.0000) -- val_f1_macro: 0.6055 [SOTM=False]
+Epoch 39/1000 train_loss: 0.0783 (task: 0.0776, coral: 0.0000) -- val_f1_macro: 0.5961 [SOTM=False]
+Epoch 40/1000 train_loss: 0.0894 (task: 0.0886, coral: 0.0000) -- val_f1_macro: 0.5901 [SOTM=False]
+Epoch 41/1000 train_loss: 0.0811 (task: 0.0802, coral: 0.0000) -- val_f1_macro: 0.5939 [SOTM=False]
+Epoch 42/1000 train_loss: 0.0821 (task: 0.0813, coral: 0.0000) -- val_f1_macro: 0.5743 [SOTM=False]
+Epoch 43/1000 train_loss: 0.0867 (task: 0.0858, coral: 0.0000) -- val_f1_macro: 0.5594 [SOTM=False]
+Epoch 44/1000 train_loss: 0.0620 (task: 0.0614, coral: 0.0000) -- val_f1_macro: 0.5583 [SOTM=False]
+Epoch 45/1000 train_loss: 0.0809 (task: 0.0800, coral: 0.0000) -- val_f1_macro: 0.5701 [SOTM=False]
+Epoch 46/1000 train_loss: 0.0595 (task: 0.0586, coral: 0.0000) -- val_f1_macro: 0.5837 [SOTM=False]
+Epoch 47/1000 train_loss: 0.0566 (task: 0.0552, coral: 0.0000) -- val_f1_macro: 0.5826 [SOTM=False]
+Epoch 48/1000 train_loss: 0.0647 (task: 0.0640, coral: 0.0000) -- val_f1_macro: 0.5744 [SOTM=False]
+Epoch 49/1000 train_loss: 0.0719 (task: 0.0709, coral: 0.0000) -- val_f1_macro: 0.5822 [SOTM=False]
+Epoch 50/1000 train_loss: 0.0611 (task: 0.0598, coral: 0.0000) -- val_f1_macro: 0.5708 [SOTM=False]
+Epoch 51/1000 train_loss: 0.0504 (task: 0.0495, coral: 0.0000) -- val_f1_macro: 0.5545 [SOTM=False]
+Epoch 52/1000 train_loss: 0.0632 (task: 0.0613, coral: 0.0000) -- val_f1_macro: 0.5543 [SOTM=False]
+Epoch 53/1000 train_loss: 0.0533 (task: 0.0522, coral: 0.0000) -- val_f1_macro: 0.5518 [SOTM=False]
+Epoch 54/1000 train_loss: 0.0592 (task: 0.0579, coral: 0.0000) -- val_f1_macro: 0.5527 [SOTM=False]
+Epoch 55/1000 train_loss: 0.0849 (task: 0.0841, coral: 0.0000) -- val_f1_macro: 0.5451 [SOTM=False]
+Epoch 56/1000 train_loss: 0.0393 (task: 0.0384, coral: 0.0000) -- val_f1_macro: 0.5414 [SOTM=False]
+Epoch 57/1000 train_loss: 0.0579 (task: 0.0567, coral: 0.0000) -- val_f1_macro: 0.5473 [SOTM=False]
+Epoch 58/1000 train_loss: 0.0575 (task: 0.0567, coral: 0.0000) -- val_f1_macro: 0.5531 [SOTM=False]
+Epoch 59/1000 train_loss: 0.0652 (task: 0.0645, coral: 0.0000) -- val_f1_macro: 0.5618 [SOTM=False]
+
+Splits training:  60%|██████    | 3/5 [03:41<02:24, 72.22s/it]Epoch 0/1000 train_loss: 0.4247 (task: 0.4247, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 1/1000 train_loss: 0.4892 (task: 0.4892, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 2/1000 train_loss: 0.3931 (task: 0.3931, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 3/1000 train_loss: 0.3615 (task: 0.3615, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 4/1000 train_loss: 0.3282 (task: 0.3281, coral: 0.0000) -- val_f1_macro: 0.0324 [SOTM=False]
+Epoch 5/1000 train_loss: 0.2750 (task: 0.2749, coral: 0.0000) -- val_f1_macro: 0.4696 [SOTM=False]
+Epoch 6/1000 train_loss: 0.2273 (task: 0.2269, coral: 0.0000) -- val_f1_macro: 0.3210 [SOTM=False]
+Epoch 7/1000 train_loss: 0.2657 (task: 0.2644, coral: 0.0000) -- val_f1_macro: 0.4892 [SOTM=False]
+Epoch 8/1000 train_loss: 0.2017 (task: 0.2000, coral: 0.0000) -- val_f1_macro: 0.5012 [SOTM=False]
+Epoch 9/1000 train_loss: 0.2105 (task: 0.2088, coral: 0.0000) -- val_f1_macro: 0.4591 [SOTM=False]
+Epoch 10/1000 train_loss: 0.1871 (task: 0.1858, coral: 0.0000) -- val_f1_macro: 0.4366 [SOTM=False]
+Epoch 11/1000 train_loss: 0.1705 (task: 0.1694, coral: 0.0000) -- val_f1_macro: 0.4507 [SOTM=False]
+Epoch 12/1000 train_loss: 0.1890 (task: 0.1880, coral: 0.0000) -- val_f1_macro: 0.4618 [SOTM=False]
+Epoch 13/1000 train_loss: 0.1645 (task: 0.1635, coral: 0.0000) -- val_f1_macro: 0.4648 [SOTM=False]
+Epoch 14/1000 train_loss: 0.1648 (task: 0.1641, coral: 0.0000) -- val_f1_macro: 0.4628 [SOTM=False]
+Epoch 15/1000 train_loss: 0.1554 (task: 0.1544, coral: 0.0000) -- val_f1_macro: 0.4718 [SOTM=False]
+Epoch 16/1000 train_loss: 0.1231 (task: 0.1225, coral: 0.0000) -- val_f1_macro: 0.4729 [SOTM=False]
+Epoch 17/1000 train_loss: 0.1607 (task: 0.1601, coral: 0.0000) -- val_f1_macro: 0.4964 [SOTM=False]
+Epoch 18/1000 train_loss: 0.1299 (task: 0.1294, coral: 0.0000) -- val_f1_macro: 0.5018 [SOTM=False]
+Epoch 19/1000 train_loss: 0.1277 (task: 0.1272, coral: 0.0000) -- val_f1_macro: 0.5378 [SOTM=False]
+Epoch 20/1000 train_loss: 0.1097 (task: 0.1092, coral: 0.0000) -- val_f1_macro: 0.5249 [SOTM=False]
+Epoch 21/1000 train_loss: 0.1162 (task: 0.1157, coral: 0.0000) -- val_f1_macro: 0.5619 [SOTM=False]
+Epoch 22/1000 train_loss: 0.1259 (task: 0.1251, coral: 0.0000) -- val_f1_macro: 0.5963 [SOTM=False]
+Epoch 23/1000 train_loss: 0.1208 (task: 0.1197, coral: 0.0000) -- val_f1_macro: 0.5449 [SOTM=False]
+Epoch 24/1000 train_loss: 0.1155 (task: 0.1145, coral: 0.0000) -- val_f1_macro: 0.5997 [SOTM=False]
+Epoch 25/1000 train_loss: 0.0905 (task: 0.0898, coral: 0.0000) -- val_f1_macro: 0.5296 [SOTM=False]
+Epoch 26/1000 train_loss: 0.1194 (task: 0.1188, coral: 0.0000) -- val_f1_macro: 0.5553 [SOTM=False]
+Epoch 27/1000 train_loss: 0.1375 (task: 0.1368, coral: 0.0000) -- val_f1_macro: 0.5562 [SOTM=False]
+Epoch 28/1000 train_loss: 0.1084 (task: 0.1074, coral: 0.0000) -- val_f1_macro: 0.5961 [SOTM=False]
+Epoch 29/1000 train_loss: 0.0903 (task: 0.0892, coral: 0.0000) -- val_f1_macro: 0.5852 [SOTM=False]
+Epoch 30/1000 train_loss: 0.1396 (task: 0.1388, coral: 0.0000) -- val_f1_macro: 0.6073 [SOTM=False]
+Epoch 31/1000 train_loss: 0.0797 (task: 0.0791, coral: 0.0000) -- val_f1_macro: 0.5801 [SOTM=False]
+Epoch 32/1000 train_loss: 0.1105 (task: 0.1100, coral: 0.0000) -- val_f1_macro: 0.5876 [SOTM=False]
+Epoch 33/1000 train_loss: 0.0943 (task: 0.0937, coral: 0.0000) -- val_f1_macro: 0.6061 [SOTM=False]
+Epoch 34/1000 train_loss: 0.0837 (task: 0.0825, coral: 0.0000) -- val_f1_macro: 0.5905 [SOTM=False]
+Epoch 35/1000 train_loss: 0.1109 (task: 0.1103, coral: 0.0000) -- val_f1_macro: 0.5999 [SOTM=False]
+Epoch 36/1000 train_loss: 0.0910 (task: 0.0903, coral: 0.0000) -- val_f1_macro: 0.5986 [SOTM=False]
+Epoch 37/1000 train_loss: 0.0876 (task: 0.0864, coral: 0.0000) -- val_f1_macro: 0.5936 [SOTM=False]
+Epoch 38/1000 train_loss: 0.0728 (task: 0.0722, coral: 0.0000) -- val_f1_macro: 0.5984 [SOTM=False]
+Epoch 39/1000 train_loss: 0.0764 (task: 0.0758, coral: 0.0000) -- val_f1_macro: 0.6011 [SOTM=False]
+Epoch 40/1000 train_loss: 0.0726 (task: 0.0716, coral: 0.0000) -- val_f1_macro: 0.5892 [SOTM=False]
+Epoch 41/1000 train_loss: 0.0589 (task: 0.0579, coral: 0.0000) -- val_f1_macro: 0.5815 [SOTM=False]
+Epoch 42/1000 train_loss: 0.0657 (task: 0.0645, coral: 0.0000) -- val_f1_macro: 0.6099 [SOTM=False]
+Epoch 43/1000 train_loss: 0.0751 (task: 0.0744, coral: 0.0000) -- val_f1_macro: 0.6148 [SOTM=False]
+Epoch 44/1000 train_loss: 0.0758 (task: 0.0753, coral: 0.0000) -- val_f1_macro: 0.6119 [SOTM=False]
+Epoch 45/1000 train_loss: 0.0596 (task: 0.0589, coral: 0.0000) -- val_f1_macro: 0.5530 [SOTM=False]
+Epoch 46/1000 train_loss: 0.0565 (task: 0.0560, coral: 0.0000) -- val_f1_macro: 0.5565 [SOTM=False]
+Epoch 47/1000 train_loss: 0.0922 (task: 0.0915, coral: 0.0000) -- val_f1_macro: 0.5817 [SOTM=False]
+Epoch 48/1000 train_loss: 0.0663 (task: 0.0658, coral: 0.0000) -- val_f1_macro: 0.5999 [SOTM=False]
+Epoch 49/1000 train_loss: 0.0904 (task: 0.0898, coral: 0.0000) -- val_f1_macro: 0.5993 [SOTM=False]
+Epoch 50/1000 train_loss: 0.0713 (task: 0.0709, coral: 0.0000) -- val_f1_macro: 0.5834 [SOTM=False]
+Epoch 51/1000 train_loss: 0.0742 (task: 0.0738, coral: 0.0000) -- val_f1_macro: 0.5534 [SOTM=False]
+Epoch 52/1000 train_loss: 0.0544 (task: 0.0537, coral: 0.0000) -- val_f1_macro: 0.5530 [SOTM=False]
+Epoch 53/1000 train_loss: 0.0610 (task: 0.0603, coral: 0.0000) -- val_f1_macro: 0.5948 [SOTM=False]
+Epoch 54/1000 train_loss: 0.0548 (task: 0.0542, coral: 0.0000) -- val_f1_macro: 0.5872 [SOTM=False]
+Epoch 55/1000 train_loss: 0.0473 (task: 0.0466, coral: 0.0000) -- val_f1_macro: 0.5862 [SOTM=False]
+Epoch 56/1000 train_loss: 0.0758 (task: 0.0746, coral: 0.0000) -- val_f1_macro: 0.5815 [SOTM=False]
+Epoch 57/1000 train_loss: 0.0572 (task: 0.0557, coral: 0.0000) -- val_f1_macro: 0.5783 [SOTM=False]
+Epoch 58/1000 train_loss: 0.0588 (task: 0.0576, coral: 0.0000) -- val_f1_macro: 0.5856 [SOTM=False]
+Epoch 59/1000 train_loss: 0.0625 (task: 0.0612, coral: 0.0000) -- val_f1_macro: 0.5736 [SOTM=False]
+Epoch 60/1000 train_loss: 0.0615 (task: 0.0602, coral: 0.0000) -- val_f1_macro: 0.5563 [SOTM=False]
+Epoch 61/1000 train_loss: 0.0485 (task: 0.0477, coral: 0.0000) -- val_f1_macro: 0.5563 [SOTM=False]
+Epoch 62/1000 train_loss: 0.0537 (task: 0.0530, coral: 0.0000) -- val_f1_macro: 0.5548 [SOTM=False]
+Epoch 63/1000 train_loss: 0.0381 (task: 0.0372, coral: 0.0000) -- val_f1_macro: 0.5439 [SOTM=False]
+Epoch 64/1000 train_loss: 0.0476 (task: 0.0467, coral: 0.0000) -- val_f1_macro: 0.5638 [SOTM=False]
+
+Splits training:  80%|████████  | 4/5 [04:58<01:14, 74.17s/it]Epoch 0/1000 train_loss: 0.4382 (task: 0.4382, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 1/1000 train_loss: 0.3891 (task: 0.3891, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 2/1000 train_loss: 0.4158 (task: 0.4158, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 3/1000 train_loss: 0.3764 (task: 0.3763, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 4/1000 train_loss: 0.3581 (task: 0.3580, coral: 0.0000) -- val_f1_macro: 0.0321 [SOTM=False]
+Epoch 5/1000 train_loss: 0.3257 (task: 0.3256, coral: 0.0000) -- val_f1_macro: 0.0400 [SOTM=False]
+Epoch 6/1000 train_loss: 0.2668 (task: 0.2665, coral: 0.0000) -- val_f1_macro: 0.3001 [SOTM=False]
+Epoch 7/1000 train_loss: 0.2265 (task: 0.2256, coral: 0.0000) -- val_f1_macro: 0.4908 [SOTM=False]
+Epoch 8/1000 train_loss: 0.2387 (task: 0.2379, coral: 0.0000) -- val_f1_macro: 0.5528 [SOTM=False]
+Epoch 9/1000 train_loss: 0.2317 (task: 0.2308, coral: 0.0000) -- val_f1_macro: 0.4237 [SOTM=False]
+Epoch 10/1000 train_loss: 0.2494 (task: 0.2481, coral: 0.0000) -- val_f1_macro: 0.4766 [SOTM=False]
+Epoch 11/1000 train_loss: 0.2002 (task: 0.1991, coral: 0.0000) -- val_f1_macro: 0.5693 [SOTM=False]
+Epoch 12/1000 train_loss: 0.2340 (task: 0.2332, coral: 0.0000) -- val_f1_macro: 0.5225 [SOTM=False]
+Epoch 13/1000 train_loss: 0.1842 (task: 0.1836, coral: 0.0000) -- val_f1_macro: 0.4463 [SOTM=False]
+Epoch 14/1000 train_loss: 0.1813 (task: 0.1804, coral: 0.0000) -- val_f1_macro: 0.4337 [SOTM=False]
+Epoch 15/1000 train_loss: 0.1811 (task: 0.1802, coral: 0.0000) -- val_f1_macro: 0.4643 [SOTM=False]
+Epoch 16/1000 train_loss: 0.1640 (task: 0.1630, coral: 0.0000) -- val_f1_macro: 0.5092 [SOTM=False]
+Epoch 17/1000 train_loss: 0.1816 (task: 0.1809, coral: 0.0000) -- val_f1_macro: 0.5149 [SOTM=False]
+Epoch 18/1000 train_loss: 0.1562 (task: 0.1555, coral: 0.0000) -- val_f1_macro: 0.5020 [SOTM=False]
+Epoch 19/1000 train_loss: 0.1452 (task: 0.1447, coral: 0.0000) -- val_f1_macro: 0.4866 [SOTM=False]
+Epoch 20/1000 train_loss: 0.1459 (task: 0.1453, coral: 0.0000) -- val_f1_macro: 0.4803 [SOTM=False]
+Epoch 21/1000 train_loss: 0.1561 (task: 0.1554, coral: 0.0000) -- val_f1_macro: 0.4922 [SOTM=False]
+Epoch 22/1000 train_loss: 0.1397 (task: 0.1392, coral: 0.0000) -- val_f1_macro: 0.5304 [SOTM=False]
+Epoch 23/1000 train_loss: 0.1160 (task: 0.1153, coral: 0.0000) -- val_f1_macro: 0.5701 [SOTM=False]
+Epoch 24/1000 train_loss: 0.1229 (task: 0.1225, coral: 0.0000) -- val_f1_macro: 0.5759 [SOTM=False]
+Epoch 25/1000 train_loss: 0.1107 (task: 0.1098, coral: 0.0000) -- val_f1_macro: 0.5610 [SOTM=False]
+Epoch 26/1000 train_loss: 0.1218 (task: 0.1209, coral: 0.0000) -- val_f1_macro: 0.5480 [SOTM=False]
+Epoch 27/1000 train_loss: 0.1562 (task: 0.1555, coral: 0.0000) -- val_f1_macro: 0.5554 [SOTM=False]
+Epoch 28/1000 train_loss: 0.1633 (task: 0.1625, coral: 0.0000) -- val_f1_macro: 0.5803 [SOTM=False]
+Epoch 29/1000 train_loss: 0.1245 (task: 0.1239, coral: 0.0000) -- val_f1_macro: 0.5635 [SOTM=False]
+Epoch 30/1000 train_loss: 0.1268 (task: 0.1263, coral: 0.0000) -- val_f1_macro: 0.5450 [SOTM=False]
+Epoch 31/1000 train_loss: 0.1229 (task: 0.1224, coral: 0.0000) -- val_f1_macro: 0.5834 [SOTM=False]
+Epoch 32/1000 train_loss: 0.1121 (task: 0.1117, coral: 0.0000) -- val_f1_macro: 0.5997 [SOTM=False]
+Epoch 33/1000 train_loss: 0.1095 (task: 0.1091, coral: 0.0000) -- val_f1_macro: 0.6018 [SOTM=False]
+Epoch 34/1000 train_loss: 0.0940 (task: 0.0931, coral: 0.0000) -- val_f1_macro: 0.6040 [SOTM=False]
+Epoch 35/1000 train_loss: 0.0993 (task: 0.0983, coral: 0.0000) -- val_f1_macro: 0.6074 [SOTM=False]
+Epoch 36/1000 train_loss: 0.1093 (task: 0.1085, coral: 0.0000) -- val_f1_macro: 0.5986 [SOTM=False]
+Epoch 37/1000 train_loss: 0.0955 (task: 0.0945, coral: 0.0000) -- val_f1_macro: 0.5830 [SOTM=False]
+Epoch 38/1000 train_loss: 0.0896 (task: 0.0888, coral: 0.0000) -- val_f1_macro: 0.5509 [SOTM=False]
+Epoch 39/1000 train_loss: 0.0909 (task: 0.0902, coral: 0.0000) -- val_f1_macro: 0.5330 [SOTM=False]
+Epoch 40/1000 train_loss: 0.0885 (task: 0.0878, coral: 0.0000) -- val_f1_macro: 0.5283 [SOTM=False]
+Epoch 41/1000 train_loss: 0.0885 (task: 0.0878, coral: 0.0000) -- val_f1_macro: 0.5256 [SOTM=False]
+Epoch 42/1000 train_loss: 0.0973 (task: 0.0968, coral: 0.0000) -- val_f1_macro: 0.5059 [SOTM=False]
+Epoch 43/1000 train_loss: 0.0785 (task: 0.0779, coral: 0.0000) -- val_f1_macro: 0.5110 [SOTM=False]
+Epoch 44/1000 train_loss: 0.0890 (task: 0.0884, coral: 0.0000) -- val_f1_macro: 0.5347 [SOTM=False]
+Epoch 45/1000 train_loss: 0.0968 (task: 0.0960, coral: 0.0000) -- val_f1_macro: 0.5328 [SOTM=False]
+Epoch 46/1000 train_loss: 0.0779 (task: 0.0768, coral: 0.0000) -- val_f1_macro: 0.5103 [SOTM=False]
+Epoch 47/1000 train_loss: 0.0817 (task: 0.0805, coral: 0.0000) -- val_f1_macro: 0.5060 [SOTM=False]
+Epoch 48/1000 train_loss: 0.0746 (task: 0.0738, coral: 0.0000) -- val_f1_macro: 0.5247 [SOTM=False]
+Epoch 49/1000 train_loss: 0.0764 (task: 0.0753, coral: 0.0000) -- val_f1_macro: 0.5234 [SOTM=False]
+Epoch 50/1000 train_loss: 0.0567 (task: 0.0552, coral: 0.0000) -- val_f1_macro: 0.5157 [SOTM=False]
+Epoch 51/1000 train_loss: 0.0777 (task: 0.0766, coral: 0.0000) -- val_f1_macro: 0.5163 [SOTM=False]
+Epoch 52/1000 train_loss: 0.0586 (task: 0.0570, coral: 0.0000) -- val_f1_macro: 0.5190 [SOTM=False]
+Epoch 53/1000 train_loss: 0.0632 (task: 0.0618, coral: 0.0000) -- val_f1_macro: 0.5115 [SOTM=False]
+Epoch 54/1000 train_loss: 0.0487 (task: 0.0477, coral: 0.0000) -- val_f1_macro: 0.5118 [SOTM=False]
+Epoch 55/1000 train_loss: 0.0466 (task: 0.0457, coral: 0.0000) -- val_f1_macro: 0.5101 [SOTM=False]
+Epoch 56/1000 train_loss: 0.0616 (task: 0.0604, coral: 0.0000) -- val_f1_macro: 0.5136 [SOTM=False]
+
+Splits training: 100%|██████████| 5/5 [06:05<00:00, 71.82s/it]
+Splits training: 100%|██████████| 5/5 [06:05<00:00, 73.17s/it]
+
+Splits post-training:   0%|          | 0/5 [00:00<?, ?it/s]
+Splits post-training:  20%|██        | 1/5 [00:06<00:25,  6.46s/it]
+Splits post-training:  40%|████      | 2/5 [00:09<00:12,  4.25s/it]
+Splits post-training:  60%|██████    | 3/5 [00:12<00:07,  3.64s/it]
+Splits post-training:  80%|████████  | 4/5 [00:16<00:03,  3.92s/it]
+Splits post-training: 100%|██████████| 5/5 [00:19<00:00,  3.53s/it]
+Splits post-training: 100%|██████████| 5/5 [00:19<00:00,  3.85s/it]
+VAL set: 
+[VAL] accuracy: 0.9412+-0.0072
+[VAL] precision: 0.2156+-0.0216
+[VAL] f1_macro: 0.6054+-0.0057
+[VAL] f1_micro: 0.9412+-0.0072
+TEST set: 
+[TEST] accuracy: 0.939+-0.008
+[TEST] precision: 0.2011+-0.0194
+[TEST] f1_macro: 0.5975+-0.0071
+[TEST] f1_micro: 0.939+-0.008
+TEST_coRT set: 
+[TEST_coRT] accuracy: 0.9423+-0.003
+[TEST_coRT] precision: 0.4999+-0.0423
+[TEST_coRT] f1_macro: 0.6571+-0.0144
+[TEST_coRT] f1_micro: 0.9423+-0.003
+[TEST_coRT] roc_auc: 0.7883+-0.0225
+TEST_coURL set: 
+[TEST_coURL] accuracy: 0.9342+-0.0084
+[TEST_coURL] precision: 0.2067+-0.0194
+[TEST_coURL] f1_macro: 0.598+-0.0068
+[TEST_coURL] f1_micro: 0.9342+-0.0084
+[TEST_coURL] roc_auc: 0.7777+-0.0235
+TEST_hashSeq set: 
+[TEST_hashSeq] accuracy: 0.2688+-0.049
+[TEST_hashSeq] precision: 1.0+-0.0
+[TEST_hashSeq] f1_macro: 0.2107+-0.0297
+[TEST_hashSeq] f1_micro: 0.2688+-0.049
+[TEST_hashSeq] roc_auc: nan+-nan
+TEST_fastRT set: 
+[TEST_fastRT] accuracy: 0.6183+-0.0248
+[TEST_fastRT] precision: 0.8939+-0.0275
+[TEST_fastRT] f1_macro: 0.5642+-0.0351
+[TEST_fastRT] f1_micro: 0.6183+-0.0248
+[TEST_fastRT] roc_auc: 0.7759+-0.0318
+TEST_tweetSim set: 
+[TEST_tweetSim] accuracy: 0.2688+-0.049
+[TEST_tweetSim] precision: 1.0+-0.0
+[TEST_tweetSim] f1_macro: 0.2107+-0.0297
+[TEST_tweetSim] f1_micro: 0.2688+-0.049
+[TEST_tweetSim] roc_auc: nan+-nan
+
+[TSET-GFM Summary for china]
+  min_MMD (linguistic distance) = 0.0144
+  Structure-Only Mode (SOTM)    = False
+  Focal Loss: gamma=2.0, alpha=0.75
+  CORAL weight                  = 500.0
