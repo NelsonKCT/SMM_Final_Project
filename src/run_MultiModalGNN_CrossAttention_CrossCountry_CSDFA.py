@@ -6,7 +6,7 @@ five-subnet channel view from AMC/DMC, but treats channels *differently* based
 on how reliable each behavioural subnet is for the country at hand.
 
 Two mechanisms, both grounded in the per-country failure analysis
-(results/failure_analysis_summary.csv):
+(results/diagnostics/failure_analysis_summary.csv):
 
   1. Coverage-gated masked fusion (the core contribution).
      Each ChannelGNN runs on its own subnet edge_index. A node that does NOT

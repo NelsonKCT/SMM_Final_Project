@@ -2,11 +2,6 @@
 
 Cross-country zero-shot information-operation (IO) account detection.
 
-This document describes the **CS-DFA** contribution: motivation, method, the full
-six-country experiments, and an ablation study that isolates *which* component is
-actually responsible for the gains. It is self-contained — all numbers below come
-from the runs in `results/zero-shot_CSDFA*_*.txt`.
-
 - Model / training script: [`src/run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py`](../src/run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py)
 - Batch runner: [`src/run_experiments.py`](../src/run_experiments.py) (`--method csdfa` and ablation variants)
 - Colab notebook: [`colab_run.ipynb`](../colab_run.ipynb) (§8)
@@ -19,7 +14,7 @@ The strongest existing baseline, **DFA** (Decoupled Feature Alignment), merges t
 five behavioural co-activity sub-networks of each country
 (`coRT`, `coURL`, `hashSeq`, `fastRT`, `tweetSim`) into **one** graph and runs a
 single GNN over it. Our per-country failure analysis
-(`results/failure_analysis_summary.csv`) showed a problem with this:
+(`results/diagnostics/failure_analysis_summary.csv`) showed a problem with this:
 
 - The five sub-networks have **wildly different coverage** per country. For example,
   for **China** only **3–7%** of accounts participate in `hashSeq`/`fastRT`/`tweetSim`,
@@ -185,7 +180,7 @@ not (0.686). The performance depends specifically on the gating mechanism.
 
 ---
 
-## 6. Caveats (to report honestly)
+## 6. Caveats
 
 1. **Model selection on the target validation set.** Like the DFA/TSET baselines,
    early-stopping picks the checkpoint that maximises the *target* validation

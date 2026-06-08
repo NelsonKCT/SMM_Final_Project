@@ -6,11 +6,11 @@ Answers "why are some target countries (China / Cuba / Venezuela) hard?" with
 per-country structural / label statistics and a linguistic-distance matrix,
 WITHOUT training anything. Read-only; safe to run while experiments are going.
 
-Outputs (to results/):
-  - failure_analysis_summary.csv : per-country nodes/edges, IO prevalence
-    (label imbalance), homophily, and per-subnet node coverage
-  - linguistic_mmd_matrix.csv    : 6x6 SBERT MMD matrix (text-distribution
-    distance), the basis for TSET's Structure-Only Transfer Mode decision
+Outputs (to results/diagnostics/):
+    - failure_analysis_summary.csv : per-country nodes/edges, IO prevalence
+        (label imbalance), homophily, and per-subnet node coverage
+    - linguistic_mmd_matrix.csv    : 6x6 SBERT MMD matrix (text-distribution
+        distance), the basis for TSET's Structure-Only Transfer Mode decision
 
 Run from the src/ directory (resolves data via ../data/processed/).
 
@@ -109,7 +109,7 @@ def load_text_sample(data_dir, country, max_n=500, seed=0):
 def main():
     src_dir = pathlib.Path(__file__).resolve().parent
     data_dir = src_dir.parent / 'data' / 'processed'
-    results_dir = src_dir.parent / 'results'
+    results_dir = src_dir.parent / 'results' / 'diagnostics'
     results_dir.mkdir(exist_ok=True)
 
     print('=== Per-country structural / label statistics ===')

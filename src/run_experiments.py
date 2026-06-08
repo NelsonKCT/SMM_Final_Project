@@ -6,10 +6,11 @@ Replaces the per-method PowerShell scripts (run_experiments_*.ps1), which had
 hard-coded Windows output paths (c:\\Users\\minelab\\...) and only ran on Windows.
 
 This runner:
-  - works on macOS / Linux / Windows (uses sys.executable, pathlib)
-  - streams each run to the console AND saves a UTF-8 log to results/
-    (the old PowerShell Tee-Object produced UTF-16, which the parsers choke on)
-  - is shared across methods so TSET / DMC / AMCv2 use one entry point
+    - works on macOS / Linux / Windows (uses sys.executable, pathlib)
+    - streams each run to the console AND saves a UTF-8 log to results/
+        (newer methods can route into dedicated subfolders so legacy main-branch
+        outputs stay separate)
+    - is shared across methods so TSET / DMC / AMCv2 use one entry point
 
 Usage:
     # run TSET on all six countries (CPU on a Mac: add --device -1)
@@ -41,6 +42,7 @@ METHODS = {
     "tset": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_TSET.py",
         "prefix": "TSET",
+        "subdir": "tset_logs",
         "extra": ["--focal_gamma", "2.0", "--focal_alpha", "0.75",
                   "--coral_weight", "500.0", "--sotm_threshold", "0.3"],
     },
@@ -50,6 +52,7 @@ METHODS = {
     "tset_bce": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_TSET.py",
         "prefix": "TSETbce",
+        "subdir": "tset_logs",
         "extra": ["--loss_type", "bce", "--coral_weight", "1.0",
                   "--sotm_threshold", "0.3"],
     },
@@ -69,6 +72,7 @@ METHODS = {
     "csdfa": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
         "prefix": "CSDFA",
+        "subdir": "csdfa_logs",
         "extra": ["--loss_type", "bce", "--cov_lambda", "1.0",
                   "--coral_on", "channel", "--coral_weight", "1.0",
                   "--coral_channels", "coRT,coURL"],
@@ -78,6 +82,7 @@ METHODS = {
     "csdfa_noprior": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
         "prefix": "CSDFAnoprior",
+        "subdir": "csdfa_logs",
         "extra": ["--loss_type", "bce", "--cov_lambda", "0.0",
                   "--coral_on", "channel", "--coral_weight", "1.0",
                   "--coral_channels", "coRT,coURL"],
@@ -87,6 +92,7 @@ METHODS = {
     "csdfa_nocoral": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
         "prefix": "CSDFAnocoral",
+        "subdir": "csdfa_logs",
         "extra": ["--loss_type", "bce", "--cov_lambda", "1.0",
                   "--coral_on", "none"],
     },
@@ -97,6 +103,7 @@ METHODS = {
     "csdfa_nogate": {
         "script": "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
         "prefix": "CSDFAnogate",
+        "subdir": "csdfa_logs",
         "extra": ["--loss_type", "bce", "--gating", "off",
                   "--cov_lambda", "0.0", "--coral_on", "none"],
     },
@@ -114,6 +121,15 @@ SHARED_ARGS = [
     "--splits", "5",
     "--val_metric", "f1_macro",
 ]
+
+
+def get_results_dir(base_results_dir, method_cfg):
+    subdir = method_cfg.get("subdir")
+    if subdir is None:
+        return base_results_dir
+    method_results_dir = base_results_dir / subdir
+    method_results_dir.mkdir(exist_ok=True)
+    return method_results_dir
 
 
 def run_country(method_cfg, country, device, src_dir, results_dir):
@@ -181,9 +197,10 @@ def main():
               f"files. Put the dataset there before running.\n", file=sys.stderr)
 
     method_cfg = METHODS[args.method]
+    method_results_dir = get_results_dir(results_dir, method_cfg)
     failures = []
     for country in args.countries:
-        rc = run_country(method_cfg, country, args.device, src_dir, results_dir)
+        rc = run_country(method_cfg, country, args.device, src_dir, method_results_dir)
         if rc != 0:
             failures.append(country)
 
