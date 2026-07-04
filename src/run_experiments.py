@@ -24,6 +24,13 @@ Usage:
     python run_experiments.py --method dmc
     python run_experiments.py --method amcv2
 
+    # source-data efficiency (paper Sec. "Source-Data Efficiency", Table data-eff):
+    # subsample the labeled source-country accounts to 10% / 50% (100% = plain run)
+    python run_experiments.py --method csdfa --source_frac 0.1
+    python run_experiments.py --method csdfa --source_frac 0.5
+    python run_experiments.py --method dfa   --source_frac 0.1
+    python run_experiments.py --method dfa   --source_frac 0.5
+
 Run this from the src/ directory (the experiment scripts resolve the dataset
 via base_dir = cwd().parent, i.e. the project root, which must contain
 data/processed/<country>/).
@@ -67,6 +74,17 @@ METHODS = {
         "prefix": "AMCv2",
         "extra": ["--loss_type", "bce", "--coral_weight", "50.0"],
     },
+    # DFA baseline (strongest single-channel baseline). Previously run via
+    # run_experiments_dfa.ps1 with the script defaults, which SHARED_ARGS
+    # mirror -> extra is empty. Routed to its own subfolder so new runs (e.g.
+    # the --source_frac data-efficiency ones) stay separate from the legacy
+    # main-branch outputs.
+    "dfa": {
+        "script": "run_MultiModalGNN_CrossAttention_CrossCountry_DFA.py",
+        "prefix": "DFA",
+        "subdir": "dfa_logs",
+        "extra": [],
+    },
     # Direction 3: Channel-Specific DFA. Coverage-gated channel fusion + coverage
     # prior, BCE loss (DFA inheritance), channel-specific CORAL on coRT/coURL.
     "csdfa": {
@@ -109,6 +127,12 @@ METHODS = {
     },
 }
 
+# Scripts that accept --source_frac (source-data-efficiency experiments).
+SOURCE_FRAC_SCRIPTS = {
+    "run_MultiModalGNN_CrossAttention_CrossCountry_CSDFA.py",
+    "run_MultiModalGNN_CrossAttention_CrossCountry_DFA.py",
+}
+
 # Shared hyper-parameters (identical across the PowerShell scripts).
 SHARED_ARGS = [
     "--epochs", "1000",
@@ -132,15 +156,28 @@ def get_results_dir(base_results_dir, method_cfg):
     return method_results_dir
 
 
-def run_country(method_cfg, country, device, src_dir, results_dir):
-    log_path = results_dir / f"zero-shot_{method_cfg['prefix']}_{country}.txt"
+def build_cmd_and_log_name(method_cfg, country, device, source_frac=1.0):
+    """Command line + log-file name for one country run. source_frac != 1.0
+    appends the flag and tags the log name (e.g. CSDFA_frac10) so 10%/50%
+    runs do not overwrite the 100% logs."""
+    prefix = method_cfg["prefix"]
+    extra = list(method_cfg["extra"])
+    if source_frac != 1.0:
+        extra += ["--source_frac", str(source_frac)]
+        prefix = f"{prefix}_frac{int(round(source_frac * 100))}"
     cmd = [
         sys.executable, "-u", method_cfg["script"],
         "--dataset", country,
         "--device", device,
         *SHARED_ARGS,
-        *method_cfg["extra"],
+        *extra,
     ]
+    return cmd, f"zero-shot_{prefix}_{country}.txt"
+
+
+def run_country(method_cfg, country, device, src_dir, results_dir, source_frac=1.0):
+    cmd, log_name = build_cmd_and_log_name(method_cfg, country, device, source_frac)
+    log_path = results_dir / log_name
     print("=" * 60)
     print(f"  {method_cfg['prefix']}: target = {country}")
     print(f"  cmd: {' '.join(cmd)}")
@@ -183,7 +220,17 @@ def main():
                         help="subset of target countries (default: all six)")
     parser.add_argument("--device", default="0",
                         help="device id passed to the script; use -1 to force CPU (e.g. on a Mac)")
+    parser.add_argument("--source_frac", type=float, default=1.0,
+                        help="fraction of labeled source-country accounts used for training "
+                             "(stratified per country, fixed seed). Only csdfa* and dfa "
+                             "support it; 1.0 (default) = full data, plain run")
     args = parser.parse_args()
+
+    if args.source_frac != 1.0 and METHODS[args.method]["script"] not in SOURCE_FRAC_SCRIPTS:
+        parser.error(f"--source_frac is only supported by methods whose script accepts it "
+                     f"(csdfa*/dfa), not '{args.method}'")
+    if not 0.0 < args.source_frac <= 1.0:
+        parser.error(f"--source_frac must be in (0, 1], got {args.source_frac}")
 
     src_dir = Path(__file__).resolve().parent
     project_root = src_dir.parent
@@ -200,7 +247,8 @@ def main():
     method_results_dir = get_results_dir(results_dir, method_cfg)
     failures = []
     for country in args.countries:
-        rc = run_country(method_cfg, country, args.device, src_dir, method_results_dir)
+        rc = run_country(method_cfg, country, args.device, src_dir, method_results_dir,
+                         source_frac=args.source_frac)
         if rc != 0:
             failures.append(country)
 

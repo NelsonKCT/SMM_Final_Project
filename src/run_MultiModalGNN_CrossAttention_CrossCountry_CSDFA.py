@@ -355,13 +355,56 @@ def pairwise_coral(feat_by_country):
     return val
 
 
-def stratified_random_boolean_tensor(n, batch_size, device, labels):
+def build_source_frac_pool(labels, source_frac, run_seed, country):
+    """Fixed stratified subsample of one source country's labeled accounts.
+
+    Returns a bool tensor [n] marking the accounts kept in the training pool,
+    or None when source_frac >= 1.0 (use everything: exact legacy behaviour).
+    The draw is deterministic in (run_seed, country) and uses its own RNG, so
+    the pool is identical across epochs and splits and no other random stream
+    of the run is perturbed. Target-country data and the eval splits never go
+    through this function.
+    """
+    if source_frac >= 1.0:
+        return None
+    if not 0.0 < source_frac < 1.0:
+        raise ValueError(f"source_frac must be in (0, 1], got {source_frac}")
+    rng = np.random.default_rng([run_seed, ALL_COUNTRIES.index(country)])
+    labels_np = labels.long().detach().cpu().numpy()
+    pool = np.zeros(labels_np.shape[0], dtype=bool)
+    for cls in (0, 1):
+        cls_idx = np.flatnonzero(labels_np == cls)
+        if len(cls_idx) == 0:
+            continue
+        n_keep = max(1, int(round(source_frac * len(cls_idx))))
+        pool[rng.choice(cls_idx, size=n_keep, replace=False)] = True
+    return torch.from_numpy(pool).to(labels.device)
+
+
+def log_source_pool(country, labels, pool, source_frac):
+    """Print kept/total labeled accounts per class -- the source_frac audit line."""
+    n0 = int((labels == 0).sum().item())
+    n1 = int((labels == 1).sum().item())
+    if pool is None:
+        k0, k1 = n0, n1
+    else:
+        k0 = int(((labels == 0) & pool).sum().item())
+        k1 = int(((labels == 1) & pool).sum().item())
+    print(f"[SourceFrac] {country}: organic {k0}/{n0}, IO {k1}/{n1} "
+          f"(source_frac={source_frac})")
+
+
+def stratified_random_boolean_tensor(n, batch_size, device, labels, pool_mask=None):
     assert len(labels) == n, "The length of labels must match n."
     assert batch_size <= n, "Batch size cannot be larger than the number of available elements."
 
     bool_tensor = torch.zeros(n, dtype=torch.bool)
-    indices_0 = torch.where(labels == 0)[0]
-    indices_1 = torch.where(labels == 1)[0]
+    if pool_mask is not None:
+        indices_0 = torch.where((labels == 0) & pool_mask)[0]
+        indices_1 = torch.where((labels == 1) & pool_mask)[0]
+    else:
+        indices_0 = torch.where(labels == 0)[0]
+        indices_1 = torch.where(labels == 1)[0]
     batch_size_0 = batch_size // 2
     batch_size_1 = batch_size - batch_size_0
 
@@ -404,6 +447,7 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
     print(f"[CS-DFA] coverage_prior_lambda={prior_lambda}")
 
     # Preload source country datasets (data + per-node coverage masks + priors)
+    source_frac = hyper_params.get('source_frac', 1.0)
     other_countries = [c for c in ALL_COUNTRIES if c != dataset_name]
     countries_data = {}
     countries_numExamples = {}
@@ -411,12 +455,16 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
         (_, _, _, _, c_datasets, c_edge_indices, _, c_node_features,
          c_struct_node_features, c_coverage_mask) = read_all_data_csdfa(
             device_id, country, hyper_params, train_hyperparams, model_hyperparams)
+        c_source_pool = build_source_frac_pool(c_datasets['labels'], source_frac,
+                                               hyper_params['seed'], country)
         countries_data[country] = {
             'datasets': c_datasets, 'edge_indices': c_edge_indices,
             'node_features': c_node_features, 'struct_node_features': c_struct_node_features,
-            'coverage_mask': c_coverage_mask, 'log_prior': coverage_log_prior(c_coverage_mask)
+            'coverage_mask': c_coverage_mask, 'log_prior': coverage_log_prior(c_coverage_mask),
+            'source_pool': c_source_pool
         }
         countries_numExamples[country] = c_struct_node_features.shape[0]
+        log_source_pool(country, c_datasets['labels'], c_source_pool, source_frac)
 
     train_logger = TrainLogMetrics(hyper_params['num_splits'], ['supervised'])
     val_logger = TestLogMetrics(hyper_params['num_splits'], ['accuracy', 'precision', 'f1_macro', 'f1_micro'])
@@ -499,7 +547,8 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
                 train_mask = stratified_random_boolean_tensor(
                     countries_numExamples[country],
                     batch_size=128, device=device,
-                    labels=cd['datasets']['labels']
+                    labels=cd['datasets']['labels'],
+                    pool_mask=cd['source_pool']
                 )
                 pred, text_feats, z_list = model(
                     cd['node_features'], cd['struct_node_features'], cd['edge_indices'],
@@ -677,6 +726,11 @@ if __name__ == '__main__':
     parser.add_argument('-gating', '--gating', type=str, default='on', choices=['on', 'off'],
                         help="Coverage-gated fusion. off = plain per-node attention over all "
                              "channels (no mask, no prior) = AMC-style backbone control.")
+    parser.add_argument('-source_frac', '--source_frac', type=float, default=1.0,
+                        help='Fraction of labeled source-country training accounts to use, '
+                             'subsampled per country stratified by class with a fixed seed '
+                             '(data-efficiency experiments). 1.0 (default) = use everything; '
+                             'target data and eval splits are never subsampled.')
     args = parser.parse_args()
 
     hyper_parameters = {
@@ -684,7 +738,8 @@ if __name__ == '__main__':
         'aggr_type': args.aggr_fn, 'num_splits': args.splits, 'seed': args.seed,
         'tsim_th': args.tsim_th, 'min_tweets': args.min_tweets, 'most_pop': args.most_pop,
         'input_embed': args.embed_type, 'trace_type': 'all',
-        'undersampling': float(args.under) if args.under is not None else None
+        'undersampling': float(args.under) if args.under is not None else None,
+        'source_frac': args.source_frac
     }
     train_hyperparameters = {
         'num_epochs': args.epochs, 'learning_rate': args.lr,

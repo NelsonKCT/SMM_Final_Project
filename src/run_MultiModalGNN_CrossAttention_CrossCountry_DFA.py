@@ -26,24 +26,74 @@ DEFAULT_MODEL_HYPERPARAMETERS = {'gnn_type': 'gcn', 'latent_dim': 32, 'dropout':
 ALL_COUNTRIES = ['china', 'iran', 'UAE', 'cuba', 'russia', 'venezuela']
 
 
-def stratified_random_boolean_tensor(n, batch_size, device, labels):
+def build_source_frac_pool(labels, source_frac, run_seed, country):
+    """Fixed stratified subsample of one source country's labeled accounts.
+
+    Returns a bool tensor [n] marking the accounts kept in the training pool,
+    or None when source_frac >= 1.0 (use everything: exact legacy behaviour).
+    The draw is deterministic in (run_seed, country) and uses its own RNG, so
+    the pool is identical across epochs and splits and no other random stream
+    of the run is perturbed. Target-country data and the eval splits never go
+    through this function.
+    """
+    if source_frac >= 1.0:
+        return None
+    if not 0.0 < source_frac < 1.0:
+        raise ValueError(f"source_frac must be in (0, 1], got {source_frac}")
+    rng = np.random.default_rng([run_seed, ALL_COUNTRIES.index(country)])
+    labels_np = labels.long().detach().cpu().numpy()
+    pool = np.zeros(labels_np.shape[0], dtype=bool)
+    for cls in (0, 1):
+        cls_idx = np.flatnonzero(labels_np == cls)
+        if len(cls_idx) == 0:
+            continue
+        n_keep = max(1, int(round(source_frac * len(cls_idx))))
+        pool[rng.choice(cls_idx, size=n_keep, replace=False)] = True
+    return torch.from_numpy(pool).to(labels.device)
+
+
+def log_source_pool(country, labels, pool, source_frac):
+    """Print kept/total labeled accounts per class -- the source_frac audit line."""
+    n0 = int((labels == 0).sum().item())
+    n1 = int((labels == 1).sum().item())
+    if pool is None:
+        k0, k1 = n0, n1
+    else:
+        k0 = int(((labels == 0) & pool).sum().item())
+        k1 = int(((labels == 1) & pool).sum().item())
+    print(f"[SourceFrac] {country}: organic {k0}/{n0}, IO {k1}/{n1} "
+          f"(source_frac={source_frac})")
+
+
+def stratified_random_boolean_tensor(n, batch_size, device, labels, pool_mask=None):
     assert len(labels) == n, "The length of labels must match n."
     assert batch_size <= n, "Batch size cannot be larger than the number of available elements."
 
     # Initialize a boolean tensor of size n with all False
     bool_tensor = torch.zeros(n, dtype=torch.bool)
 
-    # Find the indices of the 0s and 1s in the labels
-    indices_0 = torch.where(labels == 0)[0]
-    indices_1 = torch.where(labels == 1)[0]
+    # Find the indices of the 0s and 1s in the labels (restricted to the
+    # --source_frac pool when one is active)
+    if pool_mask is not None:
+        indices_0 = torch.where((labels == 0) & pool_mask)[0]
+        indices_1 = torch.where((labels == 1) & pool_mask)[0]
+    else:
+        indices_0 = torch.where(labels == 0)[0]
+        indices_1 = torch.where(labels == 1)[0]
 
     # Calculate the number of samples to take from each class
     batch_size_0 = batch_size // 2
     batch_size_1 = batch_size - batch_size_0
 
-    # Ensure that there are enough samples in each class
-    assert batch_size_0 <= len(indices_0), "Not enough samples in class 0 to satisfy the batch size."
-    assert batch_size_1 <= len(indices_1), "Not enough samples in class 1 to satisfy the batch size."
+    if pool_mask is None:
+        # Ensure that there are enough samples in each class
+        assert batch_size_0 <= len(indices_0), "Not enough samples in class 0 to satisfy the batch size."
+        assert batch_size_1 <= len(indices_1), "Not enough samples in class 1 to satisfy the batch size."
+    else:
+        # A subsampled pool (e.g. 10% of a small country) can hold fewer than
+        # batch_size//2 accounts of a class: cap instead of asserting.
+        batch_size_0 = min(batch_size_0, len(indices_0))
+        batch_size_1 = min(batch_size_1, len(indices_1))
 
     # Randomly sample indices for each class
     sampled_indices_0 = indices_0[torch.randperm(len(indices_0))[:batch_size_0]]
@@ -200,6 +250,7 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
     num_epochs = train_hyperparams['num_epochs']
     metric_to_optimize = train_hyperparams['metric_to_optimize']
     # Read data of all the other countries
+    source_frac = hyper_params.get('source_frac', 1.0)
     other_countries = [country for country in copy.deepcopy(ALL_COUNTRIES) if country != dataset_name]
     countries_data = {}
     countries_numExamples = {}
@@ -207,10 +258,14 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
     for country in other_countries:
         _, _, _, _, country_datasets, country_edge_index, country_network, country_node_features, country_struct_node_features = read_all_data(
             device_id, country, hyper_params, train_hyperparams, model_hyperparams)
+        country_source_pool = build_source_frac_pool(country_datasets['labels'], source_frac,
+                                                     hyper_params['seed'], country)
         countries_data[country] = {'datasets': country_datasets, 'edge_index': country_edge_index,
                                    'network': country_network, 'node_features': country_node_features,
-                                   'struct_node_features': country_struct_node_features}
+                                   'struct_node_features': country_struct_node_features,
+                                   'source_pool': country_source_pool}
         countries_numExamples[country] = country_struct_node_features.shape[0]
+        log_source_pool(country, country_datasets['labels'], country_source_pool, source_frac)
 
     for run_id in tqdm(range(hyper_params['num_splits']), 'Splits training'):
         BEST_VAL_METRIC = -np.inf
@@ -240,7 +295,8 @@ def main(dataset_name, train_hyperparams, model_hyperparams, hyper_params, devic
             for country in countries_data:
                 train_mask = stratified_random_boolean_tensor(countries_numExamples[country],
                                                               batch_size=128, device=device,
-                                                              labels=countries_data[country]['datasets']['labels'])
+                                                              labels=countries_data[country]['datasets']['labels'],
+                                                              pool_mask=countries_data[country]['source_pool'])
                 # Get task predictions AND decoupled textual projection features ONLY
                 pred, text_feats = model(countries_data[country]['node_features'],
                                          countries_data[country]['struct_node_features'],
@@ -393,15 +449,21 @@ if __name__ == '__main__':
                         help='Number of most popular tweets to use to represent a user',
                         default=5)
     parser.add_argument('-under_sampling', '--under', help='undersampling percentage', default=None)
+    parser.add_argument('-source_frac', '--source_frac', type=float, default=1.0,
+                        help='Fraction of labeled source-country training accounts to use, '
+                             'subsampled per country stratified by class with a fixed seed '
+                             '(data-efficiency experiments). 1.0 (default) = use everything; '
+                             'target data and eval splits are never subsampled.')
     args = parser.parse_args()
-    
+
     # General hyperparameters
     hyper_parameters = {'train_perc': args.train, 'val_perc': args.val, 'test_perc': args.test,
                         'aggr_type': args.aggr_fn, 'num_splits': args.splits, 'seed': args.seed,
                         'tsim_th': args.tsim_th,
                         'min_tweets': args.min_tweets, 'most_pop': args.most_pop,
                         'input_embed': args.embed_type, 'trace_type': 'all',
-                        'undersampling': float(args.under) if args.under is not None else None
+                        'undersampling': float(args.under) if args.under is not None else None,
+                        'source_frac': args.source_frac
                         }
     # optimization hyperparameters
     train_hyperparameters = {'num_epochs': args.epochs, 'learning_rate': args.lr,

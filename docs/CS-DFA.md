@@ -103,7 +103,26 @@ python run_experiments.py --method csdfa --device 0
 python run_experiments.py --method csdfa_nocoral  --device 0   # CORAL off
 python run_experiments.py --method csdfa_noprior  --device 0   # coverage prior off (λ=0)
 python run_experiments.py --method csdfa_nogate   --device 0   # gating off (bare backbone)
+
+# source-data efficiency (paper Sec. "Source-Data Efficiency", Table data-eff):
+# train on 10% / 50% of the labeled source-country accounts (100% = plain run)
+python run_experiments.py --method csdfa --source_frac 0.1 --device 0
+python run_experiments.py --method csdfa --source_frac 0.5 --device 0
+python run_experiments.py --method dfa   --source_frac 0.1 --device 0
+python run_experiments.py --method dfa   --source_frac 0.5 --device 0
 ```
+
+`--source_frac f` subsamples the **labeled source-country training accounts** only:
+per source country, a fixed class-stratified (IO vs organic) subset of `f * n`
+accounts is drawn once with a seed derived from the run seed and the country
+index, so the pool is identical across epochs and splits. The per-epoch batch
+of 128 is then sampled from that pool. Target-country data and all evaluation
+splits are untouched, and `--source_frac 1.0` (the default) is an exact no-op.
+Each run logs one `[SourceFrac] <country>: organic kept/total, IO kept/total`
+line per source country — diff these against a 100% run to audit the sampling.
+Logs are tagged with the fraction (`zero-shot_CSDFA_frac10_<country>.txt` under
+`results/csdfa_logs/`, `zero-shot_DFA_frac10_<country>.txt` under
+`results/dfa_logs/`) so 10%/50% runs never overwrite the 100% logs.
 
 On a 15 GB GPU (e.g. Colab T4), the multi-channel methods keep all six countries'
 five sub-network edge indices resident on the GPU, which fragments memory. The runner
