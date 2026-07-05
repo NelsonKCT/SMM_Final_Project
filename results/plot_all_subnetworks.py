@@ -62,7 +62,7 @@ for i, country in enumerate(countries):
 print("Parsed Data Matrix:\n", data_matrix)
 
 # ----------------------------------------------------
-# CHART 1: Scientific Heatmap (熱力圖)
+# CHART 1: Scientific Heatmap
 # ----------------------------------------------------
 plt.figure(figsize=(11, 7.5), dpi=300)
 # Custom palette: viridis or magma for professional presentation look
@@ -82,7 +82,7 @@ plt.savefig("coral_subnetworks_heatmap.png", bbox_inches='tight')
 plt.close()
 
 # ----------------------------------------------------
-# CHART 2: Subnetworks Multi-Line Chart (5折線趨勢圖)
+# CHART 2: Subnetworks Multi-Line Chart (5 lines, one per sub-network)
 # ----------------------------------------------------
 plt.figure(figsize=(11, 6.5), dpi=300)
 markers = ['o', 's', '^', 'D', 'p']

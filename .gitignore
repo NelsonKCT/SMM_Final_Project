@@ -1,12 +1,27 @@
-# Dataset (too large for git; lives on Drive / lab machine)
+# Dataset (too large for git; download from Zenodo — see README)
 data/
 
 # Python
 __pycache__/
 *.pyc
+.venv/
+
+# Experiment artifacts (model checkpoints, MLflow runs)
+*.pth
+mlruns/
 
 # OS
 .DS_Store
 
-# Half-baked / interim experiment outputs
-results/zero-shot_TSET_iran.txt
+# Claude Code local session files (shared rules in .claude/rules/ stay tracked)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Poster source archive (extracted copy is tracked in poster_overleaf/SMM_src/)
+poster_overleaf/SMM.zip
+
+# LaTeX build intermediates (paper/main.pdf itself is tracked)
+paper/*.blg
+paper/*.log
+paper/*.aux
+paper/*.bbl

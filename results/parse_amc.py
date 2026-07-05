@@ -2,7 +2,7 @@ import os
 import re
 
 countries = ["china", "iran", "UAE", "cuba", "russia", "venezuela"]
-base_dir = "c:/Users/minelab/Desktop/projects/ssm"
+base_dir = os.path.dirname(os.path.abspath(__file__))  # the results/ directory
 
 def read_file(filepath):
     # Try different encodings due to PowerShell redirection UTF-16LE or UTF-8
@@ -22,7 +22,7 @@ results = {
     'amc': {}
 }
 
-# 論文官方數據 (Table 3 Only PreTrain F1-Macro)
+# Official numbers from the IOHunter paper (Table 3, Only PreTrain F1-Macro)
 paper_baseline_f1 = {
     'china': '0.5814+-0.0589',
     'iran': '0.7278+-0.0143',
