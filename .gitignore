@@ -19,3 +19,9 @@ mlruns/
 
 # Poster source archive (extracted copy is tracked in poster_overleaf/SMM_src/)
 poster_overleaf/SMM.zip
+
+# LaTeX build intermediates (paper/main.pdf itself is tracked)
+paper/*.blg
+paper/*.log
+paper/*.aux
+paper/*.bbl
