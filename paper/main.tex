@@ -214,8 +214,9 @@ $\mathrm{Cov}_k^c = |\{n \in V_k : \deg_{G_k^c}(n) > 0\}| / |V_k|$.
 Table~\ref{tab:datasets} shows the six campaigns differ by up to two orders
 of magnitude in size and, critically, in per-channel coverage: co-retweet
 and co-URL consistently cover most accounts (24--93\%), while hashtag
-sequence, fast retweet and (for most countries) text similarity often cover
-$<$11\% --- for China only 3--7\%. In a merged graph every account is
+sequence and fast retweet drop below 11\% for half of the countries and text
+similarity swings from 3\% to nearly 100\% --- for China all three cover
+only 3--7\%. In a merged graph every account is
 implicitly present in all channels; the $\ge$93\% of Chinese accounts
 isolated in the sparse channels inject pure feature noise into message
 passing and dilute the coordination signal of \textit{coRT}/\textit{coURL}.
@@ -429,7 +430,7 @@ Table~\ref{tab:ablation} disables each mechanism in turn (all variants share
 BCE loss and the training protocol). Removing channel-level CORAL changes
 the average by 0.002; removing the coverage prior ($\lambda{=}0$) changes it
 by 0.000. Removing the \emph{gate}, however, collapses the average from
-0.952 to 0.686 --- a drop of $\ge$0.18 on every single country
+0.952 to 0.686 --- a drop of at least 0.17 on every single country
 (Table~\ref{tab:nogate}) --- and lands \emph{below} single-graph DFA
 (0.775). Two conclusions follow. First, splitting behavior into channels is
 not beneficial by itself; unmasked fusion lets isolated-channel noise pull
