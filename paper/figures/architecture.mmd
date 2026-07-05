@@ -1,0 +1,36 @@
+%% CS-DFA architecture — mermaid source for Figure 1.
+%% Render options:
+%%   1. https://mermaid.live  → paste → export SVG/PNG (fastest)
+%%   2. npx -y @mermaid-js/mermaid-cli -i architecture.mmd -o architecture.pdf
+%% Then replace poster_architecture_flow1.png in main.tex with the new file.
+
+flowchart TB
+    subgraph inputs["Multimodal Inputs"]
+        TXT["Text features<br/>(SBERT tweet embeddings)"]
+        STR["Structural features<br/>(degree one-hot)"]
+    end
+
+    TXT --> DFA
+    STR --> DFA
+    DFA["Decoupled Cross-Attention Projection<br/>(DFA backbone)"] --> H["Multimodal node features H"]
+
+    subgraph channels["Channel-Specific GNNs (one per behavioral sub-network)"]
+        G1["ChannelGNN<br/>coRT"]
+        G2["ChannelGNN<br/>coURL"]
+        G3["ChannelGNN<br/>hashSeq"]
+        G4["ChannelGNN<br/>fastRT"]
+        G5["ChannelGNN<br/>tweetSim"]
+    end
+
+    H --> G1 & G2 & G3 & G4 & G5
+
+    MASK["Coverage mask M[n,c]<br/>+ coverage prior λ·log Cov_c"]
+
+    G1 --> FUSE
+    G2 --> FUSE
+    G3 --> FUSE
+    G4 --> FUSE
+    G5 --> FUSE
+    MASK -.->|"gate: score = −∞ if M[n,c]=0"| FUSE
+
+    FUSE["Coverage-Gated Attention Fusion<br/>α_n = softmax(Score(n,·))"] --> CLS["Classifier → IO / organic"]
