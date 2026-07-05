@@ -22,7 +22,7 @@ results = {
     'amc': {}
 }
 
-# 論文官方數據 (Table 3 Only PreTrain F1-Macro)
+# Official numbers from the IOHunter paper (Table 3, Only PreTrain F1-Macro)
 paper_baseline_f1 = {
     'china': '0.5814+-0.0589',
     'iran': '0.7278+-0.0143',
