@@ -2,7 +2,7 @@ import os
 import re
 
 countries = ["china", "iran", "UAE", "cuba", "russia", "venezuela"]
-base_dir = "c:/Users/minelab/Desktop/projects/ssm"
+base_dir = os.path.dirname(os.path.abspath(__file__))  # the results/ directory
 
 def read_file(filepath):
     # Try different encodings due to PowerShell Tee-Object default to UTF-16LE
