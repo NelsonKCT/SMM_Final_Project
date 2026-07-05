@@ -1,0 +1,347 @@
+[ Using Seed : 12121995 ]
+/content/smm/data/processed/cuba
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/cuba/nodefeatures/all/gnnpositional_degree.pth
+
+[CS-DFA] Target 'cuba' channel coverage: coRT=0.2389, coURL=0.4902, hashSeq=0.0440, fastRT=0.0252, tweetSim=0.9996
+[CS-DFA] coverage_prior_lambda=1.0
+/content/smm/data/processed/china
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/china/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] china: organic 11130/22260, IO 384/768 (source_frac=0.5)
+/content/smm/data/processed/iran
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/iran/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] iran: organic 4914/9827, IO 2330/4659 (source_frac=0.5)
+/content/smm/data/processed/UAE
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/UAE/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] UAE: organic 3021/6042, IO 1674/3349 (source_frac=0.5)
+/content/smm/data/processed/russia
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/russia/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] russia: organic 220/441, IO 138/275 (source_frac=0.5)
+/content/smm/data/processed/venezuela
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/venezuela/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] venezuela: organic 2244/4488, IO 266/533 (source_frac=0.5)
+[Loss] BCELoss (DFA inheritance)
+[CORAL] on=channel, weight=1.0, channels=['coRT', 'coURL']
+[Fusion] coverage gating = True
+
+Splits training:   0%|          | 0/5 [00:00<?, ?it/s]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4477 (task: 3.4477) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4943
+Epoch 1/1000 loss: 2.9835 (task: 2.9835) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.5134
+Epoch 2/1000 loss: 1.3748 (task: 1.3747) -- CORAL[text=0.000000 | channel_mean=0.000084 | coRT=0.000000, coURL=0.000168] -- val_f1_macro: 0.8151
+Epoch 3/1000 loss: 1.5990 (task: 1.5955) -- CORAL[text=0.000001 | channel_mean=0.003556 | coRT=0.000001, coURL=0.007111] -- val_f1_macro: 0.8151
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 4/1000 loss: 0.2700 (task: 0.2695) -- CORAL[text=0.000000 | channel_mean=0.000449 | coRT=0.000000, coURL=0.000898] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 5/1000 loss: 1.7424 (task: 1.7423) -- CORAL[text=0.000000 | channel_mean=0.000095 | coRT=0.000000, coURL=0.000190] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 6/1000 loss: 2.4564 (task: 2.4564) -- CORAL[text=0.000000 | channel_mean=0.000011 | coRT=0.000000, coURL=0.000021] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 7/1000 loss: 2.2995 (task: 2.2995) -- CORAL[text=0.000000 | channel_mean=0.000002 | coRT=0.000000, coURL=0.000003] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 8/1000 loss: 1.4506 (task: 1.4506) -- CORAL[text=0.000000 | channel_mean=0.000001 | coRT=0.000000, coURL=0.000002] -- val_f1_macro: 0.4943
+Epoch 9/1000 loss: 0.5998 (task: 0.5998) -- CORAL[text=0.000000 | channel_mean=0.000046 | coRT=0.000001, coURL=0.000090] -- val_f1_macro: 0.9835
+Epoch 10/1000 loss: 0.1689 (task: 0.1667) -- CORAL[text=0.000000 | channel_mean=0.002243 | coRT=0.000047, coURL=0.004438] -- val_f1_macro: 0.8700
+Epoch 11/1000 loss: 0.1336 (task: 0.0848) -- CORAL[text=0.000000 | channel_mean=0.048761 | coRT=0.002343, coURL=0.095179] -- val_f1_macro: 0.8287
+Epoch 12/1000 loss: 1.2059 (task: 1.1886) -- CORAL[text=0.000000 | channel_mean=0.017330 | coRT=0.007155, coURL=0.027504] -- val_f1_macro: 0.8748
+Epoch 13/1000 loss: 0.1861 (task: 0.1545) -- CORAL[text=0.000000 | channel_mean=0.031598 | coRT=0.019466, coURL=0.043729] -- val_f1_macro: 0.5534
+Epoch 14/1000 loss: 0.3404 (task: 0.2547) -- CORAL[text=0.000000 | channel_mean=0.085716 | coRT=0.008501, coURL=0.162931] -- val_f1_macro: 0.4931
+Epoch 15/1000 loss: 0.5006 (task: 0.4813) -- CORAL[text=0.000000 | channel_mean=0.019322 | coRT=0.010203, coURL=0.028441] -- val_f1_macro: 0.6524
+Epoch 16/1000 loss: 1.3732 (task: 0.5807) -- CORAL[text=0.000000 | channel_mean=0.792505 | coRT=0.903138, coURL=0.681872] -- val_f1_macro: 0.8436
+Epoch 17/1000 loss: 0.9578 (task: 0.5607) -- CORAL[text=0.000000 | channel_mean=0.397083 | coRT=0.096085, coURL=0.698080] -- val_f1_macro: 0.8339
+Epoch 18/1000 loss: 0.4440 (task: 0.3961) -- CORAL[text=0.000000 | channel_mean=0.047899 | coRT=0.023184, coURL=0.072613] -- val_f1_macro: 0.8326
+Epoch 19/1000 loss: 0.5161 (task: 0.4553) -- CORAL[text=0.000000 | channel_mean=0.060771 | coRT=0.030290, coURL=0.091253] -- val_f1_macro: 0.8300
+Epoch 20/1000 loss: 0.5206 (task: 0.4755) -- CORAL[text=0.000000 | channel_mean=0.045105 | coRT=0.017562, coURL=0.072649] -- val_f1_macro: 0.8287
+Epoch 21/1000 loss: 0.5845 (task: 0.5563) -- CORAL[text=0.000000 | channel_mean=0.028171 | coRT=0.019973, coURL=0.036369] -- val_f1_macro: 0.8275
+Epoch 22/1000 loss: 0.6422 (task: 0.5556) -- CORAL[text=0.000000 | channel_mean=0.086649 | coRT=0.032091, coURL=0.141207] -- val_f1_macro: 0.8275
+Epoch 23/1000 loss: 0.5280 (task: 0.5110) -- CORAL[text=0.000000 | channel_mean=0.016993 | coRT=0.018708, coURL=0.015279] -- val_f1_macro: 0.8275
+Epoch 24/1000 loss: 0.5198 (task: 0.5055) -- CORAL[text=0.000000 | channel_mean=0.014272 | coRT=0.012685, coURL=0.015860] -- val_f1_macro: 0.8275
+Epoch 25/1000 loss: 0.4649 (task: 0.4444) -- CORAL[text=0.000000 | channel_mean=0.020517 | coRT=0.021602, coURL=0.019431] -- val_f1_macro: 0.8275
+Epoch 26/1000 loss: 0.2781 (task: 0.2610) -- CORAL[text=0.000000 | channel_mean=0.017115 | coRT=0.018653, coURL=0.015578] -- val_f1_macro: 0.8275
+Epoch 27/1000 loss: 0.2738 (task: 0.2470) -- CORAL[text=0.000000 | channel_mean=0.026809 | coRT=0.035135, coURL=0.018482] -- val_f1_macro: 0.8275
+Epoch 28/1000 loss: 0.1522 (task: 0.0945) -- CORAL[text=0.000000 | channel_mean=0.057749 | coRT=0.042873, coURL=0.072625] -- val_f1_macro: 0.8275
+Epoch 29/1000 loss: 0.1196 (task: 0.0463) -- CORAL[text=0.000000 | channel_mean=0.073255 | coRT=0.019426, coURL=0.127084] -- val_f1_macro: 0.8275
+Epoch 30/1000 loss: 0.8792 (task: 0.8019) -- CORAL[text=0.000000 | channel_mean=0.077321 | coRT=0.010902, coURL=0.143740] -- val_f1_macro: 0.8462
+
+[Split 0] Mean channel attention (gated): coRT=0.0361, coURL=0.1424, hashSeq=0.0249, fastRT=0.0073, tweetSim=0.7893
+
+Splits training:  20%|██        | 1/5 [00:29<01:57, 29.40s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4697 (task: 3.4697) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4943
+Epoch 1/1000 loss: 3.0757 (task: 3.0757) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.5096
+Epoch 2/1000 loss: 2.3566 (task: 2.3566) -- CORAL[text=0.000000 | channel_mean=0.000004 | coRT=0.000000, coURL=0.000008] -- val_f1_macro: 0.8237
+Epoch 3/1000 loss: 0.7468 (task: 0.7468) -- CORAL[text=0.000000 | channel_mean=0.000014 | coRT=0.000000, coURL=0.000029] -- val_f1_macro: 0.8237
+Epoch 4/1000 loss: 0.2633 (task: 0.2633) -- CORAL[text=0.000000 | channel_mean=0.000029 | coRT=0.000000, coURL=0.000059] -- val_f1_macro: 0.8237
+Epoch 5/1000 loss: 0.0736 (task: 0.0699) -- CORAL[text=0.000000 | channel_mean=0.003705 | coRT=0.000001, coURL=0.007409] -- val_f1_macro: 0.8300
+Epoch 6/1000 loss: 0.8129 (task: 0.7918) -- CORAL[text=0.000001 | channel_mean=0.021100 | coRT=0.000024, coURL=0.042176] -- val_f1_macro: 0.8300
+Epoch 7/1000 loss: 0.0121 (task: 0.0000) -- CORAL[text=0.000000 | channel_mean=0.012092 | coRT=0.000019, coURL=0.024166] -- val_f1_macro: 0.8276
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 8/1000 loss: 1.0424 (task: 1.0335) -- CORAL[text=0.000000 | channel_mean=0.008888 | coRT=0.000209, coURL=0.017567] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 9/1000 loss: 1.8517 (task: 1.8501) -- CORAL[text=0.000000 | channel_mean=0.001531 | coRT=0.000065, coURL=0.002998] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 10/1000 loss: 2.6869 (task: 2.6868) -- CORAL[text=0.000000 | channel_mean=0.000119 | coRT=0.000012, coURL=0.000226] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 11/1000 loss: 2.4569 (task: 2.4569) -- CORAL[text=0.000000 | channel_mean=0.000043 | coRT=0.000003, coURL=0.000083] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 12/1000 loss: 2.5154 (task: 2.5154) -- CORAL[text=0.000000 | channel_mean=0.000005 | coRT=0.000000, coURL=0.000011] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 13/1000 loss: 2.5575 (task: 2.5573) -- CORAL[text=0.000000 | channel_mean=0.000195 | coRT=0.000001, coURL=0.000389] -- val_f1_macro: 0.4943
+Epoch 14/1000 loss: 2.2544 (task: 2.2524) -- CORAL[text=0.000000 | channel_mean=0.001955 | coRT=0.000008, coURL=0.003902] -- val_f1_macro: 0.9228
+Epoch 15/1000 loss: 1.2865 (task: 1.2529) -- CORAL[text=0.000000 | channel_mean=0.033571 | coRT=0.000049, coURL=0.067093] -- val_f1_macro: 0.6464
+Epoch 16/1000 loss: 0.5394 (task: 0.5052) -- CORAL[text=0.000000 | channel_mean=0.034164 | coRT=0.000401, coURL=0.067928] -- val_f1_macro: 0.8275
+Epoch 17/1000 loss: 1.0199 (task: 0.9978) -- CORAL[text=0.000000 | channel_mean=0.022012 | coRT=0.002502, coURL=0.041522] -- val_f1_macro: 0.6858
+Epoch 18/1000 loss: 0.2317 (task: 0.2274) -- CORAL[text=0.000000 | channel_mean=0.004238 | coRT=0.001484, coURL=0.006992] -- val_f1_macro: 0.4940
+Epoch 19/1000 loss: 1.4699 (task: 1.4678) -- CORAL[text=0.000000 | channel_mean=0.002132 | coRT=0.000937, coURL=0.003326] -- val_f1_macro: 0.4933
+Epoch 20/1000 loss: 2.1213 (task: 2.1209) -- CORAL[text=0.000000 | channel_mean=0.000403 | coRT=0.000403, coURL=0.000403] -- val_f1_macro: 0.4912
+Epoch 21/1000 loss: 2.4048 (task: 2.4046) -- CORAL[text=0.000000 | channel_mean=0.000199 | coRT=0.000234, coURL=0.000165] -- val_f1_macro: 0.4763
+Epoch 22/1000 loss: 2.6819 (task: 2.6818) -- CORAL[text=0.000000 | channel_mean=0.000079 | coRT=0.000139, coURL=0.000019] -- val_f1_macro: 0.4789
+Epoch 23/1000 loss: 2.7880 (task: 2.7880) -- CORAL[text=0.000000 | channel_mean=0.000041 | coRT=0.000071, coURL=0.000010] -- val_f1_macro: 0.4820
+Epoch 24/1000 loss: 2.8700 (task: 2.8700) -- CORAL[text=0.000000 | channel_mean=0.000039 | coRT=0.000034, coURL=0.000044] -- val_f1_macro: 0.4980
+Epoch 25/1000 loss: 2.8159 (task: 2.8159) -- CORAL[text=0.000000 | channel_mean=0.000071 | coRT=0.000078, coURL=0.000064] -- val_f1_macro: 0.4993
+Epoch 26/1000 loss: 2.6566 (task: 2.6565) -- CORAL[text=0.000001 | channel_mean=0.000078 | coRT=0.000140, coURL=0.000016] -- val_f1_macro: 0.4940
+Epoch 27/1000 loss: 2.3908 (task: 2.3903) -- CORAL[text=0.000001 | channel_mean=0.000531 | coRT=0.000884, coURL=0.000177] -- val_f1_macro: 0.5151
+Epoch 28/1000 loss: 1.9949 (task: 1.9944) -- CORAL[text=0.000001 | channel_mean=0.000479 | coRT=0.000883, coURL=0.000076] -- val_f1_macro: 0.4939
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 29/1000 loss: 1.4793 (task: 1.4746) -- CORAL[text=0.000003 | channel_mean=0.004734 | coRT=0.008995, coURL=0.000474] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 30/1000 loss: 0.8912 (task: 0.8790) -- CORAL[text=0.000006 | channel_mean=0.012197 | coRT=0.023065, coURL=0.001328] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 31/1000 loss: 1.4305 (task: 1.3883) -- CORAL[text=0.000007 | channel_mean=0.042164 | coRT=0.074548, coURL=0.009781] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 32/1000 loss: 1.8447 (task: 1.8235) -- CORAL[text=0.000007 | channel_mean=0.021204 | coRT=0.035710, coURL=0.006699] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 33/1000 loss: 4.7815 (task: 4.7642) -- CORAL[text=0.000009 | channel_mean=0.017350 | coRT=0.020819, coURL=0.013882] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 34/1000 loss: 7.5588 (task: 7.5457) -- CORAL[text=0.000007 | channel_mean=0.013172 | coRT=0.011073, coURL=0.015271] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 35/1000 loss: 8.8408 (task: 8.8281) -- CORAL[text=0.000006 | channel_mean=0.012740 | coRT=0.003775, coURL=0.021705] -- val_f1_macro: 0.4943
+
+[Split 1] Mean channel attention (gated): coRT=0.0426, coURL=0.1401, hashSeq=0.0259, fastRT=0.0064, tweetSim=0.7850
+
+Splits training:  40%|████      | 2/5 [01:02<01:34, 31.40s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4602 (task: 3.4602) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4943
+Epoch 1/1000 loss: 2.7968 (task: 2.7968) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.5185
+Epoch 2/1000 loss: 3.1154 (task: 3.1153) -- CORAL[text=0.000001 | channel_mean=0.000041 | coRT=0.000000, coURL=0.000081] -- val_f1_macro: 0.8339
+Epoch 3/1000 loss: 0.3687 (task: 0.3686) -- CORAL[text=0.000000 | channel_mean=0.000096 | coRT=0.000000, coURL=0.000191] -- val_f1_macro: 0.8339
+Epoch 4/1000 loss: 0.1039 (task: 0.1032) -- CORAL[text=0.000000 | channel_mean=0.000637 | coRT=0.000000, coURL=0.001274] -- val_f1_macro: 0.8339
+Epoch 5/1000 loss: 1.0712 (task: 1.0656) -- CORAL[text=0.000001 | channel_mean=0.005583 | coRT=0.000004, coURL=0.011162] -- val_f1_macro: 0.8339
+Epoch 6/1000 loss: 0.0801 (task: 0.0645) -- CORAL[text=0.000001 | channel_mean=0.015594 | coRT=0.000017, coURL=0.031171] -- val_f1_macro: 0.8448
+Epoch 7/1000 loss: 0.0074 (task: 0.0039) -- CORAL[text=0.000001 | channel_mean=0.003470 | coRT=0.000020, coURL=0.006919] -- val_f1_macro: 0.8448
+Epoch 8/1000 loss: 0.7863 (task: 0.7813) -- CORAL[text=0.000001 | channel_mean=0.005056 | coRT=0.000037, coURL=0.010076] -- val_f1_macro: 0.8448
+Epoch 9/1000 loss: 0.0024 (task: 0.0006) -- CORAL[text=0.000001 | channel_mean=0.001872 | coRT=0.000141, coURL=0.003603] -- val_f1_macro: 0.8448
+Epoch 10/1000 loss: 0.0009 (task: 0.0002) -- CORAL[text=0.000001 | channel_mean=0.000673 | coRT=0.000421, coURL=0.000926] -- val_f1_macro: 0.8448
+Epoch 11/1000 loss: 0.0010 (task: 0.0005) -- CORAL[text=0.000001 | channel_mean=0.000503 | coRT=0.000502, coURL=0.000505] -- val_f1_macro: 0.5910
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 12/1000 loss: 0.1076 (task: 0.1072) -- CORAL[text=0.000001 | channel_mean=0.000349 | coRT=0.000336, coURL=0.000361] -- val_f1_macro: 0.4943
+Epoch 13/1000 loss: 0.0461 (task: 0.0457) -- CORAL[text=0.000001 | channel_mean=0.000480 | coRT=0.000461, coURL=0.000499] -- val_f1_macro: 0.8087
+Epoch 14/1000 loss: 0.0007 (task: 0.0003) -- CORAL[text=0.000001 | channel_mean=0.000384 | coRT=0.000247, coURL=0.000520] -- val_f1_macro: 0.8448
+Epoch 15/1000 loss: 0.0010 (task: 0.0000) -- CORAL[text=0.000001 | channel_mean=0.000971 | coRT=0.000322, coURL=0.001620] -- val_f1_macro: 0.8448
+Epoch 16/1000 loss: 0.7830 (task: 0.7813) -- CORAL[text=0.000001 | channel_mean=0.001683 | coRT=0.000161, coURL=0.003204] -- val_f1_macro: 0.8448
+Epoch 17/1000 loss: 0.0061 (task: 0.0002) -- CORAL[text=0.000001 | channel_mean=0.005983 | coRT=0.000852, coURL=0.011114] -- val_f1_macro: 0.8448
+Epoch 18/1000 loss: 0.0090 (task: 0.0004) -- CORAL[text=0.000001 | channel_mean=0.008533 | coRT=0.000685, coURL=0.016381] -- val_f1_macro: 0.8448
+Epoch 19/1000 loss: 0.7863 (task: 0.7814) -- CORAL[text=0.000001 | channel_mean=0.004834 | coRT=0.000372, coURL=0.009295] -- val_f1_macro: 0.8448
+Epoch 20/1000 loss: 0.0030 (task: 0.0008) -- CORAL[text=0.000001 | channel_mean=0.002219 | coRT=0.000342, coURL=0.004096] -- val_f1_macro: 0.8448
+Epoch 21/1000 loss: 0.0014 (task: 0.0005) -- CORAL[text=0.000001 | channel_mean=0.000951 | coRT=0.000155, coURL=0.001746] -- val_f1_macro: 0.8448
+Epoch 22/1000 loss: 0.1132 (task: 0.1028) -- CORAL[text=0.000001 | channel_mean=0.010388 | coRT=0.000286, coURL=0.020490] -- val_f1_macro: 0.8448
+Epoch 23/1000 loss: 0.0040 (task: 0.0009) -- CORAL[text=0.000000 | channel_mean=0.003137 | coRT=0.000215, coURL=0.006060] -- val_f1_macro: 0.8448
+Epoch 24/1000 loss: 0.1536 (task: 0.1509) -- CORAL[text=0.000000 | channel_mean=0.002686 | coRT=0.000059, coURL=0.005313] -- val_f1_macro: 0.8448
+Epoch 25/1000 loss: 0.0876 (task: 0.0859) -- CORAL[text=0.000000 | channel_mean=0.001636 | coRT=0.000216, coURL=0.003056] -- val_f1_macro: 0.8448
+Epoch 26/1000 loss: 0.0252 (task: 0.0239) -- CORAL[text=0.000000 | channel_mean=0.001306 | coRT=0.000092, coURL=0.002519] -- val_f1_macro: 0.8448
+Epoch 27/1000 loss: 0.1060 (task: 0.0999) -- CORAL[text=0.000000 | channel_mean=0.006090 | coRT=0.000183, coURL=0.011998] -- val_f1_macro: 0.8448
+
+[Split 2] Mean channel attention (gated): coRT=0.0333, coURL=0.1410, hashSeq=0.0396, fastRT=0.0004, tweetSim=0.7857
+
+Splits training:  60%|██████    | 3/5 [01:27<00:57, 28.60s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4577 (task: 3.4577) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4943
+Epoch 1/1000 loss: 2.7962 (task: 2.7962) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.8406
+Epoch 2/1000 loss: 1.0294 (task: 1.0294) -- CORAL[text=0.000001 | channel_mean=0.000041 | coRT=0.000000, coURL=0.000083] -- val_f1_macro: 0.8406
+Epoch 3/1000 loss: 4.7001 (task: 4.6909) -- CORAL[text=0.000002 | channel_mean=0.009149 | coRT=0.000007, coURL=0.018292] -- val_f1_macro: 0.8406
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 4/1000 loss: 0.1496 (task: 0.1455) -- CORAL[text=0.000001 | channel_mean=0.004149 | coRT=0.000003, coURL=0.008295] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 5/1000 loss: 1.8548 (task: 1.8542) -- CORAL[text=0.000000 | channel_mean=0.000654 | coRT=0.000001, coURL=0.001307] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 6/1000 loss: 2.3939 (task: 2.3938) -- CORAL[text=0.000000 | channel_mean=0.000125 | coRT=0.000000, coURL=0.000249] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 7/1000 loss: 2.4655 (task: 2.4655) -- CORAL[text=0.000000 | channel_mean=0.000005 | coRT=0.000000, coURL=0.000011] -- val_f1_macro: 0.4943
+Epoch 8/1000 loss: 2.3240 (task: 2.3240) -- CORAL[text=0.000000 | channel_mean=0.000001 | coRT=0.000000, coURL=0.000001] -- val_f1_macro: 0.8812
+Epoch 9/1000 loss: 1.5774 (task: 1.5774) -- CORAL[text=0.000000 | channel_mean=0.000065 | coRT=0.000000, coURL=0.000129] -- val_f1_macro: 0.8406
+Epoch 10/1000 loss: 0.4618 (task: 0.4586) -- CORAL[text=0.000000 | channel_mean=0.003182 | coRT=0.000006, coURL=0.006357] -- val_f1_macro: 0.8406
+Epoch 11/1000 loss: 0.2727 (task: 0.2286) -- CORAL[text=0.000000 | channel_mean=0.044140 | coRT=0.000206, coURL=0.088075] -- val_f1_macro: 0.8406
+Epoch 12/1000 loss: 0.5407 (task: 0.4580) -- CORAL[text=0.000000 | channel_mean=0.082659 | coRT=0.001308, coURL=0.164011] -- val_f1_macro: 0.8406
+Epoch 13/1000 loss: 1.6969 (task: 1.6691) -- CORAL[text=0.000000 | channel_mean=0.027817 | coRT=0.004926, coURL=0.050709] -- val_f1_macro: 0.8406
+Epoch 14/1000 loss: 0.1967 (task: 0.1851) -- CORAL[text=0.000000 | channel_mean=0.011633 | coRT=0.000868, coURL=0.022397] -- val_f1_macro: 0.5413
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 15/1000 loss: 1.0145 (task: 0.9141) -- CORAL[text=0.000000 | channel_mean=0.100389 | coRT=0.003248, coURL=0.197531] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 16/1000 loss: 2.6180 (task: 2.4856) -- CORAL[text=0.000000 | channel_mean=0.132406 | coRT=0.004198, coURL=0.260615] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 17/1000 loss: 2.7038 (task: 2.5970) -- CORAL[text=0.000000 | channel_mean=0.106771 | coRT=0.013182, coURL=0.200359] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 18/1000 loss: 2.4856 (task: 2.4413) -- CORAL[text=0.000000 | channel_mean=0.044261 | coRT=0.011799, coURL=0.076723] -- val_f1_macro: 0.4943
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 19/1000 loss: 2.2214 (task: 2.2060) -- CORAL[text=0.000000 | channel_mean=0.015430 | coRT=0.010609, coURL=0.020251] -- val_f1_macro: 0.4943
+Epoch 20/1000 loss: 2.0049 (task: 1.9926) -- CORAL[text=0.000000 | channel_mean=0.012288 | coRT=0.004480, coURL=0.020096] -- val_f1_macro: 0.4942
+Epoch 21/1000 loss: 1.8387 (task: 1.8156) -- CORAL[text=0.000000 | channel_mean=0.023093 | coRT=0.022083, coURL=0.024103] -- val_f1_macro: 0.4940
+Epoch 22/1000 loss: 1.4600 (task: 1.4517) -- CORAL[text=0.000000 | channel_mean=0.008295 | coRT=0.009009, coURL=0.007581] -- val_f1_macro: 0.7045
+Epoch 23/1000 loss: 1.0142 (task: 1.0068) -- CORAL[text=0.000000 | channel_mean=0.007365 | coRT=0.010870, coURL=0.003861] -- val_f1_macro: 0.8519
+Epoch 24/1000 loss: 0.5138 (task: 0.5026) -- CORAL[text=0.000000 | channel_mean=0.011175 | coRT=0.014366, coURL=0.007983] -- val_f1_macro: 0.8519
+Epoch 25/1000 loss: 0.2165 (task: 0.1869) -- CORAL[text=0.000000 | channel_mean=0.029602 | coRT=0.045981, coURL=0.013224] -- val_f1_macro: 0.8519
+Epoch 26/1000 loss: 0.0761 (task: 0.0568) -- CORAL[text=0.000000 | channel_mean=0.019291 | coRT=0.024171, coURL=0.014411] -- val_f1_macro: 0.8519
+Epoch 27/1000 loss: 0.1368 (task: 0.0081) -- CORAL[text=0.000000 | channel_mean=0.128644 | coRT=0.233579, coURL=0.023709] -- val_f1_macro: 0.8519
+Epoch 28/1000 loss: 0.1488 (task: 0.1084) -- CORAL[text=0.000000 | channel_mean=0.040338 | coRT=0.049414, coURL=0.031261] -- val_f1_macro: 0.8519
+Epoch 29/1000 loss: 0.0600 (task: 0.0362) -- CORAL[text=0.000000 | channel_mean=0.023734 | coRT=0.035395, coURL=0.012073] -- val_f1_macro: 0.8519
+
+[Split 3] Mean channel attention (gated): coRT=0.0434, coURL=0.1315, hashSeq=0.0312, fastRT=0.0100, tweetSim=0.7839
+
+Splits training:  80%|████████  | 4/5 [01:54<00:28, 28.08s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4991 (task: 3.4991) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4943
+Epoch 1/1000 loss: 3.0866 (task: 3.0866) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.5146
+Epoch 2/1000 loss: 6.8282 (task: 6.8281) -- CORAL[text=0.000000 | channel_mean=0.000013 | coRT=0.000002, coURL=0.000024] -- val_f1_macro: 0.5146
+Epoch 3/1000 loss: 1.1951 (task: 1.1951) -- CORAL[text=0.000000 | channel_mean=0.000002 | coRT=0.000000, coURL=0.000003] -- val_f1_macro: 0.8140
+Epoch 4/1000 loss: 0.8586 (task: 0.8586) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.8140
+Epoch 5/1000 loss: 0.6026 (task: 0.6026) -- CORAL[text=0.000000 | channel_mean=0.000001 | coRT=0.000000, coURL=0.000002] -- val_f1_macro: 0.8140
+Epoch 6/1000 loss: 0.2490 (task: 0.2489) -- CORAL[text=0.000000 | channel_mean=0.000046 | coRT=0.000000, coURL=0.000091] -- val_f1_macro: 0.8140
+Epoch 7/1000 loss: 0.4627 (task: 0.4618) -- CORAL[text=0.000000 | channel_mean=0.000896 | coRT=0.000003, coURL=0.001789] -- val_f1_macro: 0.8140
+Epoch 8/1000 loss: 0.3346 (task: 0.3315) -- CORAL[text=0.000000 | channel_mean=0.003141 | coRT=0.000012, coURL=0.006271] -- val_f1_macro: 0.9343
+Epoch 9/1000 loss: 0.2590 (task: 0.2537) -- CORAL[text=0.000000 | channel_mean=0.005350 | coRT=0.000034, coURL=0.010666] -- val_f1_macro: 0.9259
+Epoch 10/1000 loss: 0.3063 (task: 0.3031) -- CORAL[text=0.000000 | channel_mean=0.003220 | coRT=0.000026, coURL=0.006413] -- val_f1_macro: 0.8249
+Epoch 11/1000 loss: 0.2084 (task: 0.2071) -- CORAL[text=0.000000 | channel_mean=0.001336 | coRT=0.000138, coURL=0.002534] -- val_f1_macro: 0.8237
+Epoch 12/1000 loss: 0.0761 (task: 0.0751) -- CORAL[text=0.000000 | channel_mean=0.001070 | coRT=0.000059, coURL=0.002082] -- val_f1_macro: 0.8237
+Epoch 13/1000 loss: 0.1272 (task: 0.1257) -- CORAL[text=0.000000 | channel_mean=0.001558 | coRT=0.000130, coURL=0.002986] -- val_f1_macro: 0.8224
+Epoch 14/1000 loss: 0.1045 (task: 0.1024) -- CORAL[text=0.000000 | channel_mean=0.002053 | coRT=0.000123, coURL=0.003982] -- val_f1_macro: 0.8224
+Epoch 15/1000 loss: 0.1403 (task: 0.1303) -- CORAL[text=0.000000 | channel_mean=0.009994 | coRT=0.000067, coURL=0.019922] -- val_f1_macro: 0.8237
+Epoch 16/1000 loss: 0.0997 (task: 0.0990) -- CORAL[text=0.000000 | channel_mean=0.000715 | coRT=0.000110, coURL=0.001321] -- val_f1_macro: 0.8237
+Epoch 17/1000 loss: 0.1157 (task: 0.1148) -- CORAL[text=0.000000 | channel_mean=0.000918 | coRT=0.000195, coURL=0.001642] -- val_f1_macro: 0.8237
+Epoch 18/1000 loss: 0.0877 (task: 0.0855) -- CORAL[text=0.000000 | channel_mean=0.002212 | coRT=0.000348, coURL=0.004077] -- val_f1_macro: 0.8237
+Epoch 19/1000 loss: 0.0145 (task: 0.0108) -- CORAL[text=0.000000 | channel_mean=0.003739 | coRT=0.000897, coURL=0.006581] -- val_f1_macro: 0.8237
+Epoch 20/1000 loss: 0.1287 (task: 0.1237) -- CORAL[text=0.000000 | channel_mean=0.005041 | coRT=0.002178, coURL=0.007905] -- val_f1_macro: 0.8237
+Epoch 21/1000 loss: 0.0957 (task: 0.0907) -- CORAL[text=0.000000 | channel_mean=0.005070 | coRT=0.000440, coURL=0.009701] -- val_f1_macro: 0.8237
+Epoch 22/1000 loss: 0.0098 (task: 0.0078) -- CORAL[text=0.000000 | channel_mean=0.002007 | coRT=0.002176, coURL=0.001838] -- val_f1_macro: 0.8237
+Epoch 23/1000 loss: 0.0687 (task: 0.0653) -- CORAL[text=0.000000 | channel_mean=0.003403 | coRT=0.006378, coURL=0.000429] -- val_f1_macro: 0.8237
+Epoch 24/1000 loss: 0.0085 (task: 0.0078) -- CORAL[text=0.000000 | channel_mean=0.000704 | coRT=0.000291, coURL=0.001118] -- val_f1_macro: 0.8237
+Epoch 25/1000 loss: 0.0062 (task: 0.0047) -- CORAL[text=0.000000 | channel_mean=0.001528 | coRT=0.001215, coURL=0.001840] -- val_f1_macro: 0.8237
+Epoch 26/1000 loss: 0.0640 (task: 0.0624) -- CORAL[text=0.000000 | channel_mean=0.001695 | coRT=0.002569, coURL=0.000821] -- val_f1_macro: 0.8237
+Epoch 27/1000 loss: 0.0637 (task: 0.0630) -- CORAL[text=0.000000 | channel_mean=0.000699 | coRT=0.000376, coURL=0.001023] -- val_f1_macro: 0.8237
+Epoch 28/1000 loss: 0.0632 (task: 0.0621) -- CORAL[text=0.000000 | channel_mean=0.001163 | coRT=0.001861, coURL=0.000465] -- val_f1_macro: 0.8237
+Epoch 29/1000 loss: 0.0475 (task: 0.0463) -- CORAL[text=0.000000 | channel_mean=0.001203 | coRT=0.001963, coURL=0.000443] -- val_f1_macro: 0.8237
+
+[Split 4] Mean channel attention (gated): coRT=0.0328, coURL=0.1601, hashSeq=0.0215, fastRT=0.0065, tweetSim=0.7790
+
+Splits training: 100%|██████████| 5/5 [02:22<00:00, 27.80s/it]
+Splits training: 100%|██████████| 5/5 [02:22<00:00, 28.41s/it]
+
+Splits post-training:   0%|          | 0/5 [00:00<?, ?it/s]
+Splits post-training:  20%|██        | 1/5 [00:01<00:07,  1.88s/it]
+Splits post-training: 100%|██████████| 5/5 [00:01<00:00,  2.60it/s]
+VAL set: 
+[VAL] accuracy: 0.9905+-0.0063
+[VAL] precision: 0.763+-0.1597
+[VAL] f1_macro: 0.9133+-0.0473
+[VAL] f1_micro: 0.9905+-0.0063
+TEST set: 
+[TEST] accuracy: 0.9909+-0.006
+[TEST] precision: 0.7567+-0.146
+[TEST] f1_macro: 0.9168+-0.0463
+[TEST] f1_micro: 0.9909+-0.006
+TEST_coRT set: 
+[TEST_coRT] accuracy: 0.9931+-0.0073
+[TEST_coRT] precision: 0.9629+-0.0317
+[TEST_coRT] f1_macro: 0.98+-0.0211
+[TEST_coRT] f1_micro: 0.9931+-0.0073
+[TEST_coRT] roc_auc: 0.9983+-0.0021
+TEST_coURL set: 
+[TEST_coURL] accuracy: 0.9879+-0.0098
+[TEST_coURL] precision: 0.8371+-0.1409
+[TEST_coURL] f1_macro: 0.9414+-0.0448
+[TEST_coURL] f1_micro: 0.9879+-0.0098
+[TEST_coURL] roc_auc: 0.996+-0.0051
+TEST_hashSeq set: 
+[TEST_hashSeq] accuracy: 0.8005+-0.1486
+[TEST_hashSeq] precision: 0.7742+-0.1554
+[TEST_hashSeq] f1_macro: 0.7564+-0.219
+[TEST_hashSeq] f1_micro: 0.8005+-0.1486
+[TEST_hashSeq] roc_auc: 0.8268+-0.177
+TEST_fastRT set: 
+[TEST_fastRT] accuracy: 0.9512+-0.0689
+[TEST_fastRT] precision: 0.9775+-0.0345
+[TEST_fastRT] f1_macro: 0.9007+-0.1204
+[TEST_fastRT] f1_micro: 0.9512+-0.0689
+[TEST_fastRT] roc_auc: 0.9202+-0.1144
+TEST_tweetSim set: 
+[TEST_tweetSim] accuracy: 0.991+-0.006
+[TEST_tweetSim] precision: 0.7602+-0.1475
+[TEST_tweetSim] f1_macro: 0.9177+-0.0464
+[TEST_tweetSim] f1_micro: 0.991+-0.006
+[TEST_tweetSim] roc_auc: 0.9962+-0.0033
+
+[CS-DFA Summary for cuba]
+  channel coverage = coRT=0.2389, coURL=0.4902, hashSeq=0.0440, fastRT=0.0252, tweetSim=0.9996
+  loss_type=bce, coral_on=channel, coral_weight=1.0, coverage_prior_lambda=1.0
