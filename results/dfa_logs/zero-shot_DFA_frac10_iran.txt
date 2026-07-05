@@ -1,0 +1,269 @@
+[ Using Seed : 12121995 ]
+/content/smm/data/processed/iran
+Get edge index from graph (14486N 400483E)
+Loading /content/smm/data/processed/iran/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/iran/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/china
+Get edge index from graph (23028N 412649E)
+Loading /content/smm/data/processed/china/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/china/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] china: organic 2226/22260, IO 77/768 (source_frac=0.1)
+/content/smm/data/processed/UAE
+Get edge index from graph (9391N 2119429E)
+Loading /content/smm/data/processed/UAE/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/UAE/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] UAE: organic 604/6042, IO 335/3349 (source_frac=0.1)
+/content/smm/data/processed/cuba
+Get edge index from graph (20247N 4739499E)
+Loading /content/smm/data/processed/cuba/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/cuba/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] cuba: organic 1979/19786, IO 46/461 (source_frac=0.1)
+/content/smm/data/processed/russia
+Get edge index from graph (716N 10631E)
+Loading /content/smm/data/processed/russia/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/russia/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] russia: organic 44/441, IO 28/275 (source_frac=0.1)
+/content/smm/data/processed/venezuela
+Get edge index from graph (5021N 56905E)
+Loading /content/smm/data/processed/venezuela/edge_index.th
+Computing LLM-based features...
+Computing GNN features (positional_degree)...
+Loading embed from disk...
+/content/smm/data/processed/venezuela/nodefeatures/all/gnnpositional_degree.pth
+[SourceFrac] venezuela: organic 449/4488, IO 53/533 (source_frac=0.1)
+
+Splits training:   0%|          | 0/5 [00:00<?, ?it/s]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 train_loss: 3.4615 (task_loss: 3.4615, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 1/1000 train_loss: 3.4883 (task_loss: 3.4883, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+Epoch 2/1000 train_loss: 3.3502 (task_loss: 3.3502, coral_loss: 0.0000) -- val_f1_macro: 0.4235
+Epoch 3/1000 train_loss: 2.8577 (task_loss: 2.8577, coral_loss: 0.0000) -- val_f1_macro: 0.6220
+Epoch 4/1000 train_loss: 2.5105 (task_loss: 2.5105, coral_loss: 0.0000) -- val_f1_macro: 0.6420
+Epoch 5/1000 train_loss: 2.0846 (task_loss: 2.0846, coral_loss: 0.0000) -- val_f1_macro: 0.6803
+Epoch 6/1000 train_loss: 1.9306 (task_loss: 1.9305, coral_loss: 0.0000) -- val_f1_macro: 0.7138
+Epoch 7/1000 train_loss: 1.6513 (task_loss: 1.6513, coral_loss: 0.0000) -- val_f1_macro: 0.7172
+Epoch 8/1000 train_loss: 1.8201 (task_loss: 1.8201, coral_loss: 0.0001) -- val_f1_macro: 0.7160
+Epoch 9/1000 train_loss: 1.7285 (task_loss: 1.7284, coral_loss: 0.0001) -- val_f1_macro: 0.7058
+Epoch 10/1000 train_loss: 1.4352 (task_loss: 1.4351, coral_loss: 0.0001) -- val_f1_macro: 0.7026
+Epoch 11/1000 train_loss: 1.4337 (task_loss: 1.4336, coral_loss: 0.0002) -- val_f1_macro: 0.7029
+Epoch 12/1000 train_loss: 1.1302 (task_loss: 1.1301, coral_loss: 0.0002) -- val_f1_macro: 0.7090
+Epoch 13/1000 train_loss: 1.0999 (task_loss: 1.0997, coral_loss: 0.0002) -- val_f1_macro: 0.6966
+Epoch 14/1000 train_loss: 0.9568 (task_loss: 0.9565, coral_loss: 0.0003) -- val_f1_macro: 0.6955
+Epoch 15/1000 train_loss: 0.8399 (task_loss: 0.8395, coral_loss: 0.0004) -- val_f1_macro: 0.6935
+Epoch 16/1000 train_loss: 0.8297 (task_loss: 0.8293, coral_loss: 0.0004) -- val_f1_macro: 0.6814
+Epoch 17/1000 train_loss: 0.6940 (task_loss: 0.6936, coral_loss: 0.0004) -- val_f1_macro: 0.6354
+Epoch 18/1000 train_loss: 0.7780 (task_loss: 0.7776, coral_loss: 0.0004) -- val_f1_macro: 0.6562
+Epoch 19/1000 train_loss: 0.7898 (task_loss: 0.7894, coral_loss: 0.0004) -- val_f1_macro: 0.6270
+Epoch 20/1000 train_loss: 0.5566 (task_loss: 0.5562, coral_loss: 0.0004) -- val_f1_macro: 0.5858
+Epoch 21/1000 train_loss: 0.4001 (task_loss: 0.3997, coral_loss: 0.0004) -- val_f1_macro: 0.5817
+Epoch 22/1000 train_loss: 0.3961 (task_loss: 0.3958, coral_loss: 0.0004) -- val_f1_macro: 0.5872
+Epoch 23/1000 train_loss: 0.3202 (task_loss: 0.3198, coral_loss: 0.0004) -- val_f1_macro: 0.5919
+Epoch 24/1000 train_loss: 0.2111 (task_loss: 0.2107, coral_loss: 0.0004) -- val_f1_macro: 0.5949
+Epoch 25/1000 train_loss: 0.1961 (task_loss: 0.1957, coral_loss: 0.0004) -- val_f1_macro: 0.5964
+Epoch 26/1000 train_loss: 0.1675 (task_loss: 0.1670, coral_loss: 0.0005) -- val_f1_macro: 0.5965
+Epoch 27/1000 train_loss: 0.2268 (task_loss: 0.2264, coral_loss: 0.0005) -- val_f1_macro: 0.5946
+Epoch 28/1000 train_loss: 0.2677 (task_loss: 0.2672, coral_loss: 0.0004) -- val_f1_macro: 0.5908
+
+Splits training:  20%|██        | 1/5 [00:34<02:19, 34.83s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 train_loss: 3.4671 (task_loss: 3.4671, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 1/1000 train_loss: 3.5485 (task_loss: 3.5485, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+Epoch 2/1000 train_loss: 3.3649 (task_loss: 3.3649, coral_loss: 0.0000) -- val_f1_macro: 0.6338
+Epoch 3/1000 train_loss: 3.0258 (task_loss: 3.0258, coral_loss: 0.0000) -- val_f1_macro: 0.5569
+Epoch 4/1000 train_loss: 2.4674 (task_loss: 2.4674, coral_loss: 0.0000) -- val_f1_macro: 0.6623
+Epoch 5/1000 train_loss: 1.9136 (task_loss: 1.9136, coral_loss: 0.0000) -- val_f1_macro: 0.6035
+Epoch 6/1000 train_loss: 2.4270 (task_loss: 2.4270, coral_loss: 0.0000) -- val_f1_macro: 0.6862
+Epoch 7/1000 train_loss: 2.1708 (task_loss: 2.1708, coral_loss: 0.0000) -- val_f1_macro: 0.6814
+Epoch 8/1000 train_loss: 1.7459 (task_loss: 1.7459, coral_loss: 0.0000) -- val_f1_macro: 0.6648
+Epoch 9/1000 train_loss: 1.4821 (task_loss: 1.4821, coral_loss: 0.0000) -- val_f1_macro: 0.6546
+Epoch 10/1000 train_loss: 1.6671 (task_loss: 1.6670, coral_loss: 0.0001) -- val_f1_macro: 0.6689
+Epoch 11/1000 train_loss: 1.3944 (task_loss: 1.3944, coral_loss: 0.0001) -- val_f1_macro: 0.6746
+Epoch 12/1000 train_loss: 1.2533 (task_loss: 1.2532, coral_loss: 0.0001) -- val_f1_macro: 0.6704
+Epoch 13/1000 train_loss: 0.9949 (task_loss: 0.9948, coral_loss: 0.0001) -- val_f1_macro: 0.6540
+Epoch 14/1000 train_loss: 0.8840 (task_loss: 0.8837, coral_loss: 0.0002) -- val_f1_macro: 0.6626
+Epoch 15/1000 train_loss: 0.6437 (task_loss: 0.6434, coral_loss: 0.0003) -- val_f1_macro: 0.6451
+Epoch 16/1000 train_loss: 0.7816 (task_loss: 0.7812, coral_loss: 0.0004) -- val_f1_macro: 0.6358
+Epoch 17/1000 train_loss: 0.5446 (task_loss: 0.5441, coral_loss: 0.0005) -- val_f1_macro: 0.6397
+Epoch 18/1000 train_loss: 0.7028 (task_loss: 0.7022, coral_loss: 0.0006) -- val_f1_macro: 0.5989
+Epoch 19/1000 train_loss: 0.4221 (task_loss: 0.4216, coral_loss: 0.0005) -- val_f1_macro: 0.5597
+Epoch 20/1000 train_loss: 0.5666 (task_loss: 0.5661, coral_loss: 0.0005) -- val_f1_macro: 0.5935
+Epoch 21/1000 train_loss: 0.2977 (task_loss: 0.2970, coral_loss: 0.0007) -- val_f1_macro: 0.6116
+Epoch 22/1000 train_loss: 0.4631 (task_loss: 0.4623, coral_loss: 0.0008) -- val_f1_macro: 0.5996
+Epoch 23/1000 train_loss: 0.3023 (task_loss: 0.3015, coral_loss: 0.0008) -- val_f1_macro: 0.5677
+Epoch 24/1000 train_loss: 0.2891 (task_loss: 0.2882, coral_loss: 0.0010) -- val_f1_macro: 0.5675
+Epoch 25/1000 train_loss: 0.1976 (task_loss: 0.1968, coral_loss: 0.0008) -- val_f1_macro: 0.6007
+Epoch 26/1000 train_loss: 0.1999 (task_loss: 0.1990, coral_loss: 0.0009) -- val_f1_macro: 0.6287
+Epoch 27/1000 train_loss: 0.1173 (task_loss: 0.1163, coral_loss: 0.0010) -- val_f1_macro: 0.6291
+
+Splits training:  40%|████      | 2/5 [01:07<01:41, 33.83s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 train_loss: 3.4807 (task_loss: 3.4807, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 1/1000 train_loss: 3.4320 (task_loss: 3.4320, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 2/1000 train_loss: 3.1598 (task_loss: 3.1598, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+Epoch 3/1000 train_loss: 3.0140 (task_loss: 3.0140, coral_loss: 0.0000) -- val_f1_macro: 0.5670
+Epoch 4/1000 train_loss: 2.8360 (task_loss: 2.8360, coral_loss: 0.0000) -- val_f1_macro: 0.5597
+Epoch 5/1000 train_loss: 2.5126 (task_loss: 2.5126, coral_loss: 0.0000) -- val_f1_macro: 0.6484
+Epoch 6/1000 train_loss: 1.8509 (task_loss: 1.8509, coral_loss: 0.0000) -- val_f1_macro: 0.7017
+Epoch 7/1000 train_loss: 1.9195 (task_loss: 1.9195, coral_loss: 0.0000) -- val_f1_macro: 0.7125
+Epoch 8/1000 train_loss: 1.9303 (task_loss: 1.9302, coral_loss: 0.0000) -- val_f1_macro: 0.7063
+Epoch 9/1000 train_loss: 1.6605 (task_loss: 1.6605, coral_loss: 0.0001) -- val_f1_macro: 0.7016
+Epoch 10/1000 train_loss: 1.3937 (task_loss: 1.3936, coral_loss: 0.0001) -- val_f1_macro: 0.7023
+Epoch 11/1000 train_loss: 1.2669 (task_loss: 1.2668, coral_loss: 0.0001) -- val_f1_macro: 0.6988
+Epoch 12/1000 train_loss: 1.2099 (task_loss: 1.2098, coral_loss: 0.0001) -- val_f1_macro: 0.6838
+Epoch 13/1000 train_loss: 1.1132 (task_loss: 1.1131, coral_loss: 0.0001) -- val_f1_macro: 0.6807
+Epoch 14/1000 train_loss: 0.8653 (task_loss: 0.8651, coral_loss: 0.0002) -- val_f1_macro: 0.6691
+Epoch 15/1000 train_loss: 0.6581 (task_loss: 0.6579, coral_loss: 0.0002) -- val_f1_macro: 0.6176
+Epoch 16/1000 train_loss: 0.5255 (task_loss: 0.5252, coral_loss: 0.0002) -- val_f1_macro: 0.6501
+Epoch 17/1000 train_loss: 0.5631 (task_loss: 0.5628, coral_loss: 0.0003) -- val_f1_macro: 0.5887
+Epoch 18/1000 train_loss: 0.6025 (task_loss: 0.6021, coral_loss: 0.0003) -- val_f1_macro: 0.6077
+Epoch 19/1000 train_loss: 0.6668 (task_loss: 0.6664, coral_loss: 0.0004) -- val_f1_macro: 0.5808
+Epoch 20/1000 train_loss: 1.2654 (task_loss: 1.2649, coral_loss: 0.0005) -- val_f1_macro: 0.5802
+Epoch 21/1000 train_loss: 0.4285 (task_loss: 0.4280, coral_loss: 0.0005) -- val_f1_macro: 0.5857
+Epoch 22/1000 train_loss: 0.4159 (task_loss: 0.4153, coral_loss: 0.0006) -- val_f1_macro: 0.5782
+Epoch 23/1000 train_loss: 0.3008 (task_loss: 0.3002, coral_loss: 0.0006) -- val_f1_macro: 0.5733
+Epoch 24/1000 train_loss: 0.2420 (task_loss: 0.2414, coral_loss: 0.0006) -- val_f1_macro: 0.5739
+Epoch 25/1000 train_loss: 0.3321 (task_loss: 0.3315, coral_loss: 0.0006) -- val_f1_macro: 0.5724
+Epoch 26/1000 train_loss: 0.3757 (task_loss: 0.3751, coral_loss: 0.0006) -- val_f1_macro: 0.5769
+Epoch 27/1000 train_loss: 0.3453 (task_loss: 0.3448, coral_loss: 0.0005) -- val_f1_macro: 0.5797
+Epoch 28/1000 train_loss: 0.2844 (task_loss: 0.2838, coral_loss: 0.0006) -- val_f1_macro: 0.5837
+
+Splits training:  60%|██████    | 3/5 [01:42<01:07, 33.96s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 train_loss: 3.4844 (task_loss: 3.4844, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 1/1000 train_loss: 3.5297 (task_loss: 3.5297, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+Epoch 2/1000 train_loss: 3.3853 (task_loss: 3.3853, coral_loss: 0.0000) -- val_f1_macro: 0.6654
+Epoch 3/1000 train_loss: 3.1019 (task_loss: 3.1019, coral_loss: 0.0000) -- val_f1_macro: 0.5925
+Epoch 4/1000 train_loss: 2.4287 (task_loss: 2.4287, coral_loss: 0.0000) -- val_f1_macro: 0.6882
+Epoch 5/1000 train_loss: 1.8335 (task_loss: 1.8335, coral_loss: 0.0000) -- val_f1_macro: 0.6295
+Epoch 6/1000 train_loss: 2.5932 (task_loss: 2.5931, coral_loss: 0.0000) -- val_f1_macro: 0.7100
+Epoch 7/1000 train_loss: 2.3953 (task_loss: 2.3953, coral_loss: 0.0000) -- val_f1_macro: 0.7011
+Epoch 8/1000 train_loss: 1.7633 (task_loss: 1.7632, coral_loss: 0.0000) -- val_f1_macro: 0.6730
+Epoch 9/1000 train_loss: 1.5406 (task_loss: 1.5406, coral_loss: 0.0001) -- val_f1_macro: 0.6454
+Epoch 10/1000 train_loss: 1.6548 (task_loss: 1.6547, coral_loss: 0.0001) -- val_f1_macro: 0.6542
+Epoch 11/1000 train_loss: 1.6512 (task_loss: 1.6511, coral_loss: 0.0001) -- val_f1_macro: 0.6780
+Epoch 12/1000 train_loss: 1.3480 (task_loss: 1.3479, coral_loss: 0.0001) -- val_f1_macro: 0.6714
+Epoch 13/1000 train_loss: 1.2141 (task_loss: 1.2140, coral_loss: 0.0001) -- val_f1_macro: 0.6614
+Epoch 14/1000 train_loss: 1.1742 (task_loss: 1.1740, coral_loss: 0.0001) -- val_f1_macro: 0.6686
+Epoch 15/1000 train_loss: 0.8366 (task_loss: 0.8363, coral_loss: 0.0002) -- val_f1_macro: 0.6726
+Epoch 16/1000 train_loss: 0.8886 (task_loss: 0.8883, coral_loss: 0.0003) -- val_f1_macro: 0.6643
+Epoch 17/1000 train_loss: 0.8596 (task_loss: 0.8592, coral_loss: 0.0004) -- val_f1_macro: 0.6348
+Epoch 18/1000 train_loss: 0.6681 (task_loss: 0.6677, coral_loss: 0.0004) -- val_f1_macro: 0.5988
+Epoch 19/1000 train_loss: 0.6452 (task_loss: 0.6448, coral_loss: 0.0004) -- val_f1_macro: 0.6161
+Epoch 20/1000 train_loss: 0.5826 (task_loss: 0.5821, coral_loss: 0.0005) -- val_f1_macro: 0.6143
+Epoch 21/1000 train_loss: 0.5016 (task_loss: 0.5010, coral_loss: 0.0006) -- val_f1_macro: 0.5912
+Epoch 22/1000 train_loss: 0.4232 (task_loss: 0.4226, coral_loss: 0.0007) -- val_f1_macro: 0.5765
+Epoch 23/1000 train_loss: 0.3602 (task_loss: 0.3595, coral_loss: 0.0007) -- val_f1_macro: 0.5766
+Epoch 24/1000 train_loss: 0.3574 (task_loss: 0.3567, coral_loss: 0.0008) -- val_f1_macro: 0.5767
+Epoch 25/1000 train_loss: 0.4460 (task_loss: 0.4450, coral_loss: 0.0010) -- val_f1_macro: 0.5813
+Epoch 26/1000 train_loss: 0.3297 (task_loss: 0.3286, coral_loss: 0.0011) -- val_f1_macro: 0.5823
+Epoch 27/1000 train_loss: 0.2402 (task_loss: 0.2392, coral_loss: 0.0010) -- val_f1_macro: 0.5885
+
+Splits training:  80%|████████  | 4/5 [02:15<00:33, 33.62s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 train_loss: 3.4496 (task_loss: 3.4496, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 1/1000 train_loss: 3.5625 (task_loss: 3.5625, coral_loss: 0.0000) -- val_f1_macro: 0.4042
+Epoch 2/1000 train_loss: 3.3539 (task_loss: 3.3539, coral_loss: 0.0000) -- val_f1_macro: 0.4498
+Epoch 3/1000 train_loss: 2.9127 (task_loss: 2.9127, coral_loss: 0.0000) -- val_f1_macro: 0.5720
+Epoch 4/1000 train_loss: 2.4600 (task_loss: 2.4600, coral_loss: 0.0000) -- val_f1_macro: 0.5940
+Epoch 5/1000 train_loss: 2.0493 (task_loss: 2.0493, coral_loss: 0.0000) -- val_f1_macro: 0.6249
+Epoch 6/1000 train_loss: 1.6462 (task_loss: 1.6462, coral_loss: 0.0000) -- val_f1_macro: 0.6787
+Epoch 7/1000 train_loss: 1.5979 (task_loss: 1.5979, coral_loss: 0.0000) -- val_f1_macro: 0.6940
+Epoch 8/1000 train_loss: 1.4755 (task_loss: 1.4754, coral_loss: 0.0000) -- val_f1_macro: 0.6723
+Epoch 9/1000 train_loss: 1.3986 (task_loss: 1.3986, coral_loss: 0.0000) -- val_f1_macro: 0.6607
+Epoch 10/1000 train_loss: 1.2811 (task_loss: 1.2810, coral_loss: 0.0000) -- val_f1_macro: 0.6743
+Epoch 11/1000 train_loss: 1.0459 (task_loss: 1.0458, coral_loss: 0.0000) -- val_f1_macro: 0.6590
+Epoch 12/1000 train_loss: 0.9458 (task_loss: 0.9458, coral_loss: 0.0001) -- val_f1_macro: 0.6553
+Epoch 13/1000 train_loss: 0.7056 (task_loss: 0.7055, coral_loss: 0.0001) -- val_f1_macro: 0.6514
+Epoch 14/1000 train_loss: 0.5458 (task_loss: 0.5457, coral_loss: 0.0001) -- val_f1_macro: 0.6252
+Epoch 15/1000 train_loss: 0.4835 (task_loss: 0.4834, coral_loss: 0.0002) -- val_f1_macro: 0.6228
+Epoch 16/1000 train_loss: 0.5890 (task_loss: 0.5888, coral_loss: 0.0002) -- val_f1_macro: 0.5707
+Epoch 17/1000 train_loss: 0.5415 (task_loss: 0.5413, coral_loss: 0.0002) -- val_f1_macro: 0.5787
+Epoch 18/1000 train_loss: 0.5292 (task_loss: 0.5290, coral_loss: 0.0002) -- val_f1_macro: 0.5687
+Epoch 19/1000 train_loss: 0.3621 (task_loss: 0.3619, coral_loss: 0.0002) -- val_f1_macro: 0.5656
+Epoch 20/1000 train_loss: 0.3646 (task_loss: 0.3643, coral_loss: 0.0002) -- val_f1_macro: 0.5752
+Epoch 21/1000 train_loss: 0.3393 (task_loss: 0.3390, coral_loss: 0.0003) -- val_f1_macro: 0.5846
+Epoch 22/1000 train_loss: 1.2006 (task_loss: 1.2003, coral_loss: 0.0003) -- val_f1_macro: 0.5712
+Epoch 23/1000 train_loss: 0.4171 (task_loss: 0.4169, coral_loss: 0.0002) -- val_f1_macro: 0.5739
+Epoch 24/1000 train_loss: 0.3333 (task_loss: 0.3332, coral_loss: 0.0001) -- val_f1_macro: 0.5751
+Epoch 25/1000 train_loss: 0.2558 (task_loss: 0.2557, coral_loss: 0.0001) -- val_f1_macro: 0.5868
+Epoch 26/1000 train_loss: 0.3310 (task_loss: 0.3309, coral_loss: 0.0001) -- val_f1_macro: 0.5925
+Epoch 27/1000 train_loss: 0.4044 (task_loss: 0.4043, coral_loss: 0.0001) -- val_f1_macro: 0.5869
+Epoch 28/1000 train_loss: 0.3918 (task_loss: 0.3918, coral_loss: 0.0001) -- val_f1_macro: 0.5814
+
+Splits training: 100%|██████████| 5/5 [02:49<00:00, 33.85s/it]
+Splits training: 100%|██████████| 5/5 [02:49<00:00, 33.89s/it]
+
+Splits post-training:   0%|          | 0/5 [00:00<?, ?it/s]
+Splits post-training:  20%|██        | 1/5 [00:06<00:25,  6.34s/it]
+Splits post-training:  40%|████      | 2/5 [00:08<00:12,  4.15s/it]
+Splits post-training:  60%|██████    | 3/5 [00:11<00:07,  3.61s/it]
+Splits post-training:  80%|████████  | 4/5 [00:16<00:03,  3.91s/it]
+Splits post-training: 100%|██████████| 5/5 [00:19<00:00,  3.54s/it]
+Splits post-training: 100%|██████████| 5/5 [00:19<00:00,  3.83s/it]
+VAL set: 
+[VAL] accuracy: 0.7557+-0.0136
+[VAL] precision: 0.6514+-0.0373
+[VAL] f1_macro: 0.704+-0.0118
+[VAL] f1_micro: 0.7557+-0.0136
+TEST set: 
+[TEST] accuracy: 0.7631+-0.0119
+[TEST] precision: 0.6605+-0.0261
+[TEST] f1_macro: 0.7143+-0.0145
+[TEST] f1_micro: 0.7631+-0.0119
+TEST_coRT set: 
+[TEST_coRT] accuracy: 0.7535+-0.0118
+[TEST_coRT] precision: 0.8506+-0.0243
+[TEST_coRT] f1_macro: 0.7344+-0.0151
+[TEST_coRT] f1_micro: 0.7535+-0.0118
+[TEST_coRT] roc_auc: 0.7705+-0.0157
+TEST_coURL set: 
+[TEST_coURL] accuracy: 0.7326+-0.0109
+[TEST_coURL] precision: 0.6721+-0.0204
+[TEST_coURL] f1_macro: 0.7+-0.0138
+[TEST_coURL] f1_micro: 0.7326+-0.0109
+[TEST_coURL] roc_auc: 0.728+-0.0155
+TEST_hashSeq set: 
+[TEST_hashSeq] accuracy: 0.5448+-0.0316
+[TEST_hashSeq] precision: 1.0+-0.0
+[TEST_hashSeq] f1_macro: 0.3524+-0.0133
+[TEST_hashSeq] f1_micro: 0.5448+-0.0316
+[TEST_hashSeq] roc_auc: nan+-nan
+TEST_fastRT set: 
+[TEST_fastRT] accuracy: 0.5458+-0.0313
+[TEST_fastRT] precision: 0.996+-0.0018
+[TEST_fastRT] f1_macro: 0.362+-0.0135
+[TEST_fastRT] f1_micro: 0.5458+-0.0313
+[TEST_fastRT] roc_auc: 0.6217+-0.0843
+TEST_tweetSim set: 
+[TEST_tweetSim] accuracy: 0.5448+-0.0316
+[TEST_tweetSim] precision: 1.0+-0.0
+[TEST_tweetSim] f1_macro: 0.3524+-0.0133
+[TEST_tweetSim] f1_micro: 0.5448+-0.0316
+[TEST_tweetSim] roc_auc: nan+-nan
