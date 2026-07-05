@@ -1,0 +1,306 @@
+[ Using Seed : 12121995 ]
+/content/smm/data/processed/UAE
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/UAE/nodefeatures/all/gnnpositional_degree.pth
+
+[CS-DFA] Target 'UAE' channel coverage: coRT=0.5468, coURL=0.6335, hashSeq=0.3624, fastRT=0.3579, tweetSim=0.9864
+[CS-DFA] coverage_prior_lambda=0.0
+/content/smm/data/processed/china
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/china/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/iran
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/iran/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/cuba
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/cuba/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/russia
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/russia/nodefeatures/all/gnnpositional_degree.pth
+/content/smm/data/processed/venezuela
+  Loading pre-computed edge index for subnet 'coRT' from disk...
+  Loading pre-computed edge index for subnet 'coURL' from disk...
+  Loading pre-computed edge index for subnet 'hashSeq' from disk...
+  Loading pre-computed edge index for subnet 'fastRT' from disk...
+  Loading pre-computed edge index for subnet 'tweetSim' from disk...
+Loading embed from disk...
+/content/smm/data/processed/venezuela/nodefeatures/all/gnnpositional_degree.pth
+[Loss] BCELoss (DFA inheritance)
+[CORAL] on=none, weight=1.0, channels=['coRT', 'coURL']
+[Fusion] coverage gating = False
+
+Splits training:   0%|          | 0/5 [00:00<?, ?it/s]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4671 (task: 3.4671) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.3914
+Epoch 1/1000 loss: 3.5886 (task: 3.5886) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 2/1000 loss: 3.4541 (task: 3.4541) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 3/1000 loss: 3.4026 (task: 3.4026) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000001, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 4/1000 loss: 3.1605 (task: 3.1605) -- CORAL[text=0.000002 | channel_mean=0.000091 | coRT=0.000172, coURL=0.000010] -- val_f1_macro: 0.7920
+Epoch 5/1000 loss: 2.7828 (task: 2.7828) -- CORAL[text=0.000007 | channel_mean=0.004599 | coRT=0.008563, coURL=0.000635] -- val_f1_macro: 0.7463
+Epoch 6/1000 loss: 2.0503 (task: 2.0503) -- CORAL[text=0.000017 | channel_mean=0.051966 | coRT=0.074244, coURL=0.029688] -- val_f1_macro: 0.6074
+Epoch 7/1000 loss: 4.2940 (task: 4.2940) -- CORAL[text=0.000021 | channel_mean=0.106071 | coRT=0.021253, coURL=0.190890] -- val_f1_macro: 0.5275
+Epoch 8/1000 loss: 3.5813 (task: 3.5813) -- CORAL[text=0.000027 | channel_mean=0.433401 | coRT=0.048370, coURL=0.818432] -- val_f1_macro: 0.7210
+Epoch 9/1000 loss: 2.0949 (task: 2.0949) -- CORAL[text=0.000022 | channel_mean=0.084975 | coRT=0.012494, coURL=0.157456] -- val_f1_macro: 0.6909
+Epoch 10/1000 loss: 2.1099 (task: 2.1099) -- CORAL[text=0.000016 | channel_mean=0.012636 | coRT=0.004243, coURL=0.021028] -- val_f1_macro: 0.5005
+Epoch 11/1000 loss: 2.2799 (task: 2.2799) -- CORAL[text=0.000016 | channel_mean=0.003352 | coRT=0.001895, coURL=0.004809] -- val_f1_macro: 0.4411
+Epoch 12/1000 loss: 2.2556 (task: 2.2556) -- CORAL[text=0.000023 | channel_mean=0.003010 | coRT=0.003623, coURL=0.002398] -- val_f1_macro: 0.4426
+Epoch 13/1000 loss: 2.2746 (task: 2.2746) -- CORAL[text=0.000043 | channel_mean=0.006165 | coRT=0.008204, coURL=0.004126] -- val_f1_macro: 0.5229
+Epoch 14/1000 loss: 2.0187 (task: 2.0187) -- CORAL[text=0.000057 | channel_mean=0.009870 | coRT=0.014710, coURL=0.005030] -- val_f1_macro: 0.6627
+Epoch 15/1000 loss: 1.9672 (task: 1.9672) -- CORAL[text=0.000077 | channel_mean=0.018209 | coRT=0.026661, coURL=0.009757] -- val_f1_macro: 0.7779
+Epoch 16/1000 loss: 1.7976 (task: 1.7976) -- CORAL[text=0.000167 | channel_mean=0.057730 | coRT=0.095926, coURL=0.019535] -- val_f1_macro: 0.8159
+Epoch 17/1000 loss: 2.0258 (task: 2.0258) -- CORAL[text=0.000212 | channel_mean=0.092738 | coRT=0.154600, coURL=0.030876] -- val_f1_macro: 0.8272
+Epoch 18/1000 loss: 1.9550 (task: 1.9550) -- CORAL[text=0.000357 | channel_mean=0.181702 | coRT=0.256548, coURL=0.106857] -- val_f1_macro: 0.8166
+Epoch 19/1000 loss: 1.6009 (task: 1.6009) -- CORAL[text=0.000404 | channel_mean=0.263325 | coRT=0.363580, coURL=0.163071] -- val_f1_macro: 0.7629
+Epoch 20/1000 loss: 1.7126 (task: 1.7126) -- CORAL[text=0.000257 | channel_mean=0.163632 | coRT=0.149414, coURL=0.177849] -- val_f1_macro: 0.6875
+Epoch 21/1000 loss: 1.5728 (task: 1.5728) -- CORAL[text=0.000302 | channel_mean=0.272455 | coRT=0.195703, coURL=0.349207] -- val_f1_macro: 0.6256
+Epoch 22/1000 loss: 1.5858 (task: 1.5858) -- CORAL[text=0.000408 | channel_mean=0.707649 | coRT=0.399875, coURL=1.015423] -- val_f1_macro: 0.5648
+Epoch 23/1000 loss: 1.3720 (task: 1.3720) -- CORAL[text=0.000487 | channel_mean=1.128420 | coRT=0.457134, coURL=1.799707] -- val_f1_macro: 0.5403
+Epoch 24/1000 loss: 1.5040 (task: 1.5040) -- CORAL[text=0.000408 | channel_mean=2.133278 | coRT=0.388773, coURL=3.877784] -- val_f1_macro: 0.5770
+Epoch 25/1000 loss: 1.4544 (task: 1.4544) -- CORAL[text=0.000451 | channel_mean=4.394715 | coRT=0.520351, coURL=8.269078] -- val_f1_macro: 0.5879
+Epoch 26/1000 loss: 1.1659 (task: 1.1659) -- CORAL[text=0.000454 | channel_mean=8.008355 | coRT=0.406916, coURL=15.609794] -- val_f1_macro: 0.6126
+Epoch 27/1000 loss: 1.2104 (task: 1.2104) -- CORAL[text=0.000506 | channel_mean=13.349207 | coRT=0.469319, coURL=26.229095] -- val_f1_macro: 0.6201
+Epoch 28/1000 loss: 1.3418 (task: 1.3418) -- CORAL[text=0.000484 | channel_mean=19.240938 | coRT=0.323357, coURL=38.158520] -- val_f1_macro: 0.5934
+Epoch 29/1000 loss: 1.3635 (task: 1.3635) -- CORAL[text=0.000426 | channel_mean=13.557000 | coRT=0.382415, coURL=26.731586] -- val_f1_macro: 0.6008
+Epoch 30/1000 loss: 1.1897 (task: 1.1897) -- CORAL[text=0.000469 | channel_mean=11.980217 | coRT=0.652375, coURL=23.308060] -- val_f1_macro: 0.6292
+Epoch 31/1000 loss: 1.1871 (task: 1.1871) -- CORAL[text=0.000510 | channel_mean=11.299187 | coRT=0.969951, coURL=21.628422] -- val_f1_macro: 0.6744
+Epoch 32/1000 loss: 1.1189 (task: 1.1189) -- CORAL[text=0.000317 | channel_mean=10.014065 | coRT=1.146963, coURL=18.881166] -- val_f1_macro: 0.7196
+Epoch 33/1000 loss: 1.1148 (task: 1.1148) -- CORAL[text=0.000345 | channel_mean=13.758544 | coRT=1.770793, coURL=25.746296] -- val_f1_macro: 0.7555
+Epoch 34/1000 loss: 0.9253 (task: 0.9253) -- CORAL[text=0.000593 | channel_mean=23.326689 | coRT=2.321580, coURL=44.331799] -- val_f1_macro: 0.7676
+Epoch 35/1000 loss: 1.0287 (task: 1.0287) -- CORAL[text=0.000546 | channel_mean=29.472010 | coRT=2.341972, coURL=56.602047] -- val_f1_macro: 0.7542
+Epoch 36/1000 loss: 1.0908 (task: 1.0908) -- CORAL[text=0.000436 | channel_mean=32.387978 | coRT=2.415837, coURL=62.360119] -- val_f1_macro: 0.7417
+Epoch 37/1000 loss: 1.2300 (task: 1.2300) -- CORAL[text=0.000411 | channel_mean=35.269363 | coRT=2.464711, coURL=68.074013] -- val_f1_macro: 0.7221
+Epoch 38/1000 loss: 0.8812 (task: 0.8812) -- CORAL[text=0.000546 | channel_mean=34.467258 | coRT=2.738739, coURL=66.195778] -- val_f1_macro: 0.7025
+
+[Split 0] Mean channel attention (gated): coRT=0.0274, coURL=0.0952, hashSeq=0.3966, fastRT=0.0700, tweetSim=0.4108
+
+Splits training:  20%|██        | 1/5 [00:43<02:54, 43.51s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4663 (task: 3.4663) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.3914
+Epoch 1/1000 loss: 3.4947 (task: 3.4947) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 2/1000 loss: 3.4022 (task: 3.4022) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2749
+Epoch 3/1000 loss: 3.0700 (task: 3.0700) -- CORAL[text=0.000002 | channel_mean=0.000070 | coRT=0.000067, coURL=0.000073] -- val_f1_macro: 0.7643
+Epoch 4/1000 loss: 2.4499 (task: 2.4499) -- CORAL[text=0.000005 | channel_mean=0.001825 | coRT=0.000926, coURL=0.002725] -- val_f1_macro: 0.7168
+Epoch 5/1000 loss: 2.1925 (task: 2.1925) -- CORAL[text=0.000018 | channel_mean=0.162544 | coRT=0.033112, coURL=0.291977] -- val_f1_macro: 0.7556
+Epoch 6/1000 loss: 2.3562 (task: 2.3562) -- CORAL[text=0.000024 | channel_mean=0.083947 | coRT=0.042716, coURL=0.125177] -- val_f1_macro: 0.7650
+Epoch 7/1000 loss: 1.8986 (task: 1.8986) -- CORAL[text=0.000025 | channel_mean=0.056539 | coRT=0.061602, coURL=0.051476] -- val_f1_macro: 0.7414
+Epoch 8/1000 loss: 1.8765 (task: 1.8765) -- CORAL[text=0.000023 | channel_mean=0.042259 | coRT=0.060199, coURL=0.024319] -- val_f1_macro: 0.5900
+Epoch 9/1000 loss: 1.8237 (task: 1.8237) -- CORAL[text=0.000022 | channel_mean=0.026228 | coRT=0.038192, coURL=0.014263] -- val_f1_macro: 0.5487
+Epoch 10/1000 loss: 1.8491 (task: 1.8491) -- CORAL[text=0.000018 | channel_mean=0.015672 | coRT=0.016908, coURL=0.014436] -- val_f1_macro: 0.6978
+Epoch 11/1000 loss: 1.8128 (task: 1.8128) -- CORAL[text=0.000023 | channel_mean=0.033208 | coRT=0.044612, coURL=0.021805] -- val_f1_macro: 0.6878
+Epoch 12/1000 loss: 1.5919 (task: 1.5919) -- CORAL[text=0.000021 | channel_mean=0.042701 | coRT=0.046756, coURL=0.038647] -- val_f1_macro: 0.6320
+Epoch 13/1000 loss: 1.4733 (task: 1.4733) -- CORAL[text=0.000023 | channel_mean=0.071304 | coRT=0.078429, coURL=0.064178] -- val_f1_macro: 0.5723
+Epoch 14/1000 loss: 1.5412 (task: 1.5412) -- CORAL[text=0.000031 | channel_mean=0.146325 | coRT=0.163686, coURL=0.128965] -- val_f1_macro: 0.5938
+Epoch 15/1000 loss: 1.4909 (task: 1.4909) -- CORAL[text=0.000045 | channel_mean=0.145838 | coRT=0.179351, coURL=0.112325] -- val_f1_macro: 0.6675
+Epoch 16/1000 loss: 1.4075 (task: 1.4075) -- CORAL[text=0.000045 | channel_mean=0.148082 | coRT=0.176263, coURL=0.119901] -- val_f1_macro: 0.6057
+Epoch 17/1000 loss: 1.1881 (task: 1.1881) -- CORAL[text=0.000058 | channel_mean=0.167249 | coRT=0.248759, coURL=0.085738] -- val_f1_macro: 0.5237
+Epoch 18/1000 loss: 1.3986 (task: 1.3986) -- CORAL[text=0.000061 | channel_mean=0.230123 | coRT=0.355842, coURL=0.104405] -- val_f1_macro: 0.6713
+Epoch 19/1000 loss: 1.1786 (task: 1.1786) -- CORAL[text=0.000056 | channel_mean=0.337226 | coRT=0.372200, coURL=0.302253] -- val_f1_macro: 0.7196
+Epoch 20/1000 loss: 1.2672 (task: 1.2672) -- CORAL[text=0.000094 | channel_mean=0.975626 | coRT=0.811313, coURL=1.139938] -- val_f1_macro: 0.7241
+Epoch 21/1000 loss: 1.0884 (task: 1.0884) -- CORAL[text=0.000075 | channel_mean=1.010073 | coRT=0.629536, coURL=1.390610] -- val_f1_macro: 0.7166
+Epoch 22/1000 loss: 1.0423 (task: 1.0423) -- CORAL[text=0.000057 | channel_mean=1.000279 | coRT=0.833968, coURL=1.166590] -- val_f1_macro: 0.6606
+Epoch 23/1000 loss: 1.1203 (task: 1.1203) -- CORAL[text=0.000076 | channel_mean=0.875283 | coRT=0.628607, coURL=1.121959] -- val_f1_macro: 0.6689
+Epoch 24/1000 loss: 1.2186 (task: 1.2186) -- CORAL[text=0.000066 | channel_mean=0.916591 | coRT=0.623028, coURL=1.210155] -- val_f1_macro: 0.7196
+Epoch 25/1000 loss: 1.0816 (task: 1.0816) -- CORAL[text=0.000075 | channel_mean=1.435797 | coRT=0.778061, coURL=2.093532] -- val_f1_macro: 0.7426
+Epoch 26/1000 loss: 1.1515 (task: 1.1515) -- CORAL[text=0.000055 | channel_mean=2.731843 | coRT=1.032844, coURL=4.430841] -- val_f1_macro: 0.7425
+Epoch 27/1000 loss: 0.8866 (task: 0.8866) -- CORAL[text=0.000078 | channel_mean=3.185458 | coRT=0.698179, coURL=5.672737] -- val_f1_macro: 0.7404
+
+[Split 1] Mean channel attention (gated): coRT=0.0133, coURL=0.0458, hashSeq=0.7334, fastRT=0.0621, tweetSim=0.1454
+
+Splits training:  40%|████      | 2/5 [01:13<01:47, 35.71s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4703 (task: 3.4703) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.3914
+Epoch 1/1000 loss: 3.6011 (task: 3.6011) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.6967
+Epoch 2/1000 loss: 3.4607 (task: 3.4607) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 3/1000 loss: 3.4259 (task: 3.4259) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.4833
+Epoch 4/1000 loss: 3.2375 (task: 3.2375) -- CORAL[text=0.000002 | channel_mean=0.000009 | coRT=0.000016, coURL=0.000001] -- val_f1_macro: 0.7518
+Epoch 5/1000 loss: 2.5563 (task: 2.5563) -- CORAL[text=0.000012 | channel_mean=0.002870 | coRT=0.005220, coURL=0.000521] -- val_f1_macro: 0.2722
+/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 6/1000 loss: 5.0995 (task: 5.0995) -- CORAL[text=0.000033 | channel_mean=0.190488 | coRT=0.371626, coURL=0.009350] -- val_f1_macro: 0.3914
+Epoch 7/1000 loss: 3.4353 (task: 3.4353) -- CORAL[text=0.000032 | channel_mean=0.040059 | coRT=0.074164, coURL=0.005954] -- val_f1_macro: 0.4951
+Epoch 8/1000 loss: 2.4817 (task: 2.4817) -- CORAL[text=0.000045 | channel_mean=0.018062 | coRT=0.029057, coURL=0.007067] -- val_f1_macro: 0.8497
+Epoch 9/1000 loss: 2.3527 (task: 2.3527) -- CORAL[text=0.000044 | channel_mean=0.018042 | coRT=0.018219, coURL=0.017865] -- val_f1_macro: 0.8346
+Epoch 10/1000 loss: 2.5339 (task: 2.5339) -- CORAL[text=0.000067 | channel_mean=0.024665 | coRT=0.011929, coURL=0.037402] -- val_f1_macro: 0.8546
+Epoch 11/1000 loss: 2.2386 (task: 2.2386) -- CORAL[text=0.000060 | channel_mean=0.064514 | coRT=0.008635, coURL=0.120393] -- val_f1_macro: 0.7929
+Epoch 12/1000 loss: 2.2124 (task: 2.2124) -- CORAL[text=0.000064 | channel_mean=0.157983 | coRT=0.023892, coURL=0.292073] -- val_f1_macro: 0.6882
+Epoch 13/1000 loss: 2.0204 (task: 2.0204) -- CORAL[text=0.000081 | channel_mean=0.489057 | coRT=0.111837, coURL=0.866277] -- val_f1_macro: 0.6597
+Epoch 14/1000 loss: 2.1252 (task: 2.1252) -- CORAL[text=0.000127 | channel_mean=1.452504 | coRT=0.370659, coURL=2.534348] -- val_f1_macro: 0.6805
+Epoch 15/1000 loss: 2.1081 (task: 2.1081) -- CORAL[text=0.000123 | channel_mean=2.233537 | coRT=0.252549, coURL=4.214525] -- val_f1_macro: 0.7437
+Epoch 16/1000 loss: 1.5997 (task: 1.5997) -- CORAL[text=0.000195 | channel_mean=2.013711 | coRT=0.318253, coURL=3.709168] -- val_f1_macro: 0.8054
+Epoch 17/1000 loss: 2.1592 (task: 2.1592) -- CORAL[text=0.000204 | channel_mean=3.782806 | coRT=0.550132, coURL=7.015480] -- val_f1_macro: 0.7958
+Epoch 18/1000 loss: 1.9200 (task: 1.9200) -- CORAL[text=0.000203 | channel_mean=3.794814 | coRT=0.415392, coURL=7.174236] -- val_f1_macro: 0.6949
+Epoch 19/1000 loss: 2.1685 (task: 2.1685) -- CORAL[text=0.000157 | channel_mean=7.573012 | coRT=1.815099, coURL=13.330925] -- val_f1_macro: 0.6986
+Epoch 20/1000 loss: 2.1207 (task: 2.1207) -- CORAL[text=0.000244 | channel_mean=9.913542 | coRT=1.884840, coURL=17.942244] -- val_f1_macro: 0.8257
+Epoch 21/1000 loss: 2.0488 (task: 2.0488) -- CORAL[text=0.000215 | channel_mean=15.874176 | coRT=3.553645, coURL=28.194708] -- val_f1_macro: 0.8461
+Epoch 22/1000 loss: 1.8626 (task: 1.8626) -- CORAL[text=0.000188 | channel_mean=7.569038 | coRT=2.868391, coURL=12.269686] -- val_f1_macro: 0.8428
+Epoch 23/1000 loss: 1.9064 (task: 1.9064) -- CORAL[text=0.000234 | channel_mean=23.865208 | coRT=9.324739, coURL=38.405678] -- val_f1_macro: 0.8052
+Epoch 24/1000 loss: 1.9089 (task: 1.9089) -- CORAL[text=0.000261 | channel_mean=25.530754 | coRT=4.644638, coURL=46.416870] -- val_f1_macro: 0.6939
+Epoch 25/1000 loss: 1.8423 (task: 1.8423) -- CORAL[text=0.000209 | channel_mean=35.492413 | coRT=10.888456, coURL=60.096371] -- val_f1_macro: 0.6188
+Epoch 26/1000 loss: 1.5856 (task: 1.5856) -- CORAL[text=0.000205 | channel_mean=39.886391 | coRT=5.642887, coURL=74.129890] -- val_f1_macro: 0.6067
+Epoch 27/1000 loss: 1.8536 (task: 1.8536) -- CORAL[text=0.000280 | channel_mean=62.395203 | coRT=16.302290, coURL=108.488113] -- val_f1_macro: 0.6232
+Epoch 28/1000 loss: 1.8896 (task: 1.8896) -- CORAL[text=0.000237 | channel_mean=29.051092 | coRT=14.539151, coURL=43.563034] -- val_f1_macro: 0.6381
+Epoch 29/1000 loss: 1.6712 (task: 1.6712) -- CORAL[text=0.000253 | channel_mean=54.291756 | coRT=25.014591, coURL=83.568924] -- val_f1_macro: 0.6264
+Epoch 30/1000 loss: 1.6289 (task: 1.6289) -- CORAL[text=0.000230 | channel_mean=56.345512 | coRT=23.691364, coURL=88.999664] -- val_f1_macro: 0.5875
+Epoch 31/1000 loss: 1.6628 (task: 1.6628) -- CORAL[text=0.000216 | channel_mean=108.385925 | coRT=49.297161, coURL=167.474686] -- val_f1_macro: 0.5817
+
+[Split 2] Mean channel attention (gated): coRT=0.0000, coURL=0.0001, hashSeq=0.0000, fastRT=0.0000, tweetSim=0.9998
+
+Splits training:  60%|██████    | 3/5 [01:48<01:10, 35.28s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4672 (task: 3.4672) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.3914
+Epoch 1/1000 loss: 3.6931 (task: 3.6931) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 2/1000 loss: 3.4562 (task: 3.4562) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 3/1000 loss: 3.4141 (task: 3.4141) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 4/1000 loss: 3.1895 (task: 3.1895) -- CORAL[text=0.000002 | channel_mean=0.000058 | coRT=0.000106, coURL=0.000011] -- val_f1_macro: 0.3191
+Epoch 5/1000 loss: 2.7551 (task: 2.7551) -- CORAL[text=0.000009 | channel_mean=0.010862 | coRT=0.020116, coURL=0.001607] -- val_f1_macro: 0.6881
+Epoch 6/1000 loss: 2.2851 (task: 2.2851) -- CORAL[text=0.000010 | channel_mean=0.007193 | coRT=0.007794, coURL=0.006591] -- val_f1_macro: 0.6989
+Epoch 7/1000 loss: 2.1601 (task: 2.1601) -- CORAL[text=0.000022 | channel_mean=0.171092 | coRT=0.007480, coURL=0.334704] -- val_f1_macro: 0.3995
+Epoch 8/1000 loss: 2.9136 (task: 2.9136) -- CORAL[text=0.000029 | channel_mean=0.012790 | coRT=0.006555, coURL=0.019025] -- val_f1_macro: 0.7556
+Epoch 9/1000 loss: 2.2657 (task: 2.2657) -- CORAL[text=0.000033 | channel_mean=0.031036 | coRT=0.028934, coURL=0.033137] -- val_f1_macro: 0.7989
+Epoch 10/1000 loss: 2.2823 (task: 2.2823) -- CORAL[text=0.000057 | channel_mean=0.097043 | coRT=0.153997, coURL=0.040089] -- val_f1_macro: 0.8218
+Epoch 11/1000 loss: 1.9148 (task: 1.9148) -- CORAL[text=0.000060 | channel_mean=0.137925 | coRT=0.247795, coURL=0.028055] -- val_f1_macro: 0.8350
+Epoch 12/1000 loss: 1.9048 (task: 1.9048) -- CORAL[text=0.000086 | channel_mean=0.272496 | coRT=0.500669, coURL=0.044323] -- val_f1_macro: 0.8348
+Epoch 13/1000 loss: 1.8099 (task: 1.8099) -- CORAL[text=0.000113 | channel_mean=0.434411 | coRT=0.765800, coURL=0.103023] -- val_f1_macro: 0.8372
+Epoch 14/1000 loss: 1.6665 (task: 1.6665) -- CORAL[text=0.000118 | channel_mean=0.884347 | coRT=1.295449, coURL=0.473246] -- val_f1_macro: 0.8292
+Epoch 15/1000 loss: 1.5723 (task: 1.5723) -- CORAL[text=0.000154 | channel_mean=1.235312 | coRT=1.735025, coURL=0.735599] -- val_f1_macro: 0.8148
+Epoch 16/1000 loss: 1.6165 (task: 1.6165) -- CORAL[text=0.000154 | channel_mean=2.066403 | coRT=2.132926, coURL=1.999880] -- val_f1_macro: 0.8062
+Epoch 17/1000 loss: 1.4955 (task: 1.4955) -- CORAL[text=0.000179 | channel_mean=3.216970 | coRT=2.819747, coURL=3.614194] -- val_f1_macro: 0.8104
+Epoch 18/1000 loss: 1.4342 (task: 1.4342) -- CORAL[text=0.000214 | channel_mean=3.799470 | coRT=4.486335, coURL=3.112606] -- val_f1_macro: 0.7921
+Epoch 19/1000 loss: 1.4078 (task: 1.4078) -- CORAL[text=0.000191 | channel_mean=4.344970 | coRT=5.293765, coURL=3.396175] -- val_f1_macro: 0.8138
+Epoch 20/1000 loss: 1.4092 (task: 1.4092) -- CORAL[text=0.000235 | channel_mean=7.182460 | coRT=8.862296, coURL=5.502624] -- val_f1_macro: 0.7880
+Epoch 21/1000 loss: 1.5547 (task: 1.5547) -- CORAL[text=0.000350 | channel_mean=14.089764 | coRT=16.751713, coURL=11.427814] -- val_f1_macro: 0.7983
+Epoch 22/1000 loss: 1.3948 (task: 1.3948) -- CORAL[text=0.000339 | channel_mean=15.171110 | coRT=20.760077, coURL=9.582143] -- val_f1_macro: 0.7957
+Epoch 23/1000 loss: 1.3364 (task: 1.3364) -- CORAL[text=0.000340 | channel_mean=15.816576 | coRT=18.971342, coURL=12.661809] -- val_f1_macro: 0.7817
+Epoch 24/1000 loss: 1.2541 (task: 1.2541) -- CORAL[text=0.000278 | channel_mean=13.223359 | coRT=13.123904, coURL=13.322814] -- val_f1_macro: 0.7655
+Epoch 25/1000 loss: 1.6124 (task: 1.6124) -- CORAL[text=0.000321 | channel_mean=14.826038 | coRT=13.878364, coURL=15.773714] -- val_f1_macro: 0.7306
+Epoch 26/1000 loss: 1.2974 (task: 1.2974) -- CORAL[text=0.000272 | channel_mean=9.898505 | coRT=7.809633, coURL=11.987378] -- val_f1_macro: 0.6955
+Epoch 27/1000 loss: 1.2634 (task: 1.2634) -- CORAL[text=0.000216 | channel_mean=6.962371 | coRT=4.572876, coURL=9.351867] -- val_f1_macro: 0.7266
+Epoch 28/1000 loss: 1.2597 (task: 1.2597) -- CORAL[text=0.000203 | channel_mean=9.883301 | coRT=4.552518, coURL=15.214084] -- val_f1_macro: 0.7118
+Epoch 29/1000 loss: 1.3496 (task: 1.3496) -- CORAL[text=0.000160 | channel_mean=10.677037 | coRT=4.137841, coURL=17.216234] -- val_f1_macro: 0.6878
+Epoch 30/1000 loss: 1.1042 (task: 1.1042) -- CORAL[text=0.000238 | channel_mean=9.410795 | coRT=3.985357, coURL=14.836234] -- val_f1_macro: 0.6669
+Epoch 31/1000 loss: 1.3191 (task: 1.3191) -- CORAL[text=0.000211 | channel_mean=8.561733 | coRT=3.858358, coURL=13.265108] -- val_f1_macro: 0.6861
+Epoch 32/1000 loss: 0.9835 (task: 0.9835) -- CORAL[text=0.000177 | channel_mean=8.913021 | coRT=6.228776, coURL=11.597266] -- val_f1_macro: 0.6950
+Epoch 33/1000 loss: 1.0592 (task: 1.0592) -- CORAL[text=0.000199 | channel_mean=11.167714 | coRT=6.543574, coURL=15.791855] -- val_f1_macro: 0.6992
+Epoch 34/1000 loss: 1.0411 (task: 1.0411) -- CORAL[text=0.000182 | channel_mean=12.757850 | coRT=9.330015, coURL=16.185684] -- val_f1_macro: 0.7014
+
+[Split 3] Mean channel attention (gated): coRT=0.0388, coURL=0.2439, hashSeq=0.2396, fastRT=0.1018, tweetSim=0.3760
+
+Splits training:  80%|████████  | 4/5 [02:26<00:36, 36.34s/it]/usr/local/lib/python3.12/dist-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+Epoch 0/1000 loss: 3.4671 (task: 3.4671) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.3914
+Epoch 1/1000 loss: 3.6553 (task: 3.6553) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 2/1000 loss: 3.4604 (task: 3.4604) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 3/1000 loss: 3.4289 (task: 3.4289) -- CORAL[text=0.000000 | channel_mean=0.000000 | coRT=0.000000, coURL=0.000000] -- val_f1_macro: 0.2630
+Epoch 4/1000 loss: 3.2306 (task: 3.2306) -- CORAL[text=0.000001 | channel_mean=0.000004 | coRT=0.000003, coURL=0.000006] -- val_f1_macro: 0.2873
+Epoch 5/1000 loss: 2.8153 (task: 2.8153) -- CORAL[text=0.000002 | channel_mean=0.001157 | coRT=0.000545, coURL=0.001769] -- val_f1_macro: 0.3963
+Epoch 6/1000 loss: 2.9984 (task: 2.9984) -- CORAL[text=0.000003 | channel_mean=0.000151 | coRT=0.000067, coURL=0.000235] -- val_f1_macro: 0.4366
+Epoch 7/1000 loss: 2.6006 (task: 2.6006) -- CORAL[text=0.000005 | channel_mean=0.001438 | coRT=0.000558, coURL=0.002317] -- val_f1_macro: 0.7494
+Epoch 8/1000 loss: 1.9139 (task: 1.9139) -- CORAL[text=0.000011 | channel_mean=0.026836 | coRT=0.005139, coURL=0.048532] -- val_f1_macro: 0.5987
+Epoch 9/1000 loss: 2.8232 (task: 2.8232) -- CORAL[text=0.000020 | channel_mean=0.366670 | coRT=0.023673, coURL=0.709666] -- val_f1_macro: 0.7225
+Epoch 10/1000 loss: 2.0663 (task: 2.0663) -- CORAL[text=0.000027 | channel_mean=0.143633 | coRT=0.038078, coURL=0.249188] -- val_f1_macro: 0.6264
+Epoch 11/1000 loss: 2.0901 (task: 2.0901) -- CORAL[text=0.000029 | channel_mean=0.063034 | coRT=0.030172, coURL=0.095896] -- val_f1_macro: 0.5747
+Epoch 12/1000 loss: 2.2800 (task: 2.2800) -- CORAL[text=0.000029 | channel_mean=0.034349 | coRT=0.016776, coURL=0.051922] -- val_f1_macro: 0.5482
+Epoch 13/1000 loss: 1.9210 (task: 1.9210) -- CORAL[text=0.000032 | channel_mean=0.028363 | coRT=0.015820, coURL=0.040907] -- val_f1_macro: 0.5608
+Epoch 14/1000 loss: 2.0219 (task: 2.0219) -- CORAL[text=0.000030 | channel_mean=0.012554 | coRT=0.008248, coURL=0.016861] -- val_f1_macro: 0.6032
+Epoch 15/1000 loss: 1.9068 (task: 1.9068) -- CORAL[text=0.000038 | channel_mean=0.027620 | coRT=0.014593, coURL=0.040648] -- val_f1_macro: 0.6756
+Epoch 16/1000 loss: 1.7947 (task: 1.7947) -- CORAL[text=0.000051 | channel_mean=0.035489 | coRT=0.021299, coURL=0.049678] -- val_f1_macro: 0.7471
+Epoch 17/1000 loss: 1.6849 (task: 1.6849) -- CORAL[text=0.000068 | channel_mean=0.079568 | coRT=0.026887, coURL=0.132250] -- val_f1_macro: 0.7871
+Epoch 18/1000 loss: 1.5201 (task: 1.5201) -- CORAL[text=0.000090 | channel_mean=0.168472 | coRT=0.035599, coURL=0.301344] -- val_f1_macro: 0.7556
+Epoch 19/1000 loss: 1.8400 (task: 1.8400) -- CORAL[text=0.000088 | channel_mean=0.271693 | coRT=0.059252, coURL=0.484133] -- val_f1_macro: 0.6961
+Epoch 20/1000 loss: 1.4860 (task: 1.4860) -- CORAL[text=0.000102 | channel_mean=0.359523 | coRT=0.088482, coURL=0.630564] -- val_f1_macro: 0.7042
+Epoch 21/1000 loss: 1.4106 (task: 1.4106) -- CORAL[text=0.000142 | channel_mean=0.342865 | coRT=0.126762, coURL=0.558968] -- val_f1_macro: 0.7080
+Epoch 22/1000 loss: 1.4984 (task: 1.4984) -- CORAL[text=0.000152 | channel_mean=0.408262 | coRT=0.211702, coURL=0.604822] -- val_f1_macro: 0.7087
+Epoch 23/1000 loss: 1.4530 (task: 1.4530) -- CORAL[text=0.000178 | channel_mean=0.415897 | coRT=0.316965, coURL=0.514829] -- val_f1_macro: 0.7008
+Epoch 24/1000 loss: 1.4844 (task: 1.4844) -- CORAL[text=0.000140 | channel_mean=0.463376 | coRT=0.458450, coURL=0.468302] -- val_f1_macro: 0.6904
+Epoch 25/1000 loss: 1.4582 (task: 1.4582) -- CORAL[text=0.000156 | channel_mean=0.513655 | coRT=0.361144, coURL=0.666166] -- val_f1_macro: 0.6838
+Epoch 26/1000 loss: 1.4667 (task: 1.4667) -- CORAL[text=0.000196 | channel_mean=0.741763 | coRT=0.693884, coURL=0.789642] -- val_f1_macro: 0.6837
+Epoch 27/1000 loss: 1.3986 (task: 1.3986) -- CORAL[text=0.000209 | channel_mean=1.011808 | coRT=1.025285, coURL=0.998331] -- val_f1_macro: 0.6671
+Epoch 28/1000 loss: 1.3177 (task: 1.3177) -- CORAL[text=0.000255 | channel_mean=1.281853 | coRT=1.145941, coURL=1.417764] -- val_f1_macro: 0.6455
+Epoch 29/1000 loss: 1.3458 (task: 1.3458) -- CORAL[text=0.000181 | channel_mean=1.269229 | coRT=0.907053, coURL=1.631405] -- val_f1_macro: 0.6767
+Epoch 30/1000 loss: 1.2334 (task: 1.2334) -- CORAL[text=0.000177 | channel_mean=1.257375 | coRT=0.807224, coURL=1.707527] -- val_f1_macro: 0.7138
+Epoch 31/1000 loss: 1.1462 (task: 1.1462) -- CORAL[text=0.000197 | channel_mean=1.130719 | coRT=0.916704, coURL=1.344735] -- val_f1_macro: 0.7150
+Epoch 32/1000 loss: 1.2139 (task: 1.2139) -- CORAL[text=0.000180 | channel_mean=1.156727 | coRT=1.318607, coURL=0.994847] -- val_f1_macro: 0.7051
+Epoch 33/1000 loss: 1.1622 (task: 1.1622) -- CORAL[text=0.000141 | channel_mean=1.242235 | coRT=1.514064, coURL=0.970406] -- val_f1_macro: 0.7072
+Epoch 34/1000 loss: 1.0374 (task: 1.0374) -- CORAL[text=0.000229 | channel_mean=1.669448 | coRT=2.539720, coURL=0.799176] -- val_f1_macro: 0.6912
+Epoch 35/1000 loss: 1.1580 (task: 1.1580) -- CORAL[text=0.000282 | channel_mean=3.241910 | coRT=4.821187, coURL=1.662633] -- val_f1_macro: 0.6912
+Epoch 36/1000 loss: 1.1650 (task: 1.1650) -- CORAL[text=0.000269 | channel_mean=4.285040 | coRT=6.931348, coURL=1.638732] -- val_f1_macro: 0.7057
+Epoch 37/1000 loss: 1.1535 (task: 1.1535) -- CORAL[text=0.000254 | channel_mean=5.500706 | coRT=8.790565, coURL=2.210848] -- val_f1_macro: 0.7036
+Epoch 38/1000 loss: 0.9696 (task: 0.9696) -- CORAL[text=0.000318 | channel_mean=7.850471 | coRT=13.245387, coURL=2.455555] -- val_f1_macro: 0.7004
+
+[Split 4] Mean channel attention (gated): coRT=0.0990, coURL=0.1664, hashSeq=0.1562, fastRT=0.1994, tweetSim=0.3790
+
+Splits training: 100%|██████████| 5/5 [03:08<00:00, 38.39s/it]
+Splits training: 100%|██████████| 5/5 [03:08<00:00, 37.70s/it]
+
+Splits post-training:   0%|          | 0/5 [00:00<?, ?it/s]
+Splits post-training:  20%|██        | 1/5 [00:04<00:17,  4.45s/it]
+Splits post-training: 100%|██████████| 5/5 [00:04<00:00,  1.11it/s]
+VAL set: 
+[VAL] accuracy: 0.8419+-0.0253
+[VAL] precision: 0.8788+-0.0303
+[VAL] f1_macro: 0.8142+-0.0331
+[VAL] f1_micro: 0.8419+-0.0253
+TEST set: 
+[TEST] accuracy: 0.8433+-0.0354
+[TEST] precision: 0.8715+-0.0433
+[TEST] f1_macro: 0.8165+-0.0455
+[TEST] f1_micro: 0.8433+-0.0354
+TEST_coRT set: 
+[TEST_coRT] accuracy: 0.7562+-0.06
+[TEST_coRT] precision: 0.9555+-0.0284
+[TEST_coRT] f1_macro: 0.7535+-0.0583
+[TEST_coRT] f1_micro: 0.7562+-0.06
+[TEST_coRT] roc_auc: 0.8493+-0.0372
+TEST_coURL set: 
+[TEST_coURL] accuracy: 0.7854+-0.0504
+[TEST_coURL] precision: 0.944+-0.0272
+[TEST_coURL] f1_macro: 0.7842+-0.0517
+[TEST_coURL] f1_micro: 0.7854+-0.0504
+[TEST_coURL] roc_auc: 0.8553+-0.0331
+TEST_hashSeq set: 
+[TEST_hashSeq] accuracy: 0.6609+-0.0828
+[TEST_hashSeq] precision: 0.9986+-0.0012
+[TEST_hashSeq] f1_macro: 0.4389+-0.0388
+[TEST_hashSeq] f1_micro: 0.6609+-0.0828
+[TEST_hashSeq] roc_auc: 0.8466+-0.0731
+TEST_fastRT set: 
+[TEST_fastRT] accuracy: 0.6577+-0.0839
+[TEST_fastRT] precision: 1.0+-0.0
+[TEST_fastRT] f1_macro: 0.4097+-0.0329
+[TEST_fastRT] f1_micro: 0.6577+-0.0839
+[TEST_fastRT] roc_auc: 0.8513+-0.0428
+TEST_tweetSim set: 
+[TEST_tweetSim] accuracy: 0.8419+-0.0358
+[TEST_tweetSim] precision: 0.8743+-0.0432
+[TEST_tweetSim] f1_macro: 0.8161+-0.0457
+[TEST_tweetSim] f1_micro: 0.8419+-0.0358
+[TEST_tweetSim] roc_auc: 0.8479+-0.0393
+
+[CS-DFA Summary for UAE]
+  channel coverage = coRT=0.5468, coURL=0.6335, hashSeq=0.3624, fastRT=0.3579, tweetSim=0.9864
+  loss_type=bce, coral_on=none, coral_weight=1.0, coverage_prior_lambda=0.0
